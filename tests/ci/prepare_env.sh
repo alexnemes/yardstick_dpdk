@@ -10,6 +10,8 @@
 
 # Perepare the environment to run yardstick ci
 
+echo "############ BAFTA ################"
+
 : ${DEPLOY_TYPE:='bm'} # Can be any of 'bm' (Bare Metal) or 'virt' (Virtual)
 
 : ${NODE_NAME:='unknown'}
