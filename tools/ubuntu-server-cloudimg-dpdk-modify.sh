@@ -23,10 +23,14 @@ if [ $# -eq 1 ]; then
     echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 fi
 
-# iperf3 only available for wily in backports
-grep wily /etc/apt/sources.list && \
-    echo "deb http://archive.ubuntu.com/ubuntu/ wily-backports main restricted universe multiverse" >> /etc/apt/sources.list
-
+# iperf3 only available for trusty in backports
+if [ grep -q trusty /etc/apt/sources.list ]; then
+    if [ "${YARD_IMG_ARCH}" = "arm64" ]; then
+        echo "deb [arch=${YARD_IMG_ARCH}] http://ports.ubuntu.com/ trusty-backports main restricted universe multiverse" >> /etc/apt/sources.list
+    else
+        echo "deb http://archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe multiverse" >> /etc/apt/sources.list
+    fi
+fi
 # Workaround for building on CentOS (apt-get is not working with http sources)
 # sed -i 's/http/ftp/' /etc/apt/sources.list
 

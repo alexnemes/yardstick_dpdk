@@ -23,7 +23,6 @@
 #
 # TODO: image resize is needed if the base image is too small
 #
-
 set -e
 set -x
 
@@ -36,20 +35,29 @@ test $# -eq 1 || die "no image specific script as argument"
 test $(id -u) -eq 0 || die "should invoke using sudo"
 
 cmd=$1
+RELEASE=$2
 test -x $cmd
 mountdir="/mnt/yardstick"
 
 workspace=${WORKSPACE:-"/tmp/workspace/yardstick"}
 host=${HOST:-"cloud-images.ubuntu.com"}
-release=${RELEASE:-"wily"}
-image_path="${release}/current/${release}-server-cloudimg-amd64-disk1.img"
+release=${RELEASE:-"xenial"}
+boot_mode="disk1"
+if [[ "${YARD_IMG_ARCH}" = "arm64" ]]; then
+    boot_mode="uefi1"
+fi
+
+image_path="${release}/current/${release}-server-cloudimg-${YARD_IMG_ARCH}-${boot_mode}.img"
 image_url=${IMAGE_URL:-"https://${host}/${image_path}"}
 sha256sums_path="${release}/current/SHA256SUMS"
 sha256sums_url=${SHA256SUMS_URL:-"https://${host}/${sha256sums_path}"}
 
-imgfile="${workspace}/yardstick-${release}-server"
-raw_imgfile="${workspace}/yardstick-${release}-server.raw"
+imgfile="${workspace}/yardstick-dpdk-image.img"
+raw_imgfile_basename="yardstick-${release}-server.raw"
+raw_imgfile="${workspace}/${raw_imgfile_basename}"
 filename=$(basename $image_url)
+
+apt-get install -y parted
 
 # download and checksum base image, conditionally if local copy is outdated
 download() {
@@ -57,29 +65,35 @@ download() {
     cd $workspace
     rm -f SHA256SUMS # always download the checksum file to a detect stale image
     wget $sha256sums_url
-    test -e $filename || wget -nc $image_url
+    test -e $filename || wget -nc --progress=dot:giga $image_url
     grep $filename SHA256SUMS | sha256sum -c ||
     if [ $? -ne 0 ]; then
         rm $filename
-        wget -nc $image_url
+        wget -nc --progress=dot:giga $image_url
         grep $filename SHA256SUMS | sha256sum -c
     fi
+
+    for i in $(seq 0 9); do
+        [ -a /dev/loop$i ] || mknod -m 660 /dev/loop$i b 7 $i
+    done
+
     qemu-img convert $filename $raw_imgfile
     cd -
 }
 
 # mount image
 setup() {
+    # qemu-img resize $raw_imgfile +5GB
     mkdir -p $mountdir
-
-    for i in $(seq 0 9); do
-        [ -a /dev/loop$i ] || mknod -m 660 /dev/loop$i b 7 $i
-    done
 
     loopdevice=$(kpartx -l $raw_imgfile | head -1 | cut -f1 -d ' ')
 
-    kpartx -a $raw_imgfile
+    kpartx -av $raw_imgfile
 
+    # for trouble shooting
+    sleep 2
+    dmsetup ls
+    parted -l /dev/${loopdevice:0:5} || true
     mount /dev/mapper/$loopdevice $mountdir
     mount -t proc none $mountdir/proc
 
@@ -88,6 +102,9 @@ setup() {
     sudo resize2fs /dev/mapper/$loopdevice
 
     cp $cmd $mountdir/$(basename $cmd)
+    if [ "${YARD_IMG_ARCH}" = "arm64" ]; then
+        cp /usr/bin/qemu-aarch64-static $mountdir/usr/bin
+    fi
 }
 
 # modify image running a script using in a chrooted environment
@@ -120,9 +137,16 @@ cleanup() {
     # designed to be idempotent
     mount | grep $mountdir/proc && umount $mountdir/proc
     mount | grep $mountdir && umount $mountdir
-    if [ -f $raw_imgfile ]; then
+    mount | grep "/mnt/${release}" && umount "/mnt/${release}"
+
+    if [ -f "${raw_imgfile}" ]; then
+        #kpartx -dv $raw_imgfile sometimes failed, we should checked it agein.
+        #if [ -z "$(kpartx -l $raw_imgfile | grep 'loop deleted')" ]; then
+        #    kpartx -dv $raw_imgfile
+        #fi
         kpartx -dv $raw_imgfile || true
     fi
+
     rm -f $raw_imgfile
     rm -rf $mountdir
 }
@@ -137,6 +161,8 @@ error_trap()
     if [ -z "$exitcode" ]; then
         exitcode=$rc
     fi
+
+    dmesg -T | tail -50
 
     cleanup
 
@@ -153,6 +179,7 @@ main() {
     download
     setup
     modify
+
     trap - EXIT SIGTERM
     cleanup
 
@@ -160,3 +187,4 @@ main() {
 }
 
 main
+
