@@ -60,7 +60,8 @@ build_yardstick_image()
     else
         if [ ! -f "${QCOW_IMAGE}" ];then
             local cmd
-            cmd="sudo $(which yardstick-img-modify) $(pwd)/tools/ubuntu-server-cloudimg-modify.sh"
+            #cmd="sudo $(which yardstick-img-modify) $(pwd)/tools/ubuntu-server-cloudimg-modify.sh"
+            cmd="sudo $(which yardstick-img-dpdk-modify) $(pwd)/tools/ubuntu-server-cloudimg-dpdk-modify.sh"
 
             # Build the image. Retry once if the build fails
             $cmd || $cmd
