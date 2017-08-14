@@ -48,10 +48,14 @@ build_yardstick_image()
         if [ ! -f "${RAW_IMAGE}" ];then
             local cmd
             cmd="sudo $(which yardstick-img-lxd-modify) $(pwd)/tools/ubuntu-server-cloudimg-modify.sh"
-
+            cmd2 = "sudo $(which bash yardstick-img-dpdk-finalize.sh)"
+            
             # Build the image. Retry once if the build fails
             $cmd || $cmd
-
+            
+            # Call the dpdk finalize script
+            $cmd2
+            
             if [ ! -f "${RAW_IMAGE}" ]; then
                 echo "Failed building RAW image"
                 exit 1
