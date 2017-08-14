@@ -20,7 +20,7 @@ ENV IMAGE_DIR /home/opnfv/images/
 # Set work directory
 
 # Yardstick repo
-ENV YARDSTICK_REPO_DIR ${REPOS_DIR}/yardstick
+ENV YARDSTICK_REPO_DIR ${REPOS_DIR}/yardstick_dpdk
 ENV RELENG_REPO_DIR ${REPOS_DIR}/releng
 
 RUN apt-get update && apt-get install -y git python-setuptools python-pip
