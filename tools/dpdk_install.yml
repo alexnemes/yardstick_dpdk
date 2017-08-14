@@ -15,7 +15,7 @@ parameters:
   image:
     type: string
     description: Name of the image
-    default: yardstick-wily-server
+    default: yardstick-xenial-server
 
   timeout:
     type: number
