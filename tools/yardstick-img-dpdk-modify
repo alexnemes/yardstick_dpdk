@@ -155,7 +155,7 @@ main() {
     modify
     trap - EXIT SIGTERM
     cleanup
-
+    
     echo "the modified image is found here: $imgfile"
 }
 

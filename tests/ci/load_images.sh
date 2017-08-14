@@ -61,10 +61,12 @@ build_yardstick_image()
         if [ ! -f "${QCOW_IMAGE}" ];then
             local cmd
             cmd="sudo $(which yardstick-img-modify) $(pwd)/tools/ubuntu-server-cloudimg-modify.sh"
-
+            cmd2 = "sudo $(which bash yardstick-img-dpdk-finalize.sh)"
+            
             # Build the image. Retry once if the build fails
             $cmd || $cmd
-
+            # Call the dpdk finalize script
+            $cmd2
             if [ ! -f "${QCOW_IMAGE}" ]; then
                 echo "Failed building QCOW image"
                 exit 1
