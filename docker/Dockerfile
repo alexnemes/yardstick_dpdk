@@ -31,7 +31,7 @@ RUN pip install appdirs==1.4.0
 RUN mkdir -p ${REPOS_DIR}
 
 RUN git config --global http.sslVerify false
-RUN git clone --depth 1 -b $BRANCH https://gerrit.opnfv.org/gerrit/yardstick ${YARDSTICK_REPO_DIR}
+RUN git clone --depth 1 -b $BRANCH https://github.com/alexnemes/yardstick_dpdk.git ${YARDSTICK_REPO_DIR}
 RUN git clone --depth 1 https://gerrit.opnfv.org/gerrit/releng ${RELENG_REPO_DIR}
 RUN git clone --depth 1 -b $BRANCH https://gerrit.opnfv.org/gerrit/storperf ${STORPERF_REPO_DIR}
 
