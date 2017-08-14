@@ -134,7 +134,7 @@ load_yardstick_image()
             --container-format bare \
             ${EXTRA_PARAMS} \
             --file ${QCOW_IMAGE} \
-            yardstick-image)
+            yardstick-dpdk-image)
     fi
 
     echo "$output"
