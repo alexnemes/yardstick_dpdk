@@ -248,7 +248,7 @@ create_nova_flavor()
 
 main()
 {
-    QCOW_IMAGE="/tmp/workspace/yardstick/yardstick-image.img"
+    QCOW_IMAGE="/tmp/workspace/yardstick/yardstick-dpdk-image.img"
     RAW_IMAGE="/tmp/workspace/yardstick/yardstick-image.tar.gz"
 
     if [ -f /home/opnfv/images/yardstick-image.img ];then
