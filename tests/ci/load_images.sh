@@ -49,7 +49,7 @@ build_yardstick_image()
             local cmd
             cmd="sudo $(which yardstick-img-lxd-modify) $(pwd)/tools/ubuntu-server-cloudimg-modify.sh"
             cmd2="sudo $(which bash yardstick-img-dpdk-finalize.sh)"
-            echo $cmd2
+            echo "Finalize script: $cmd2"
             # Build the image. Retry once if the build fails
             $cmd || $cmd
             
