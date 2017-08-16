@@ -69,7 +69,7 @@ build_yardstick_image()
             $cmd || $cmd
             
             # Call the dpdk finalize script
-            #$cmd2
+            $cmd2
 
             if [ ! -f "${QCOW_IMAGE}" ]; then
                 echo "Failed building QCOW image"
