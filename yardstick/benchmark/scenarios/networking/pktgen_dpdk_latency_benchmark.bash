@@ -49,7 +49,7 @@ change_permissions()
 
 add_interface_to_dpdk(){
     interfaces=$(lspci |grep Eth |tail -n +2 |awk '{print $1}')
-    /dpdk/tools/dpdk-devbind.py --bind=igb_uio $interfaces
+    /dpdk/usertools/dpdk-devbind.py --bind=igb_uio $interfaces
 
 }
 
