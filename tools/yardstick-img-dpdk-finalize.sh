@@ -20,7 +20,7 @@
 source /etc/yardstick/openstack.creds
 
 stackname="yardstick-modify-stack"
-template=dpdk_install.yml
+template=tools/dpdk_install.yml
 new_image_name="yardstick-image-pktgen-ready"
 
 openstack stack create $stackname -f yaml -t $template
