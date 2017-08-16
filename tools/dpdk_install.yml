@@ -15,7 +15,7 @@ parameters:
   image:
     type: string
     description: Name of the image
-    default: yardstick-xenial-server
+    default: yardstick-dpdk-image
 
   timeout:
     type: number
