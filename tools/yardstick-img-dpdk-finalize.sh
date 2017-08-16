@@ -17,7 +17,7 @@
 # must have a public yardstick-key uploaded in openstack
 # must have a proper flavor for the image (i.e. m1.small)
 
-source /root/storperf_admin-rc
+source /etc/yardstick/openstack.creds
 
 stackname="yardstick-modify-stack"
 template=dpdk_install.yml
