@@ -122,7 +122,7 @@ resources:
             CEOF
             chmod +x /tmp/dpdk_post_build.sh
             echo "chmod"
-            nohup /tmp/dpdk_post_build.sh &
+            #nohup /tmp/dpdk_post_build.sh &
           params:
             $NOTIFY: { get_attr: ['wait_handle', 'curl_cli'] }
 
