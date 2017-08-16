@@ -86,6 +86,7 @@ apt-get install -y \
     sysstat \
     linux-headers-$linuxheadersversion \
     libpcap-dev \
+    libnuma-dev \
     lua5.2
 
 git clone http://dpdk.org/git/dpdk
