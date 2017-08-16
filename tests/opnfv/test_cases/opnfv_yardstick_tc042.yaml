@@ -35,7 +35,7 @@ scenarios:
 context:
   name: yardstick-TC042
   image: yardstick-image-pktgen-ready
-  flavor: yardstick-pktgen-dpdk.flavor
+  flavor: yardstick-dpdk-flavor
   user: ubuntu
 
   placement_groups:
