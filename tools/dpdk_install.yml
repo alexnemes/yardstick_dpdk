@@ -106,7 +106,7 @@ resources:
             #!/bin/sh
             cat <<'CEOF' > /tmp/dpdk_post_build.sh
             #export RTE_SDK=/dpdk
-            export RTE_TARGET=x86_64-native-linuxapp-gcc
+            export RTE_TARGET=x86_64-default-linuxapp-gcc
             #cd /dpdk
             #make install T=x86_64-native-linuxapp-gcc DESTDIR=destdir
             #modprobe uio
