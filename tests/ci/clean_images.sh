@@ -31,7 +31,7 @@ cleanup()
         openstack ${SECURE} image delete $image || true
     done
 
-    openstack ${SECURE} flavor delete yardstick-flavor &> /dev/null || true
+    openstack ${SECURE} flavor delete yardstick-dpdk-flavor &> /dev/null || true
     openstack ${SECURE} flavor delete storperf &> /dev/null || true
 }
 
