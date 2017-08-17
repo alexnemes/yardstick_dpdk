@@ -23,6 +23,9 @@ stackname="yardstick-modify-stack"
 template=tools/dpdk_install.yml
 new_image_name="yardstick-image-pktgen-ready"
 
+# delete stack, in case it already exists, to avoid conflict
+openstack stack delete --yes $stackname &> /dev/null || true
+
 openstack stack create $stackname -f yaml -t $template
 progress="WARMING_UP"
 
