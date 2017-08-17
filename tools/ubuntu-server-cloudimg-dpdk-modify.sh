@@ -29,6 +29,7 @@ if [ grep -q trusty /etc/apt/sources.list ]; then
         echo "deb [arch=${YARD_IMG_ARCH}] http://ports.ubuntu.com/ trusty-backports main restricted universe multiverse" >> /etc/apt/sources.list
     else
         echo "deb http://archive.ubuntu.com/ubuntu/ trusty-backports main restricted universe multiverse" >> /etc/apt/sources.list
+        echo "deb [trusted=yes] http://10.0.100.7/mos-repos/ubuntu/10.0/ mos10.0 main" >> /etc/apt/sources.list
     fi
 fi
 # Workaround for building on CentOS (apt-get is not working with http sources)
@@ -48,8 +49,8 @@ for i in {4..5}
 do
     touch /etc/network/interfaces.d/ens$i.cfg
     chmod 777 /etc/network/interfaces.d/ens$i.cfg
-    echo "auto ens$i" >> /etc/network/interfaces.d/ens$i.cfg
-    echo "iface ens$i inet dhcp" >> /etc/network/interfaces.d/ens$i.cfg
+    #echo "auto ens$i" >> /etc/network/interfaces.d/ens$i.cfg
+    #echo "iface ens$i inet dhcp" >> /etc/network/interfaces.d/ens$i.cfg
 done
 
 # this needs for checking dpdk status, adding interfaces to dpdk, bind, unbind etc..
@@ -87,7 +88,13 @@ apt-get install -y \
     linux-headers-$linuxheadersversion \
     libpcap-dev \
     libnuma-dev \
+    dpdk \
+    libdpdk-dev \
+    dpdk-igb-uio-dkms \
     lua5.2
+
+echo "pci     0000:00:04.0    igb_uio" >> /etc/dpdk/interfaces
+echo "pci     0000:00:05.0    igb_uio" >> /etc/dpdk/interfaces
 
 git clone http://dpdk.org/git/dpdk
 git clone http://dpdk.org/git/apps/pktgen-dpdk
