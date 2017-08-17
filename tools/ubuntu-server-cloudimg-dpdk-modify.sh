@@ -32,6 +32,10 @@ if [ grep -q trusty /etc/apt/sources.list ]; then
         echo "deb [trusted=yes] http://10.0.100.7/mos-repos/ubuntu/10.0/ mos10.0 main" >> /etc/apt/sources.list
     fi
 fi
+
+# add local repo for dpdk installation
+echo "deb [trusted=yes] http://10.0.100.7/mos-repos/ubuntu/10.0/ mos10.0 main" >> /etc/apt/sources.list
+
 # Workaround for building on CentOS (apt-get is not working with http sources)
 # sed -i 's/http/ftp/' /etc/apt/sources.list
 
