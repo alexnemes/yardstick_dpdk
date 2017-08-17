@@ -44,12 +44,12 @@ echo 'huge /mnt/huge hugetlbfs defaults 0 0' >> vi /etc/fstab
 mkdir /mnt/huge
 chmod 777 /mnt/huge
 
-for i in {1..2}
+for i in {4..5}
 do
-    touch /etc/network/interfaces.d/eth$i.cfg
-    chmod 777 /etc/network/interfaces.d/eth$i.cfg
-    echo "auto eth$i" >> /etc/network/interfaces.d/eth$i.cfg
-    echo "iface eth$i inet dhcp" >> /etc/network/interfaces.d/eth$i.cfg
+    touch /etc/network/interfaces.d/ens$i.cfg
+    chmod 777 /etc/network/interfaces.d/ens$i.cfg
+    echo "auto ens$i" >> /etc/network/interfaces.d/ens$i.cfg
+    echo "iface ens$i inet dhcp" >> /etc/network/interfaces.d/ens$i.cfg
 done
 
 # this needs for checking dpdk status, adding interfaces to dpdk, bind, unbind etc..
