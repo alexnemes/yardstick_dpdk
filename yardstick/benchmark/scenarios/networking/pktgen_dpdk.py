@@ -60,7 +60,9 @@ class PktgenDPDKLatency(base.Scenario):
         # copy script to host
         self.client._put_file_shell(
             self.pktgen_dpdk_script, '~/pktgen_dpdk.sh')
-
+        print("test scripts copied")
+        time.sleep(10)
+        
         self.setup_done = True
         self.testpmd_args = ''
         self.pktgen_args = []
