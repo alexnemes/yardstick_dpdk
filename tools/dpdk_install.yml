@@ -107,12 +107,13 @@ resources:
             cat <<'CEOF' > /tmp/dpdk_post_build.sh
             #export RTE_SDK=/dpdk
             export RTE_TARGET=x86_64-native-linuxapp-gcc
-            cd /dpdk
+            #cd /dpdk
             #make install T=x86_64-native-linuxapp-gcc DESTDIR=destdir
             #modprobe uio
             #insmod /dpdk/x86_64-native-linuxapp-gcc/kmod/igb_uio.ko
             #insmod /dpdk/x86_64-native-linuxapp-gcc/kmod/rte_kni.ko
             cd /pktgen-dpdk
+            export RTE_SDK=/usr/share/dpdk
             make RTE_SDK=/usr/share/dpdk
             echo "PCKTGEN BUILT"
             rm -rf /var/lib/cloud/instances
