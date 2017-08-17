@@ -159,7 +159,7 @@ load_yardstick_image()
     
     # Call the dpdk finalize script
     $cmd2
-    exit 1
+    #exit 1
 }
 
 load_cirros_image()
