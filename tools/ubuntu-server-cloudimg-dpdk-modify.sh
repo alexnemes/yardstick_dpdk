@@ -98,8 +98,9 @@ apt-get install -y \
     lua5.2
 
 #git clone http://dpdk.org/git/dpdk
-dget -d http://10.0.100.7/mos-repos/ubuntu/10.0/pool/main/d/dpdk/dpdk_17.02.1-0+enc3~u16.04.dsc
-dpkg-source -x -u dpdk_17.02.1-0+enc3~u16.04.dsc
+gpg -k
+dget -d http://10.0.100.7/mos-repos/ubuntu/10.0/pool/main/d/dpdk/dpdk_17.02.1-0+enc3~u16.04.dsc &> /dev/null
+dpkg-source -x -u dpdk_17.02.1-0+enc3~u16.04.dsc &> /dev/null
 
 git clone http://dpdk.org/git/apps/pktgen-dpdk
 (cd /pktgen-dpdk; git checkout pktgen-3.2.0 -b 3.2.0)
