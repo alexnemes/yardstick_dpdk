@@ -93,7 +93,6 @@ apt-get install -y \
     libpcap-dev \
     devscripts \
     debhelper \
-    debutils \
     libnuma-dev \
     libxen-dev \
     lua5.2
