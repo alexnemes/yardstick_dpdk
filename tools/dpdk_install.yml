@@ -123,11 +123,11 @@ resources:
             echo "rm succesfull"
             ls $RTE_SDK/$RTE_TARGET
             $NOTIFY --data-binary '{"status": "SUCCESS"}'
+            echo "pci     0000:00:04.0    igb_uio" >> /etc/dpdk/interfaces
+            echo "pci     0000:00:05.0    igb_uio" >> /etc/dpdk/interfaces
             CEOF
             chmod +x /tmp/dpdk_post_build.sh
             echo "chmod"
-            echo "pci     0000:00:04.0    igb_uio" >> /etc/dpdk/interfaces
-            echo "pci     0000:00:05.0    igb_uio" >> /etc/dpdk/interfaces
             #nohup /tmp/dpdk_post_build.sh &
           params:
             $NOTIFY: { get_attr: ['wait_handle', 'curl_cli'] }
