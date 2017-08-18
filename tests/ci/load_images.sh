@@ -283,8 +283,9 @@ main()
             sed -i "s/cidr: '10.0.1.0\/24'/cidr: '10.3.1.0\/24'/g" "${filename}"
         done
     else
-        load_cirros_image
-        load_ubuntu_image
+        #load_cirros_image
+        #load_ubuntu_image
+        echo "not uploading ubuntu and cirros"
     fi
     create_nova_flavor
 }
