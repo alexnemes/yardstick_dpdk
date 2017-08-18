@@ -105,17 +105,20 @@ resources:
           template: |
             #!/bin/sh
             cat <<'CEOF' > /tmp/dpdk_post_build.sh
-            #export RTE_SDK=/dpdk
-            export RTE_TARGET=x86_64-default-linuxapp-gcc
-            #cd /dpdk
-            #make install T=x86_64-native-linuxapp-gcc DESTDIR=destdir
-            #modprobe uio
-            #insmod /dpdk/x86_64-native-linuxapp-gcc/kmod/igb_uio.ko
-            #insmod /dpdk/x86_64-native-linuxapp-gcc/kmod/rte_kni.ko
+            export RTE_SDK=/root/dpdk-17.02.1
+            export RTE_TARGET=x86_64-native-linuxapp-gcc
+            cd /root/dpdk-17.02.1/
+            make config T=x86_64-native-linuxapp-gcc O=x86_64-native-linuxapp-gcc
+            cd x86_64-native-linuxapp-gcc/
+            # switch to static libraries so that pktgen can compile
+            sed -i 's/CONFIG_RTE_BUILD_SHARED_LIB=\(.*\)/CONFIG_RTE_BUILD_SHARED_LIB=n/g' .config
+            make -j 8
+            modprobe uio
+            insmod /dpdk/x86_64-native-linuxapp-gcc/kmod/igb_uio.ko
+            insmod /dpdk/x86_64-native-linuxapp-gcc/kmod/rte_kni.ko
             cd /pktgen-dpdk
-            export RTE_SDK=/usr/share/dpdk
-            make RTE_SDK=/usr/share/dpdk
-            echo "PCKTGEN BUILT"
+            make -j 8
+            echo "PKTGEN BUILT"
             rm -rf /var/lib/cloud/instances
             echo "rm succesfull"
             ls $RTE_SDK/$RTE_TARGET
@@ -123,7 +126,9 @@ resources:
             CEOF
             chmod +x /tmp/dpdk_post_build.sh
             echo "chmod"
-            ##nohup /tmp/dpdk_post_build.sh &
+            echo "pci     0000:00:04.0    igb_uio" >> /etc/dpdk/interfaces
+            echo "pci     0000:00:05.0    igb_uio" >> /etc/dpdk/interfaces
+            #nohup /tmp/dpdk_post_build.sh &
           params:
             $NOTIFY: { get_attr: ['wait_handle', 'curl_cli'] }
 

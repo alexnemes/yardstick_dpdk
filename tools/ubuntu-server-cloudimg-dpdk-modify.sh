@@ -91,17 +91,19 @@ apt-get install -y \
     sysstat \
     linux-headers-$linuxheadersversion \
     libpcap-dev \
+    devscripts \
+    debhelper \
+    debutils \
     libnuma-dev \
-    dpdk \
-    libdpdk-dev \
-    dpdk-igb-uio-dkms \
+    libxen-dev \
     lua5.2
 
-echo "pci     0000:00:04.0    igb_uio" >> /etc/dpdk/interfaces
-echo "pci     0000:00:05.0    igb_uio" >> /etc/dpdk/interfaces
+#git clone http://dpdk.org/git/dpdk
+dget -d http://10.0.100.7/mos-repos/ubuntu/10.0/pool/main/d/dpdk/dpdk_17.02.1-0+enc3~u16.04.dsc
+dpkg-source -x -u dpdk_17.02.1-0+enc3~u16.04.dsc
 
-git clone http://dpdk.org/git/dpdk
 git clone http://dpdk.org/git/apps/pktgen-dpdk
+(cd /pktgen-dpdk; git checkout pktgen-3.2.0 -b 3.2.0)
 
 git clone https://github.com/kdlucas/byte-unixbench.git /opt/tempT
 make --directory /opt/tempT/UnixBench/
