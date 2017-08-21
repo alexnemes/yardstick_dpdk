@@ -31,13 +31,13 @@ load_modules()
     if lsmod | grep "igb_uio" &> /dev/null ; then
     echo "igb_uio module is loaded"
     else
-    insmod /dpdk/x86_64-native-linuxapp-gcc/kmod/igb_uio.ko
+    insmod /dpdk-17.02.1/x86_64-native-linuxapp-gcc/kmod/igb_uio.ko
     fi
 
     if lsmod | grep "rte_kni" &> /dev/null ; then
     echo "rte_kni module is loaded"
     else
-    insmod /dpdk/x86_64-native-linuxapp-gcc/kmod/rte_kni.ko
+    insmod /dpdk-17.02.1/x86_64-native-linuxapp-gcc/kmod/rte_kni.ko
     fi
 }
 
@@ -48,9 +48,13 @@ change_permissions()
 }
 
 add_interface_to_dpdk(){
+    # putting the last 2 interfaces down
+    enslist=`ifconfig | grep ens | tail -n +2 | awk '{print $1}'`
+    ensarr=(`echo ${enslist}`);
+    for i in {0..1}; do ifconfig ${ensarr[$i]} down; done
+    # adding them to dpdk driver by pci address
     interfaces=$(lspci |grep Eth |tail -n +2 |awk '{print $1}')
-    /dpdk/usertools/dpdk-devbind.py --bind=igb_uio $interfaces
-
+    /dpdk-17.02.1/usertools/dpdk-devbind.py --bind=igb_uio $interfaces
 }
 
 create_pktgen_config_lua()
