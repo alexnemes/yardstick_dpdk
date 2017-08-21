@@ -95,6 +95,7 @@ apt-get install -y \
     debhelper \
     libnuma-dev \
     libxen-dev \
+    expect \
     lua5.2
 
 #git clone http://dpdk.org/git/dpdk

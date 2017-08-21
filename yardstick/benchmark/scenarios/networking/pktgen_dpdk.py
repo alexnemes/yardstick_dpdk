@@ -112,7 +112,7 @@ class PktgenDPDKLatency(base.Scenario):
         packetsize = options.get("packetsize", 64)
         rate = options.get("rate", 100)
         
-        print("testPMD args: ".format(self.testpmd_args))
+        print("testPMD args: {}".format(self.testpmd_args))
 
         cmd = "screen sudo -E bash ~/testpmd_fwd.sh %s " % (self.testpmd_args)
         
@@ -123,7 +123,7 @@ class PktgenDPDKLatency(base.Scenario):
 
         time.sleep(1)
 
-        print("pktgen args: ".format(self.pktgen_args))
+        print("pktgen args: {}".format(self.pktgen_args))
 
         cmd = "screen sudo -E bash ~/pktgen_dpdk.sh %s %s %s %s %s %s" % \
             (self.pktgen_args[0], self.pktgen_args[1], self.pktgen_args[2],
