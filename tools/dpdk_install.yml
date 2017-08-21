@@ -124,6 +124,8 @@ resources:
             echo "rm succesfull"
             ls $RTE_SDK/$RTE_TARGET
             $NOTIFY --data-binary '{"status": "SUCCESS"}'
+            mkdir /etc/dpdk
+            touch /etc/dpdk/interfaces
             echo "pci     0000:00:04.0    igb_uio" >> /etc/dpdk/interfaces
             echo "pci     0000:00:05.0    igb_uio" >> /etc/dpdk/interfaces
             CEOF
