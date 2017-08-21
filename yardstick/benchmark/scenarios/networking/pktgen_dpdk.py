@@ -119,7 +119,14 @@ class PktgenDPDKLatency(base.Scenario):
         print("testpmd command: {}".format(cmd))
         
         LOG.debug("Executing command: %s", cmd)
-        self.server.send_command(cmd)
+        status, stdout, stderr = self.server.execute(cmd)
+        #self.server.send_command(cmd)
+        print("PMD STDOUT : {}".format(stdout))
+        print("PMD STDERR : {}".format(stderr))
+        
+        if status:
+            # error cause in json dict on stdout
+            raise RuntimeError(stdout)
 
         time.sleep(1)
 
@@ -132,7 +139,15 @@ class PktgenDPDKLatency(base.Scenario):
         print("pktgen command: {}".format(cmd))
         
         LOG.debug("Executing command: %s", cmd)
-        self.client.send_command(cmd)
+        status, stdout, stderr = self.client.execute(cmd)
+        #self.client.send_command(cmd)
+
+        print("PKTGEN STDOUT : {}".format(stdout))
+        print("PKTGEN STDERR : {}".format(stderr))
+
+        if status:
+            # error cause in json dict on stdout
+            raise RuntimeError(stdout)
 
         # wait for finishing test
         time.sleep(1)
