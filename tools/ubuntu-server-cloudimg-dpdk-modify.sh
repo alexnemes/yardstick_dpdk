@@ -103,7 +103,7 @@ dget -d http://10.0.100.7/mos-repos/ubuntu/10.0/pool/main/d/dpdk/dpdk_17.02.1-0+
 dpkg-source -x -u dpdk_17.02.1-0+enc3~u16.04.dsc || true
 
 git clone http://dpdk.org/git/apps/pktgen-dpdk
-(cd /pktgen-dpdk; git checkout pktgen-3.2.5 -b 3.2.5)
+(cd /pktgen-dpdk; git checkout pktgen-3.2.11 -b 3.2.11)
 
 git clone https://github.com/kdlucas/byte-unixbench.git /opt/tempT
 make --directory /opt/tempT/UnixBench/
