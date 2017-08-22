@@ -108,6 +108,8 @@ class PktgenDPDKLatency(base.Scenario):
             self.pktgen_args = [client_src_ip, client_dst_ip,
                                 server_rev_mac, server_send_mac]
 
+        print("pktgen args: {}".format(self.pktgen_args))
+
         options = self.scenario_cfg['options']
         packetsize = options.get("packetsize", 64)
         rate = options.get("rate", 100)
@@ -117,6 +119,15 @@ class PktgenDPDKLatency(base.Scenario):
         cmd = "screen sudo -E bash ~/testpmd_fwd.sh %s " % (self.testpmd_args)
         
         print("testpmd command: {}".format(cmd))
+        
+        
+        cmd = "screen sudo -E bash ~/pktgen_dpdk.sh %s %s %s %s %s %s" % \
+            (self.pktgen_args[0], self.pktgen_args[1], self.pktgen_args[2],
+             self.pktgen_args[3], rate, packetsize)
+             
+        print("pktgen command: {}".format(cmd))
+        
+        time.sleep(20)
         
         LOG.debug("Executing command: %s", cmd)
         status, stdout, stderr = self.server.execute(cmd)
@@ -128,15 +139,9 @@ class PktgenDPDKLatency(base.Scenario):
             # error cause in json dict on stdout
             raise RuntimeError(stdout)
 
+
         time.sleep(1)
-
-        print("pktgen args: {}".format(self.pktgen_args))
-
-        cmd = "screen sudo -E bash ~/pktgen_dpdk.sh %s %s %s %s %s %s" % \
-            (self.pktgen_args[0], self.pktgen_args[1], self.pktgen_args[2],
-             self.pktgen_args[3], rate, packetsize)
-             
-        print("pktgen command: {}".format(cmd))
+        
         
         LOG.debug("Executing command: %s", cmd)
         status, stdout, stderr = self.client.execute(cmd)
