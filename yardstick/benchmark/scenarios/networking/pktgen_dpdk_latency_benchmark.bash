@@ -109,7 +109,7 @@ spawn ./app/app/x86_64-native-linuxapp-gcc/pktgen -c 0x07 -n 4 -b $blacklist -- 
 expect "Pktgen>"
 send "\n"
 expect "Pktgen>"
-send "screen on\n"
+send "on\n"
 expect "Pktgen>"
 set count 10
 while { $count } {
