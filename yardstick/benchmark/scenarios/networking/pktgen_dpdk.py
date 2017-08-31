@@ -63,6 +63,33 @@ class PktgenDPDKLatency(base.Scenario):
         print("test scripts copied")
         time.sleep(10)
         
+        
+        ############################
+
+        import subprocess
+        import os
+
+        print("################# PORT SECURITY ###############")
+        d = dict(os.environ)
+        d['OS_AUTH_URL'] = "http://192.168.0.2:5000/"
+        p = subprocess.Popen('openstack port list', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
+        for line in p.stdout.readlines():
+            if "demeter" in line or "poseidon" in line:
+                elements = line.split("|")
+                port_id = elements[1].strip()
+                print("Removing port security from port {}".format(port_id))
+                cmd = "neutron port-update " + port_id + " --no-security-groups"
+                q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
+                cmd = "neutron port-update " + port_id + " --port_security_enabled=False"
+                q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
+                cmd = "neutron port-show " + port_id + " show" + " | grep port_security_enabled"
+                q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
+
+        print("################ PORT SECURITY OVER ##########")
+
+        #############################
+
+        
         self.setup_done = True
         self.testpmd_args = ''
         self.pktgen_args = []
