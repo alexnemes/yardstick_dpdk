@@ -236,6 +236,7 @@ create_nova_flavor()
         openstack ${SECURE} flavor delete yardstick-dpdk-flavor &> /dev/null || true
         # Create the nova flavor used by some sample test cases
         openstack ${SECURE} flavor create --id 100 --ram 4096 --disk 4 --vcpus 4 yardstick-dpdk-flavor 
+        openstack ${SECURE} flavor set --property hw:cpu_policy=dedicated yardstick-dpdk-flavor
         #nova flavor-key yardstick-dpdk-flavor set hw:mem_page_size=large
         # DPDK-enabled OVS requires guest memory to be backed by large pages
         if [[ $DEPLOY_SCENARIO == *[_-]ovs[_-]* ]]; then
