@@ -84,6 +84,7 @@ class PktgenDPDKLatency(base.Scenario):
                 q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
                 cmd = "neutron port-show " + port_id + " show" + " | grep port_security_enabled"
                 q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
+                print(q.stdout.readlines())
 
         print("################ PORT SECURITY OVER ##########")
 
