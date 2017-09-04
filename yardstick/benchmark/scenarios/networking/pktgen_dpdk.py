@@ -80,6 +80,7 @@ class PktgenDPDKLatency(base.Scenario):
                 print("Removing port security from port {}".format(port_id))
                 cmd = "neutron port-update " + port_id + " --no-security-groups"
                 q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
+                time.sleep(3)
                 cmd = "neutron port-update " + port_id + " --port_security_enabled=False"
                 q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
                 print(q.stdout.readlines())
