@@ -14,6 +14,8 @@ set -e
 # Commandline arguments
 DST_MAC=$1         # MAC address of the peer port
 
+DPDK_DIR=/dpdk
+
 load_modules()
 {
     if lsmod | grep "uio" &> /dev/null ; then
@@ -25,13 +27,13 @@ load_modules()
     if lsmod | grep "igb_uio" &> /dev/null ; then
     echo "igb_uio module is loaded"
     else
-    insmod /dpdk-17.02.1/x86_64-native-linuxapp-gcc/kmod/igb_uio.ko
+    insmod ${DPDK_DIR}/x86_64-native-linuxapp-gcc/kmod/igb_uio.ko
     fi
 
     if lsmod | grep "rte_kni" &> /dev/null ; then
     echo "rte_kni module is loaded"
     else
-    insmod /dpdk-17.02.1/x86_64-native-linuxapp-gcc/kmod/rte_kni.ko
+    insmod ${DPDK_DIR}/x86_64-native-linuxapp-gcc/kmod/rte_kni.ko
     fi
 }
 
@@ -48,13 +50,13 @@ add_interface_to_dpdk(){
     for i in {0..1}; do ifconfig ${ensarr[$i]} down; done
     # adding them to dpdk driver by pci address
     interfaces=$(lspci |grep Eth |tail -n +2 |awk '{print $1}')
-    /dpdk-17.02.1/usertools/dpdk-devbind.py --bind=igb_uio $interfaces
+    ${DPDK_DIR}/usertools/dpdk-devbind.py --bind=igb_uio $interfaces
 }
 
 run_testpmd()
 {
     blacklist=$(lspci |grep Eth |awk '{print $1}'|head -1)
-    cd /dpdk-17.02.1
+    cd ${DPDK_DIR}
     sudo ./destdir/bin/testpmd -c 0x07 -n 4 -b $blacklist -- --auto-start --eth-peer=1,$DST_MAC --forward-mode=mac
 }
 

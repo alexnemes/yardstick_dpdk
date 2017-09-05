@@ -18,6 +18,7 @@ FWD_SEND_MAC=$4   # MAC address of forwarding sender in VM B
 RATE=$5           # packet rate in percentage
 PKT_SIZE=$6       # packet size
 
+DPDK_DIR=/dpdk
 
 load_modules()
 {
@@ -30,13 +31,13 @@ load_modules()
     if lsmod | grep "igb_uio" &> /dev/null ; then
     echo "igb_uio module is loaded"
     else
-    insmod /dpdk-17.02.1/x86_64-native-linuxapp-gcc/kmod/igb_uio.ko
+    insmod ${DPDK_DIR}/x86_64-native-linuxapp-gcc/kmod/igb_uio.ko
     fi
 
     if lsmod | grep "rte_kni" &> /dev/null ; then
     echo "rte_kni module is loaded"
     else
-    insmod /dpdk-17.02.1/x86_64-native-linuxapp-gcc/kmod/rte_kni.ko
+    insmod ${DPDK_DIR}/x86_64-native-linuxapp-gcc/kmod/rte_kni.ko
     fi
 }
 
@@ -53,7 +54,7 @@ add_interface_to_dpdk(){
     for i in {0..1}; do ifconfig ${ensarr[$i]} down; done
     # adding them to dpdk driver by pci address
     interfaces=$(lspci |grep Eth |tail -n +2 |awk '{print $1}')
-    /dpdk-17.02.1/usertools/dpdk-devbind.py --bind=igb_uio $interfaces
+    ${DPDK_DIR}/usertools/dpdk-devbind.py --bind=igb_uio $interfaces
 }
 
 create_pktgen_config_lua()
