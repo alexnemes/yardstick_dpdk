@@ -236,7 +236,7 @@ create_nova_flavor()
         openstack ${SECURE} flavor delete yardstick-dpdk-flavor &> /dev/null || true
         # Create the nova flavor used by some sample test cases
         openstack ${SECURE} flavor create --id 100 --ram 4096 --disk 4 --vcpus 4 yardstick-dpdk-flavor 
-        nova flavor-key yardstick-dpdk-flavor set hw:mem_page_size=large
+        nova flavor-key yardstick-dpdk-flavor set hw:mem_page_size=any
         nova flavor-key yardstick-dpdk-flavor set hw:cpu_mode=host-model
         #openstack ${SECURE} flavor set --property hw:cpu_policy=dedicated yardstick-dpdk-flavor
         
@@ -276,8 +276,8 @@ main()
         SECURE=""
     fi
 
-    build_yardstick_image
-    load_yardstick_image
+    #build_yardstick_image
+    #load_yardstick_image
     if [ "${YARD_IMG_ARCH}" == "arm64" ]; then
         sed -i 's/image: {{image}}/image: TestVM/g' tests/opnfv/test_cases/opnfv_yardstick_tc002.yaml
         sed -i 's/image: cirros-0.3.5/image: TestVM/g' samples/ping.yaml
