@@ -45,7 +45,7 @@ resources:
     properties:
       name: dpdk_subnet
       ip_version: 4
-      cidr: 192.168.0.0/24
+      cidr: 172.16.101.0/24
       network: { get_resource: network }
 
   management_router:
