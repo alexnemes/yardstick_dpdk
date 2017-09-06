@@ -54,7 +54,7 @@ add_interface_to_dpdk(){
     for i in {0..1}; do ifconfig ${ensarr[$i]} down; done
     # adding them to dpdk driver by pci address
     interfaces=$(lspci |grep Eth |tail -n +2 |awk '{print $1}')
-    ${DPDK_DIR}/usertools/dpdk-devbind.py --bind=igb_uio $interfaces
+    ${DPDK_DIR}/tools/dpdk-devbind.py --bind=igb_uio $interfaces
 }
 
 create_pktgen_config_lua()
