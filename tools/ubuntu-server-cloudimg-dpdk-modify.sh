@@ -100,14 +100,14 @@ apt-get install -y \
 
 #git clone http://dpdk.org/git/dpdk
 git clone git://dpdk.org/dpdk
-(cd /dpdk/; git checkout v17.08 -b 17.08)
+(cd /dpdk/; git checkout v16.11 -b 16.11)
 
 
 #dget -d http://10.0.100.7/mos-repos/ubuntu/10.0/pool/main/d/dpdk/dpdk_17.02.1-0+enc3~u16.04.dsc || true
 #dpkg-source -x -u dpdk_17.02.1-0+enc3~u16.04.dsc || true
 
 git clone http://dpdk.org/git/apps/pktgen-dpdk
-(cd /pktgen-dpdk; git checkout pktgen-3.3.8 -b 3.3.8)
+(cd /pktgen-dpdk; git checkout b682b14 -b b682b14)
 
 git clone https://github.com/kdlucas/byte-unixbench.git /opt/tempT
 make --directory /opt/tempT/UnixBench/
