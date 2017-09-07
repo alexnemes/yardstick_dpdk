@@ -17,8 +17,16 @@ FWD_REV_MAC=$3    # MAC address of forwarding receiver in VM B
 FWD_SEND_MAC=$4   # MAC address of forwarding sender in VM B
 RATE=$5           # packet rate in percentage
 PKT_SIZE=$6       # packet size
+PING_DST1=$7      # first destinatin for ping, from VM1 to VM2
+PING_DST2=$8      # second destinatin for ping, from VM1 to VM2
 
 DPDK_DIR=/dpdk
+
+ping_vm()
+{
+    ping -c 3 ${PING_DST1}
+    ping -c 3 ${PING_DST2}
+}
 
 load_modules()
 {
@@ -152,6 +160,7 @@ main()
     change_permissions
     create_pktgen_config_lua
     create_expect_file
+    ping_vm
     add_interface_to_dpdk
     run_pktgen
 }

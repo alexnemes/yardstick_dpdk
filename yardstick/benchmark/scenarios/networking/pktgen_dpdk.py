@@ -138,9 +138,12 @@ class PktgenDPDKLatency(base.Scenario):
             server_send_mac = self.get_port_mac(self.server, 'ens5')
             client_src_ip = self.get_port_ip(self.client, 'ens4')
             client_dst_ip = self.get_port_ip(self.client, 'ens5')
+            server_src_ip = self.get_port_ip(self.server, 'ens4')
+            server_dst_ip = self.get_port_ip(self.server, 'ens5')
 
             self.pktgen_args = [client_src_ip, client_dst_ip,
-                                server_rev_mac, server_send_mac]
+                                server_rev_mac, server_send_mac,
+                                server_src_ip, server_dst_ip]
 
         print("pktgen args: {}".format(self.pktgen_args))
 
@@ -155,9 +158,9 @@ class PktgenDPDKLatency(base.Scenario):
         print("testpmd command: {}".format(cmd))
         
         
-        cmd = "screen sudo -E bash ~/pktgen_dpdk.sh %s %s %s %s %s %s" % \
+        cmd = "screen sudo -E bash ~/pktgen_dpdk.sh %s %s %s %s %s %s %s %s" % \
             (self.pktgen_args[0], self.pktgen_args[1], self.pktgen_args[2],
-             self.pktgen_args[3], rate, packetsize)
+             self.pktgen_args[3], rate, packetsize, self.pktgen_args[4], self.pktgen_args[5])
              
         print("pktgen command: {}".format(cmd))
         
