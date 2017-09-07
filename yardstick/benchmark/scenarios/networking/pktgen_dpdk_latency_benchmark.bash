@@ -120,20 +120,9 @@ send "\n"
 expect "Pktgen>"
 send "on\n"
 expect "Pktgen>"
-set count 10
-while { $count } {
-    send "page latency\n"
-    expect {
-        timeout { send "\n" }
-        -regexp {..*} {
-            set result "${result}$expect_out(0,string)"
-            set timeout 1
-            exp_continue
-         }
-        "Pktgen>"
-    }
-    set count [expr $count-1]
-}
+send "page main\n"
+expect "Pktgen>"
+sleep 20
 send "stop 0\n"
 expect "Pktgen>"
 send "quit\n"
