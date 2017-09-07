@@ -13,8 +13,16 @@ set -e
 
 # Commandline arguments
 DST_MAC=$1         # MAC address of the peer port
+PING_DST1=$2      # first destinatin for ping, from VM1 to VM2
+PING_DST2=$3      # second destinatin for ping, from VM1 to VM2
 
 DPDK_DIR=/dpdk
+
+ping_vm()
+{
+    ping -c 3 ${PING_DST1}
+    ping -c 3 ${PING_DST2}
+}
 
 load_modules()
 {
@@ -64,6 +72,7 @@ main()
 {
     load_modules
     change_permissions
+    ping_vm
     add_interface_to_dpdk
     run_testpmd
 }

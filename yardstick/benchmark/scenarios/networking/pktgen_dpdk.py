@@ -131,19 +131,20 @@ class PktgenDPDKLatency(base.Scenario):
             self.setup()
 
         if not self.testpmd_args:
-            self.testpmd_args = self.get_port_mac(self.client, 'ens5')
+            server_src_ip = self.get_port_ip(self.server, 'ens4')
+            server_dst_ip = self.get_port_ip(self.server, 'ens5')
+            self.testpmd_args = [self.get_port_mac(self.client, 'ens5'),
+                                    server_src_ip, server_dst_ip]
+                    
 
         if not self.pktgen_args:
             server_rev_mac = self.get_port_mac(self.server, 'ens4')
             server_send_mac = self.get_port_mac(self.server, 'ens5')
             client_src_ip = self.get_port_ip(self.client, 'ens4')
             client_dst_ip = self.get_port_ip(self.client, 'ens5')
-            server_src_ip = self.get_port_ip(self.server, 'ens4')
-            server_dst_ip = self.get_port_ip(self.server, 'ens5')
 
             self.pktgen_args = [client_src_ip, client_dst_ip,
-                                server_rev_mac, server_send_mac,
-                                server_src_ip, server_dst_ip]
+                                server_rev_mac, server_send_mac]
 
         print("pktgen args: {}".format(self.pktgen_args))
 
@@ -153,14 +154,15 @@ class PktgenDPDKLatency(base.Scenario):
         
         print("testPMD args: {}".format(self.testpmd_args))
 
-        cmd = "screen sudo -E bash ~/testpmd_fwd.sh %s " % (self.testpmd_args)
+        cmd = "screen sudo -E bash ~/testpmd_fwd.sh %s %s %s" % (self.testpmd_args[0],
+                                self.testpmd_args[1], self.testpmd_args[2])
         
         print("testpmd command: {}".format(cmd))
         
         
-        cmd = "screen sudo -E bash ~/pktgen_dpdk.sh %s %s %s %s %s %s %s %s" % \
+        cmd = "screen sudo -E bash ~/pktgen_dpdk.sh %s %s %s %s %s %s" % \
             (self.pktgen_args[0], self.pktgen_args[1], self.pktgen_args[2],
-             self.pktgen_args[3], rate, packetsize, self.pktgen_args[4], self.pktgen_args[5])
+             self.pktgen_args[3], rate, packetsize)
              
         print("pktgen command: {}".format(cmd))
         
