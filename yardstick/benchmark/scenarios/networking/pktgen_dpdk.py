@@ -131,10 +131,10 @@ class PktgenDPDKLatency(base.Scenario):
             self.setup()
 
         if not self.testpmd_args:
-            server_src_ip = self.get_port_ip(self.server, 'ens4')
-            server_dst_ip = self.get_port_ip(self.server, 'ens5')
+            client_src_ip = self.get_port_ip(self.client, 'ens4')
+            client_dst_ip = self.get_port_ip(self.client, 'ens5')
             self.testpmd_args = [self.get_port_mac(self.client, 'ens5'),
-                                    server_src_ip, server_dst_ip]
+                                    client_src_ip, client_dst_ip]
                     
 
         if not self.pktgen_args:
