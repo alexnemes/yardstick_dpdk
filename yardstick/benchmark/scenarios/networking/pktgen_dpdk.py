@@ -154,22 +154,22 @@ class PktgenDPDKLatency(base.Scenario):
         
         print("testPMD args: {}".format(self.testpmd_args))
 
-        cmd = "sudo -E bash ~/testpmd_fwd.sh %s %s %s" % (self.testpmd_args[0],
+        cmd1 = "sudo -E bash ~/testpmd_fwd.sh %s %s %s" % (self.testpmd_args[0],
                                 self.testpmd_args[1], self.testpmd_args[2])
         
-        print("testpmd command: {}".format(cmd))
+        print("testpmd command: {}".format(cmd1))
         
         
-        cmd = "sudo -E bash ~/pktgen_dpdk.sh %s %s %s %s %s %s" % \
+        cmd2 = "sudo -E bash ~/pktgen_dpdk.sh %s %s %s %s %s %s" % \
             (self.pktgen_args[0], self.pktgen_args[1], self.pktgen_args[2],
              self.pktgen_args[3], rate, packetsize)
              
-        print("pktgen command: {}".format(cmd))
+        print("pktgen command: {}".format(cmd2))
         
         time.sleep(20)
         
-        LOG.debug("Executing command to start PMD: %s", cmd)
-        status, stdout, stderr = self.server.execute(cmd)
+        LOG.debug("Executing command to start PMD: %s", cmd1)
+        status, stdout, stderr = self.server.execute(cmd1)
         #self.server.send_command(cmd)
         print("PMD STDOUT : {}".format(stdout))
         print("PMD STDERR : {}".format(stderr))
@@ -182,8 +182,8 @@ class PktgenDPDKLatency(base.Scenario):
         time.sleep(1)
         
         
-        LOG.debug("Executing command to start PKTGEN: %s", cmd)
-        status, stdout, stderr = self.client.execute(cmd)
+        LOG.debug("Executing command to start PKTGEN: %s", cmd2)
+        status, stdout, stderr = self.client.execute(cmd2)
         #self.client.send_command(cmd)
 
         print("PKTGEN STDOUT : {}".format(stdout))
