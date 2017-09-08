@@ -164,7 +164,7 @@ output_json()
 
 main()
 {
-    free_interfaces
+    #free_interfaces
     load_modules
     change_permissions
     create_pktgen_config_lua

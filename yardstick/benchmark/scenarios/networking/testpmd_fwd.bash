@@ -82,7 +82,7 @@ free_interfaces()
 
 main()
 {
-    free_interfaces
+    #free_interfaces
     load_modules
     change_permissions
     ping_vm
