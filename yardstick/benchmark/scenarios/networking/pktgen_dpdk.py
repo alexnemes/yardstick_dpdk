@@ -182,7 +182,7 @@ class PktgenDPDKLatency(base.Scenario):
         status, stdout, stderr = self.client.execute(cmd2)
         #self.client.send_command(cmd)
 
-        print("PKTGEN STDatus : {}".format(status))
+        print("PKTGEN STatus : {}".format(status))
         print("PKTGEN STDOUT : {}".format(stdout))
         print("PKTGEN STDERR : {}".format(stderr))
 
@@ -190,6 +190,10 @@ class PktgenDPDKLatency(base.Scenario):
             # error cause in json dict on stdout
             raise RuntimeError(stdout)
 
+        result.update(json.loads(stdout))
+        
+        print("result : ".format(result))
+        
         # wait for finishing test
         time.sleep(1)
 

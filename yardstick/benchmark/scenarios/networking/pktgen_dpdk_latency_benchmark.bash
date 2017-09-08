@@ -132,12 +132,12 @@ free_interfaces()
 {
 
     interfaces=$(lspci |grep Eth |tail -n +2 |awk '{print $1}')
-    ${DPDK_DIR}/tools/dpdk-devbind.py -u ${interfaces}
-    ${DPDK_DIR}/tools/dpdk-devbind.py -b virtio-pci ${interfaces}
+    ${DPDK_DIR}/tools/dpdk-devbind.py -u ${interfaces} &> /dev/null
+    ${DPDK_DIR}/tools/dpdk-devbind.py -b virtio-pci ${interfaces} &> /dev/null
     ifconfig ens4 up
     ifconfig ens5 up
-    dhclient ens4 2>/dev/null
-    dhclient ens5 2>/dev/null
+    dhclient ens4 &> /dev/null
+    dhclient ens5 &> /dev/null
 }
 
 run_pktgen()
