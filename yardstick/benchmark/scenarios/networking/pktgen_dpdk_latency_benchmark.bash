@@ -59,7 +59,7 @@ add_interface_to_dpdk(){
 
 create_pktgen_config_lua()
 {
-    touch /home/ubuntu/pktgen_latency.lua
+    touch /home/ubuntu/pktgen_latency.lua &> /dev/null
     lua_file="/home/ubuntu/pktgen_latency.lua"
     chmod 777 $lua_file
     echo $lua_file
@@ -100,7 +100,7 @@ EOF
 
 create_expect_file()
 {
-    touch /home/ubuntu/pktgen.exp
+    touch /home/ubuntu/pktgen.exp &> /dev/null
     expect_file="/home/ubuntu/pktgen.exp"
     chmod 777 $expect_file
     echo $expect_file
