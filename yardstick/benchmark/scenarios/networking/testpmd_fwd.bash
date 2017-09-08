@@ -20,8 +20,8 @@ DPDK_DIR=/dpdk
 
 ping_vm()
 {
-    ping -c 3 ${PING_DST1}
-    ping -c 3 ${PING_DST2}
+    ping -c 2 ${PING_DST1}
+    ping -c 2 ${PING_DST2}
 }
 
 load_modules()
@@ -68,13 +68,27 @@ run_testpmd()
     sudo ./destdir/bin/testpmd -c 0x07 -n 4 -b $blacklist -- --auto-start --eth-peer=1,$DST_MAC --forward-mode=mac
 }
 
+free_interfaces()
+{
+
+    interfaces=$(lspci |grep Eth |tail -n +2 |awk '{print $1}')
+    ${DPDK_DIR}/tools/dpdk-devbind.py -u ${interfaces}
+    ${DPDK_DIR}/tools/dpdk-devbind.py -b virtio-pci ${interfaces}
+    ifconfig ens4 up
+    ifconfig ens5 up
+    dhclient ens4 2>/dev/null
+    dhclient ens5 2>/dev/null
+}
+
 main()
 {
+    free_interfaces
     load_modules
     change_permissions
     ping_vm
     add_interface_to_dpdk
     run_testpmd
+    free_interfaces
 }
 
 main

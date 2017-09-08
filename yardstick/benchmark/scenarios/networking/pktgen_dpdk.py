@@ -154,13 +154,13 @@ class PktgenDPDKLatency(base.Scenario):
         
         print("testPMD args: {}".format(self.testpmd_args))
 
-        cmd = "screen sudo -E bash ~/testpmd_fwd.sh %s %s %s" % (self.testpmd_args[0],
+        cmd = "sudo -E bash ~/testpmd_fwd.sh %s %s %s" % (self.testpmd_args[0],
                                 self.testpmd_args[1], self.testpmd_args[2])
         
         print("testpmd command: {}".format(cmd))
         
         
-        cmd = "screen sudo -E bash ~/pktgen_dpdk.sh %s %s %s %s %s %s" % \
+        cmd = "sudo -E bash ~/pktgen_dpdk.sh %s %s %s %s %s %s" % \
             (self.pktgen_args[0], self.pktgen_args[1], self.pktgen_args[2],
              self.pktgen_args[3], rate, packetsize)
              
@@ -168,7 +168,7 @@ class PktgenDPDKLatency(base.Scenario):
         
         time.sleep(20)
         
-        LOG.debug("Executing command: %s", cmd)
+        LOG.debug("Executing command to start PMD: %s", cmd)
         status, stdout, stderr = self.server.execute(cmd)
         #self.server.send_command(cmd)
         print("PMD STDOUT : {}".format(stdout))
@@ -182,7 +182,7 @@ class PktgenDPDKLatency(base.Scenario):
         time.sleep(1)
         
         
-        LOG.debug("Executing command: %s", cmd)
+        LOG.debug("Executing command to start PKTGEN: %s", cmd)
         status, stdout, stderr = self.client.execute(cmd)
         #self.client.send_command(cmd)
 

@@ -84,7 +84,13 @@ function pktgen_config()
   pktgen.latency("all","enable");
   pktgen.latency("all","on");
 
-  pktgen.start(0);
+  pktgen.start("0");
+  pktgen.sleep(20);
+  pktgen.stop("0");
+  pktgen.sleep(1);
+  prints("opackets", pktgen.portStats("all", "port")[0].opackets);
+  prints("oerrors", pktgen.portStats("all", "port")[0].oerrors);
+
   end
 
 pktgen_config()
@@ -106,24 +112,32 @@ set blacklist  [lindex $argv 0]
 set log [lindex $argv 1]
 set result {}
 set timeout 15
-spawn ./app/app/x86_64-native-linuxapp-gcc/pktgen -c 0x07 -n 4 -b $blacklist -- -P -m "1.0, 2.1" -f /home/ubuntu/pktgen_latency.lua
-expect "Pktgen>"
+spawn ./app/app/x86_64-native-linuxapp-gcc/pktgen -c 0x07 -n 4 -b $blacklist -- -P -m "1.0,2.1" -f /home/ubuntu/pktgen_latency.lua
+expect "Pktgen"
 send "\n"
-expect "Pktgen>"
+expect "Pktgen"
 send "on\n"
-expect "Pktgen>"
+expect "Pktgen"
 send "page main\n"
-expect "Pktgen>"
-sleep 20
-send "stop 0\n"
-expect "Pktgen>"
+expect "Pktgen"
+sleep 1
 send "quit\n"
 expect "#"
 
-set file [ open $log w ]
-puts $file $result
 EOF
 
+}
+
+free_interfaces()
+{
+
+    interfaces=$(lspci |grep Eth |tail -n +2 |awk '{print $1}')
+    ${DPDK_DIR}/tools/dpdk-devbind.py -u ${interfaces}
+    ${DPDK_DIR}/tools/dpdk-devbind.py -b virtio-pci ${interfaces}
+    ifconfig ens4 up
+    ifconfig ens5 up
+    dhclient ens4 2>/dev/null
+    dhclient ens5 2>/dev/null
 }
 
 run_pktgen()
@@ -132,17 +146,33 @@ run_pktgen()
     cd /pktgen-dpdk
     touch /home/ubuntu/result.log
     result_log="/home/ubuntu/result.log"
-    sudo expect /home/ubuntu/pktgen.exp $blacklist $result_log
+    sudo expect /home/ubuntu/pktgen.exp $blacklist > $result_log 2>&1
+    #sudo expect /home/ubuntu/pktgen.exp $blacklist 2>&1 | tee $result_log
+}
+
+output_json()
+{
+    sent=0
+    result_pps=0
+
+    sent=$(cat ~/result.log -vT | grep "Tx Pkts" | tail -1 | awk '{match($0,/\[18;20H +[0-9]+/)} {print substr($0,RSTART,RLENGTH)}' | awk '{if ($2 != 0) print $2}')
+    received=$(cat ~/result.log -vT | grep "$PKT_SIZE Bytes" | tail -1 | awk '{match($0,/\[17;40H +[0-9]+/)} {print substr($0,RSTART,RLENGTH)}' | awk '{if ($2 != 0) print $2}')
+    result_pps=$(( received / 20 ))
+    
+    echo '{ "frame_size"':${PKT_SIZE} ,   '"packets_sent"':${sent} , '"packets_received"':${received} , '"packets_per_second"':${result_pps} '}'
 }
 
 main()
 {
+    free_interfaces
     load_modules
     change_permissions
     create_pktgen_config_lua
     create_expect_file
     add_interface_to_dpdk
     run_pktgen
+    output_json
+    free_interfaces
 }
 
 main
