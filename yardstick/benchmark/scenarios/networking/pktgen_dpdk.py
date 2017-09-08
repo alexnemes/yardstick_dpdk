@@ -80,7 +80,7 @@ class PktgenDPDKLatency(base.Scenario):
                 print("Removing port security from port {}".format(port_id))
                 cmd = "neutron port-update " + port_id + " --no-security-groups"
                 q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
-                time.sleep(3)
+                time.sleep(2)
                 cmd = "neutron port-update " + port_id + " --port_security_enabled=False"
                 q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
                 print(q.stdout.readlines())
@@ -154,7 +154,7 @@ class PktgenDPDKLatency(base.Scenario):
         
         print("testPMD args: {}".format(self.testpmd_args))
 
-        cmd1 = "sudo -E bash ~/testpmd_fwd.sh %s %s %s &" % (self.testpmd_args[0],
+        cmd1 = "screen sudo -E bash ~/testpmd_fwd.sh %s %s %s" % (self.testpmd_args[0],
                                 self.testpmd_args[1], self.testpmd_args[2])
         
         print("testpmd command: {}".format(cmd1))
@@ -166,10 +166,10 @@ class PktgenDPDKLatency(base.Scenario):
              
         print("pktgen command: {}".format(cmd2))
         
-        time.sleep(20)
+        time.sleep(5)
         
         LOG.debug("Executing command to start PMD: %s", cmd1)
-        status, stdout, stderr = self.server.execute(cmd1)
+        status, stdout, stderr = self.server.send_command(cmd1)
         #self.server.send_command(cmd)
         print("PMD STDOUT : {}".format(stdout))
         print("PMD STDERR : {}".format(stderr))
