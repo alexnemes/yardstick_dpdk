@@ -9,6 +9,7 @@
 from __future__ import absolute_import
 import pkg_resources
 import logging
+import json
 import time
 
 import yardstick.ssh as ssh
