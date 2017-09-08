@@ -62,7 +62,7 @@ create_pktgen_config_lua()
     touch /home/ubuntu/pktgen_latency.lua &> /dev/null
     lua_file="/home/ubuntu/pktgen_latency.lua"
     chmod 777 $lua_file
-    echo $lua_file
+    #echo $lua_file
 
     cat << EOF > "/home/ubuntu/pktgen_latency.lua"
 package.path = package.path ..";?.lua;test/?.lua;app/?.lua;"
@@ -103,7 +103,7 @@ create_expect_file()
     touch /home/ubuntu/pktgen.exp &> /dev/null
     expect_file="/home/ubuntu/pktgen.exp"
     chmod 777 $expect_file
-    echo $expect_file
+    #echo $expect_file
 
     cat << 'EOF' > "/home/ubuntu/pktgen.exp"
 #!/usr/bin/expect
