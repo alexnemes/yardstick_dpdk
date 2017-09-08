@@ -154,7 +154,7 @@ class PktgenDPDKLatency(base.Scenario):
         
         print("testPMD args: {}".format(self.testpmd_args))
 
-        cmd1 = "sudo -E bash ~/testpmd_fwd.sh %s %s %s" % (self.testpmd_args[0],
+        cmd1 = "sudo -E bash ~/testpmd_fwd.sh %s %s %s &" % (self.testpmd_args[0],
                                 self.testpmd_args[1], self.testpmd_args[2])
         
         print("testpmd command: {}".format(cmd1))
