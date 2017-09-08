@@ -172,7 +172,8 @@ class PktgenDPDKLatency(base.Scenario):
         self.server.send_command(cmd1)
         #self.server.send_command(cmd)
                
-        time.sleep(1)
+        print("PMD launched")
+        time.sleep(20)
                 
         LOG.debug("Executing command to start PKTGEN: %s", cmd2)
         status, stdout, stderr = self.client.execute(cmd2)
