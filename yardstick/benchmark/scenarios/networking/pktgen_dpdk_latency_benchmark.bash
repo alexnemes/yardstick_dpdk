@@ -186,7 +186,7 @@ main()
     add_interface_to_dpdk
     run_pktgen
     output_json
-    #free_interfaces
+    free_interfaces
 }
 
 main
