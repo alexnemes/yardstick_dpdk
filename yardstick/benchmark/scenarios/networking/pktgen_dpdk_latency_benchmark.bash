@@ -125,8 +125,6 @@ send "on\n"
 expect "Pktgen"
 send "page latency\n"
 expect "Pktgen"
-send "page latency\n"
-expect "Pktgen"
 send "start 0\n"
 expect "Pktgen"
 sleep 20
