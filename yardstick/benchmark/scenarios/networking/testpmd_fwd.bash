@@ -18,12 +18,6 @@ PING_DST2=$3      # second destinatin for ping, from VM1 to VM2
 
 DPDK_DIR=/dpdk
 
-PID=`ps -eaf | grep SCREEN | grep -v grep | awk '{print $2}'`
-if [[ "" !=  "$PID" ]]; then
-  echo "killing screen $PID"
-  kill -9 $PID
-fi
-
 ping_vm()
 {
     ping -c 2 ${PING_DST1}
