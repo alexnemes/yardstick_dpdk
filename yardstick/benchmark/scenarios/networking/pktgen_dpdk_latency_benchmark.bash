@@ -121,9 +121,9 @@ set timeout 15
 spawn ./app/app/x86_64-native-linuxapp-gcc/pktgen -c 0x07 -n 4 -b $blacklist -- -P -m "1.0,2.1" -f /home/ubuntu/pktgen_latency.lua
 expect "Pktgen"
 sleep 1
-send "on\n"
-expect "Pktgen"
 send "page latency\n"
+expect "Pktgen"
+send "on\n"
 expect "Pktgen"
 send "page latency\n"
 expect "Pktgen"
