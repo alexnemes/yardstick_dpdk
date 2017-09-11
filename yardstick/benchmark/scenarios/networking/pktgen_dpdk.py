@@ -198,7 +198,7 @@ class PktgenDPDKLatency(base.Scenario):
         cmd_kill="kill -9" + cmdpid_stdout
         cmdpid_status, cmdpid_stdout, cmdpid_stderr = self.client.execute(cmd_pid)
         if cmdpid_stdout !=  "":
-            echo "killing screen $PID"
+            print("killing screen" + cmd_pid)
             cmdkill_status, cmdkill_stdout, cmdkill_stderr = self.client.execute(cmd_kill)
 
 
