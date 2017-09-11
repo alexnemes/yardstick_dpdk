@@ -209,11 +209,12 @@ cat ~/result.log -vT \
         if client_status:
             raise RuntimeError(client_stderr)
 
-        print("client_stdout {}: ".format(client_stdout.split('\n')))
+        print("client_stdout : {}".format(client_stdout))
 
         avg_latency = 0
         if client_stdout:
             latency_list = client_stdout.split('\n')[0:-2]
+            print("Latency list length : {}".format(len(latency_list)))
             LOG.info("10 samples of latency: %s", latency_list)
             latency_sum = 0
             for i in latency_list:
