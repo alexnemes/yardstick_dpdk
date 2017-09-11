@@ -213,7 +213,7 @@ cat ~/result.log -vT \
 
         avg_latency = 0
         if client_stdout:
-            latency_list = client_stdout.split('\n')[0:-2]
+            latency_list = client_stdout.split('\n')[0:-1]
             print("Latency list length : {}".format(len(latency_list)))
             LOG.info("10 samples of latency: %s", latency_list)
             latency_sum = 0
