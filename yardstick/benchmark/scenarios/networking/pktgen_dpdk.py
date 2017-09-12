@@ -201,8 +201,10 @@ class PktgenDPDKLatency(base.Scenario):
         cmd_pid="ps -eaf | grep SCREEN | grep -v grep | awk '{print $2}'"
         cmdpid_status, cmdpid_stdout, cmdpid_stderr = self.server.execute(cmd_pid)
         print("PMD Sscreen PID: {}".format(cmdpid_stdout))
+        
+        
         if cmdpid_stdout !=  "":
-            cmd_kill="screen -S " + cmdpid_stdout + " -p 0 -X quit"
+            cmd_kill="screen -S " + cmdpid_stdout + "-X stuff 'command'$(echo -ne '\015')"
             print("killing screen PID - " + cmdpid_stdout)
             cmdkill_status, cmdkill_stdout, cmdkill_stderr = self.server.execute(cmd_kill)
 
