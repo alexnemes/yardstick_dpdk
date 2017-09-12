@@ -152,7 +152,7 @@ class PktgenDPDKLatency(base.Scenario):
 
         options = self.scenario_cfg['options']
         packetsize = options.get("packetsize", 64)
-        rate = options.get("rate", 100)
+        rate = options.get("rate", 100).strip()
         
         print("testPMD args: {}".format(self.testpmd_args))
 
