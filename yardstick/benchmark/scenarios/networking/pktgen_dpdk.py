@@ -84,6 +84,7 @@ class PktgenDPDKLatency(base.Scenario):
                 time.sleep(2)
                 cmd = "neutron port-update " + port_id + " --port_security_enabled=False"
                 q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
+                time.sleep(2)
                 print(q.stdout.readlines())
                 if q.stderr:
                     print(q.stderr.readlines())
