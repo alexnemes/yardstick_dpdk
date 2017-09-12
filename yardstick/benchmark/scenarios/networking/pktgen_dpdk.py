@@ -194,14 +194,18 @@ class PktgenDPDKLatency(base.Scenario):
 
         result.update(json.loads(stdout.strip()))
         
-        print("killing pmd")
-        cmd_pid="ps -eaf | grep SCREEN | grep -v grep | awk '{print $2}'"
-        cmdpid_status, cmdpid_stdout, cmdpid_stderr = self.server.execute(cmd_pid)
-        print(cmdpid_stdout)
-        if cmdpid_stdout !=  "":
-            cmd_kill="kill -9" + cmdpid_stdout
-            print("killing screen PID - " + cmdpid_stdout)
-            cmdkill_status, cmdkill_stdout, cmdkill_stderr = self.server.execute(cmd_kill)
+        print("Stopping PMD Screen")
+        cmd_screen = "\n"
+        self.server.send_command(cmd_screen)
+        
+        #~ print("killing pmd")
+        #~ cmd_pid="ps -eaf | grep SCREEN | grep -v grep | awk '{print $2}'"
+        #~ cmdpid_status, cmdpid_stdout, cmdpid_stderr = self.server.execute(cmd_pid)
+        #~ print(cmdpid_stdout)
+        #~ if cmdpid_stdout !=  "":
+            #~ cmd_kill="kill -9" + cmdpid_stdout
+            #~ print("killing screen PID - " + cmdpid_stdout)
+            #~ cmdkill_status, cmdkill_stdout, cmdkill_stderr = self.server.execute(cmd_kill)
 
 
         print("result : ".format(result))
