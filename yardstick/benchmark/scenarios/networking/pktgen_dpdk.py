@@ -205,6 +205,7 @@ class PktgenDPDKLatency(base.Scenario):
         
         if cmdpid_stdout !=  "":
             cmd_kill="screen -S " + cmdpid_stdout + "-X stuff 'command'$(echo -ne '\015')"
+            print(" screen stop cmd :{}".format(mdpid_stdout))
             print("killing screen PID - " + cmdpid_stdout)
             cmdkill_status, cmdkill_stdout, cmdkill_stderr = self.server.execute(cmd_kill)
 
