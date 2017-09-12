@@ -191,8 +191,8 @@ class PktgenDPDKLatency(base.Scenario):
         if status:
             # error cause in json dict on stdout
             raise RuntimeError(stdout)
-
-        result.update(json.loads(stdout.strip()))
+        result_output = "{" + stdout.strip().split("{")[1]
+        result.update(json.loads(result_output))
         
         print("Stopping PMD Screen")
         time.sleep(10)
