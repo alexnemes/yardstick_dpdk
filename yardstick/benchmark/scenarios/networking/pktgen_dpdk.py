@@ -196,8 +196,8 @@ class PktgenDPDKLatency(base.Scenario):
         
         print("Stopping PMD Screen")
         time.sleep(300)
-        cmd_screen = "\n"
-        self.server.send_command(cmd_screen)
+        cmd_screen = 'screen -r;echo -e "\n"'
+        self.server.execute(cmd_screen)
         
         #~ print("killing pmd")
         #~ cmd_pid="ps -eaf | grep SCREEN | grep -v grep | awk '{print $2}'"
