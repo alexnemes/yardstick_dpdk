@@ -13,8 +13,8 @@ set -e
 
 # Commandline arguments
 DST_MAC=$1         # MAC address of the peer port
-PING_DST1=$2      # first destinatin for ping, from VM1 to VM2
-PING_DST2=$3      # second destinatin for ping, from VM1 to VM2
+PING_DST1=$2      # first destinatin for ping, from PMD VM to PKTGEN VM
+PING_DST2=$3      # second destinatin for ping, from PMD VM to PKTGEN VM
 
 DPDK_DIR=/dpdk
 

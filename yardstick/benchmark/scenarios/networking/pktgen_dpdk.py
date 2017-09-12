@@ -195,6 +195,7 @@ class PktgenDPDKLatency(base.Scenario):
         result.update(json.loads(stdout.strip()))
         
         print("Stopping PMD Screen")
+        time.sleep(300)
         cmd_screen = "\n"
         self.server.send_command(cmd_screen)
         
