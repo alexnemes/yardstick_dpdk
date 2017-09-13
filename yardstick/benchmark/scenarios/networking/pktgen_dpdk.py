@@ -213,6 +213,16 @@ class PktgenDPDKLatency(base.Scenario):
 
         print("result : {}".format(result))
         
+        packets_per_second = result["packets_per_second"]
+        bits_per_second = packets_per_second * 8 * (packetsize + 20)
+        result.update({"bits_per_second": bits_per_second})
+        print("result : {}".format(result))
+        
+        #for a 10Gbps line
+        linerate_percentage = ( float(bits_per_second) / 10**9 ) * 100
+        result.update({"linerate_percentage": linerate_percentage})
+        print("result : {}".format(result))
+                
         # wait for finishing test
         time.sleep(1)
 
