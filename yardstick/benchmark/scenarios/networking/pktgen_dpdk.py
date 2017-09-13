@@ -219,7 +219,7 @@ class PktgenDPDKLatency(base.Scenario):
         print("result : {}".format(result))
         
         #for a 10Gbps line
-        linerate_percentage = ( float(bits_per_second) / 10**9 ) * 100
+        linerate_percentage = ( float(bits_per_second) / 10**10 ) * 100
         result.update({"linerate_percentage": linerate_percentage})
         print("result : {}".format(result))
                 
