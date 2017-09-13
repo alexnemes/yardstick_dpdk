@@ -211,7 +211,7 @@ class PktgenDPDKLatency(base.Scenario):
             cmdkill_status, cmdkill_stdout, cmdkill_stderr = self.server.execute(cmd_kill)
 
 
-        print("result : ".format(result))
+        print("result : {}".format(result))
         
         # wait for finishing test
         time.sleep(1)
