@@ -259,7 +259,10 @@ cat ~/result.log -vT \
                     
                     min_rate=(max_rate - min_rate) / 2.0
                     print("min rate : {}, max_rate : {}".format(min_rate, max_rate))
-                                
+                      
+        else:
+            print("loss within tolerance")
+        
         return framesize_result
         
 
