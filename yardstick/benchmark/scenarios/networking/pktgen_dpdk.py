@@ -234,7 +234,7 @@ cat ~/result.log -vT \
         
 
     def binary_search(self, testpmd_args, pktgen_args, packetsize, rate, loss_tolerance):
-        min_rate = 0.1
+        min_rate = 0
         max_rate=rate
                 
         framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, max_rate)
