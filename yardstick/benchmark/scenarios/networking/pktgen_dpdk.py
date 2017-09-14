@@ -237,7 +237,7 @@ cat ~/result.log -vT \
         min_rate = 0.1
         max_rate=rate
                 
-        framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, max_rate)
+        framesize_result = run_iteration(testpmd_args, pktgen_args, packetsize, max_rate)
         
         return framesize_result
         
