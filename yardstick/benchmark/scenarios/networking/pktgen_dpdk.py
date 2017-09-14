@@ -245,8 +245,8 @@ cat ~/result.log -vT \
                 max_rate=(max_rate - min_rate) / 2.0
                 framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, max_rate)
                 
-            elif framesize_result['loss_percentage'] < loss_tolerance:
-                min_rate=(max_rate - min_rate) / 2/0
+            elif framesize_result['loss_percentage'] <= loss_tolerance:
+                min_rate=(max_rate - min_rate) / 2.0
                 framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, max_rate)
                 
         return framesize_result
