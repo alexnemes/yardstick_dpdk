@@ -171,10 +171,12 @@ output_json()
     sent=$(cat ~/result.log -vT | grep "Tx Pkts" | tail -1 | awk '{match($0,/\[18;20H +[0-9]+/)} {print substr($0,RSTART,RLENGTH)}' | awk '{if ($2 != 0) print $2}')
     received=$(cat ~/result.log -vT | grep "$RANGE" | tail -1 | awk '{match($0,/\[17;40H +[0-9]+/)} {print substr($0,RSTART,RLENGTH)}' | awk '{if ($2 != 0) print $2}')
     result_pps=$(( received / 20 ))
+    packets_lost=$(( sent - received ))
+    loss_percent=$(( 100 * packets_lost / sent ))
     #latency=$(cat ~/result.log -vT | grep "Latency" | tail -1 | awk '{match($0,/\[8;40H +[0-9]+/)} {print substr($0,RSTART,RLENGTH)}' | awk '{if ($2 != 0) print $2}')
     
     #echo '{ "frame_size"':${PKT_SIZE} ,   '"packets_sent"':${sent} , '"packets_received"':${received} , '"packets_per_second"':${result_pps} , '"latency"':${latency}   '}'
-    echo '{ "frame_size"':${PKT_SIZE} ,   '"packets_sent"':${sent} , '"packets_received"':${received} , '"packets_per_second"':${result_pps} '}'
+    echo '{ "frame_size"':${PKT_SIZE} ,   '"packets_sent"':${sent} , '"packets_received"':${received} , '"packets_per_second"':${result_pps} , '"packets_lost"':${packets_lost} , '"loss_percent"':${loss_percent} '}'
 }
 
 main()
