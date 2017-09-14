@@ -244,7 +244,7 @@ cat ~/result.log -vT \
             
             while max_rate - min_rate > 1:
                 iter_rate = (min_rate + max_rate) / 2.0
-                print("running with rate: {}".iter_rate)
+                print("running with rate: {}".format(iter_rate))
                 framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, iter_rate)
                 
                 if framesize_result['loss_percentage'] > loss_tolerance:
