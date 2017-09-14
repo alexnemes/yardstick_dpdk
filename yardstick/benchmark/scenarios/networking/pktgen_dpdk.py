@@ -127,11 +127,10 @@ class PktgenDPDKLatency(base.Scenario):
             return stdout.rstrip()
             
     
-    #@staticmethod
     def run_iteration(testpmd_args, pktgen_args, packetsize, rate):
         iteration_result = {}
-        print("pktgen args: {}".format(self.pktgen_args))
-        print("testPMD args: {}".format(self.testpmd_args))
+        print("pktgen args: {}".format(pktgen_args))
+        print("testPMD args: {}".format(testpmd_args))
 
         cmd_pmd = "screen sudo -E bash ~/testpmd_fwd.sh %s %s %s " % \
                     (testpmd_args[0], testpmd_args[1], testpmd_args[2])
@@ -232,12 +231,12 @@ cat ~/result.log -vT \
 
         return iteration_result
         
-    @classmethod
-    def binary_search(cls, testpmd_args, pktgen_args, packetsize, rate, loss_tolerance):
+
+    def binary_search(self, testpmd_args, pktgen_args, packetsize, rate, loss_tolerance):
         min_rate = 0.1
         max_rate=rate
                 
-        framesize_result = cls.run_iteration(testpmd_args, pktgen_args, packetsize, max_rate)
+        framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, max_rate)
         
         return framesize_result
         
