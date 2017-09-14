@@ -232,12 +232,12 @@ cat ~/result.log -vT \
 
         return iteration_result
         
-    @staticmethod
-    def binary_search(testpmd_args, pktgen_args, packetsize, rate, loss_tolerance):
+    @classmethod
+    def binary_search(cls, testpmd_args, pktgen_args, packetsize, rate, loss_tolerance):
         min_rate = 0.1
         max_rate=rate
                 
-        framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, max_rate)
+        framesize_result = cls.run_iteration(testpmd_args, pktgen_args, packetsize, max_rate)
         
         return framesize_result
         
