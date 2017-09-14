@@ -241,6 +241,7 @@ cat ~/result.log -vT \
         
         if framesize_result['loss_percentage'] > loss_tolerance:
             print("we have loss beyond tolerance, starting binary search")
+            
             while max_rate - min_rate > 1:
                 iter_rate = (min_rate + max_rate) / 2.0
                 print("running with rate: {}".iter_rate)
