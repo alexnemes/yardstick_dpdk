@@ -147,7 +147,7 @@ class PktgenDPDKLatency(base.Scenario):
         time.sleep(5)
         
         LOG.debug("Executing command to start PMD: %s", cmd_pmd)
-        self.server.send_command(cmd1)
+        self.server.send_command(cmd_pmd)
         #self.server.send_command(cmd)
                
         print("PMD launched")
@@ -262,6 +262,9 @@ cat ~/result.log -vT \
 
             self.pktgen_args = [client_src_ip, client_dst_ip,
                                 server_rev_mac, server_send_mac]
+
+        print("class pktgen args: {}".format(self.pktgen_args))
+        print("class testPMD args: {}".format(self.testpmd_args))
 
         options = self.scenario_cfg['options']
         packetsize = options.get("packetsize", 64)
