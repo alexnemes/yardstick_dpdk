@@ -223,6 +223,10 @@ class PktgenDPDKLatency(base.Scenario):
         linerate_percentage = float("{0:.2f}".format(linerate_percentage))
         result.update({"linerate_percentage": linerate_percentage})
         print("result : {}".format(result))
+        
+        loss_percentage = (result['packets_lost'] / float(result['packets_sent'])) * 100
+        result.update({"loss_percentage": loss_percentage})
+        print("result : {}".format(result))
                 
         # wait for finishing test
         time.sleep(1)
