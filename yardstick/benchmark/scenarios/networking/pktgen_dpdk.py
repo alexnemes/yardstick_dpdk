@@ -125,6 +125,122 @@ class PktgenDPDKLatency(base.Scenario):
             raise RuntimeError(stderr)
         else:
             return stdout.rstrip()
+            
+    
+    @staticmethod
+    def run_iteration(testpmd_args, pktgen_args, packetsize, rate):
+        iteration_result = {}
+        print("pktgen args: {}".format(self.pktgen_args))
+        print("testPMD args: {}".format(self.testpmd_args))
+
+        cmd_pmd = "screen sudo -E bash ~/testpmd_fwd.sh %s %s %s " % \
+                    (testpmd_args[0], testpmd_args[1], testpmd_args[2])
+        
+        print("testpmd command: {}".format(cmd_pmd))
+        
+        
+        cmd_pktgen = "sudo -E bash ~/pktgen_dpdk.sh %s %s %s %s %s %s" % \
+            (pktgen_args[0], pktgen_args[1], pktgen_args[2],
+             pktgen_args[3], rate, packetsize)
+             
+        print("pktgen command: {}".format(cmd_pktgen))
+        
+        time.sleep(5)
+        
+        LOG.debug("Executing command to start PMD: %s", cmd_pmd)
+        self.server.send_command(cmd1)
+        #self.server.send_command(cmd)
+               
+        print("PMD launched")
+        time.sleep(5)
+        print("Launching PKTGEN")
+        
+        LOG.debug("Executing command to start PKTGEN: %s", cmd_pktgen)
+        status, stdout, stderr = self.client.execute(cmd_pktgen)
+
+        print("PKTGEN STatus : {}".format(status))
+        print("PKTGEN STDOUT : {}".format(stdout.strip()))
+        print("PKTGEN STDERR : {}".format(stderr))
+
+        if status:
+            # error cause in json dict on stdout
+            raise RuntimeError(stdout)
+        result_output = "{" + stdout.strip().split("{")[1]
+        iteration_result.update(json.loads(result_output))
+        
+        print("Stopping PMD Screen")
+        time.sleep(10)
+
+        print("killing pmd")
+        cmd_pid="ps -eaf | grep SCREEN | grep -v grep | awk '{print $2}'"
+        cmdpid_status, cmdpid_stdout, cmdpid_stderr = self.server.execute(cmd_pid)
+        print(cmdpid_stdout.strip())
+
+        if cmdpid_stdout !=  "":
+            cmd_kill="screen -S " + cmdpid_stdout.strip() + " -X stuff 'command'$(echo -ne \'\\015\')"
+            print("screen stop cmd : {}".format(cmd_kill))
+            print("killing screen PID - " + cmdpid_stdout.strip())
+            cmdkill_status, cmdkill_stdout, cmdkill_stderr = self.server.execute(cmd_kill)
+            time.sleep(2)
+            cmdkill_status, cmdkill_stdout, cmdkill_stderr = self.server.execute(cmd_kill)
+            
+        print("iteration result : {}".format(iteration_result))
+        
+        packets_per_second = result["packets_per_second"]
+        megabits_per_second = packets_per_second * 8 * (packetsize + 20) // 10**6
+        iteration_result.update({"megabits_per_second": megabits_per_second})
+        print("iteration result : {}".format(iteration_result))
+        
+        #for a 10Gbps line
+        linerate_percentage = ( float(bits_per_second) / 10**10 ) * 100
+        linerate_percentage = float("{0:.2f}".format(linerate_percentage))
+        iteration_result.update({"linerate_percentage": linerate_percentage})
+        print("result : {}".format(iteration_result))
+        
+        loss_percentage = (iteration_result['packets_lost'] / float(iteration_result['packets_sent'])) * 100
+        #take only four decimals, to show packets lost per million
+        iteration_result.update({"loss_percentage": float("{0:.4f}".format(loss_percentage))})
+        print("result : {}".format(iteration_result))
+                
+        # wait for finishing test
+        time.sleep(1)
+        
+        cmd_latency = r"""\
+cat ~/result.log -vT \
+|awk '{match($0,/\[8;40H +[0-9]+/)} \
+{print substr($0,RSTART,RLENGTH)}' \
+|grep -v ^$ |awk '{if ($2 != 0) print $2}'\
+"""
+        client_status, client_stdout, client_stderr = self.client.execute(cmd_latency)
+
+        if client_status:
+            raise RuntimeError(client_stderr)
+
+        print("client_stdout : {}".format(client_stdout.split('\n')))
+
+        avg_latency = 0
+        if client_stdout:
+            latency_list = client_stdout.split('\n')[0:-1]
+            print("Latency list length : {}".format(len(latency_list)))
+            LOG.info("Samples of latency: %s", latency_list)
+            latency_sum = 0
+            for i in latency_list:
+                latency_sum += int(i)
+            avg_latency = latency_sum / len(latency_list)
+
+        iteration_result.update({"avg_latency": avg_latency})
+
+        return iteration_result
+        
+    @staticmethod
+    def binary_search(testpmd_args, pktgen_args, packetsize, rate, loss_tolerance):
+        min_rate = 0.1
+        max_rate=rate
+                
+        framesize_result = run_iteration(testpmd_args, pktgen_args, packetsize, max_rate)
+        
+        return framesize_result
+        
 
     def run(self, result):
         """execute the benchmark"""
@@ -148,114 +264,15 @@ class PktgenDPDKLatency(base.Scenario):
             self.pktgen_args = [client_src_ip, client_dst_ip,
                                 server_rev_mac, server_send_mac]
 
-        print("pktgen args: {}".format(self.pktgen_args))
-
         options = self.scenario_cfg['options']
         packetsize = options.get("packetsize", 64)
         rate = options.get("rate", 100)
-        
-        print("testPMD args: {}".format(self.testpmd_args))
+        loss_tolerance=1
 
-        cmd1 = "screen sudo -E bash ~/testpmd_fwd.sh %s %s %s " % \
-                    (self.testpmd_args[0], 
-                    self.testpmd_args[1], 
-                    self.testpmd_args[2])
+        result = binary_search(self.testpmd_args, self.pktgen_args, packetsize, rate, loss_tolerance)
+         
         
-        print("testpmd command: {}".format(cmd1))
-        
-        
-        cmd2 = "sudo -E bash ~/pktgen_dpdk.sh %s %s %s %s %s %s" % \
-            (self.pktgen_args[0], self.pktgen_args[1], self.pktgen_args[2],
-             self.pktgen_args[3], rate, packetsize)
-             
-        print("pktgen command: {}".format(cmd2))
-        
-        time.sleep(5)
-        
-        LOG.debug("Executing command to start PMD: %s", cmd1)
-        self.server.send_command(cmd1)
-        #self.server.send_command(cmd)
-               
-        print("PMD launched")
-        time.sleep(5)
-        print("Launching PKTGEN")
-        
-        LOG.debug("Executing command to start PKTGEN: %s", cmd2)
-        status, stdout, stderr = self.client.execute(cmd2)
-        #self.client.send_command(cmd)
-
-        print("PKTGEN STatus : {}".format(status))
-        print("PKTGEN STDOUT : {}".format(stdout.strip()))
-        print("PKTGEN STDERR : {}".format(stderr))
-
-        if status:
-            # error cause in json dict on stdout
-            raise RuntimeError(stdout)
-        result_output = "{" + stdout.strip().split("{")[1]
-        result.update(json.loads(result_output))
-        
-        print("Stopping PMD Screen")
-        time.sleep(10)
-                
-        print("killing pmd")
-        cmd_pid="ps -eaf | grep SCREEN | grep -v grep | awk '{print $2}'"
-        cmdpid_status, cmdpid_stdout, cmdpid_stderr = self.server.execute(cmd_pid)
-        print(cmdpid_stdout.strip())
-
-        if cmdpid_stdout !=  "":
-            cmd_kill="screen -S " + cmdpid_stdout.strip() + " -X stuff 'command'$(echo -ne \'\\015\')"
-            print("screen stop cmd : {}".format(cmd_kill))
-            print("killing screen PID - " + cmdpid_stdout.strip())
-            cmdkill_status, cmdkill_stdout, cmdkill_stderr = self.server.execute(cmd_kill)
-            time.sleep(2)
-            cmdkill_status, cmdkill_stdout, cmdkill_stderr = self.server.execute(cmd_kill)
-
-
-        print("result : {}".format(result))
-        
-        packets_per_second = result["packets_per_second"]
-        bits_per_second = packets_per_second * 8 * (packetsize + 20)
-        result.update({"bits_per_second": bits_per_second})
-        print("result : {}".format(result))
-        
-        #for a 10Gbps line
-        linerate_percentage = ( float(bits_per_second) / 10**10 ) * 100
-        linerate_percentage = float("{0:.2f}".format(linerate_percentage))
-        result.update({"linerate_percentage": linerate_percentage})
-        print("result : {}".format(result))
-        
-        loss_percentage = (result['packets_lost'] / float(result['packets_sent'])) * 100
-        #take only four decimals, to show packets lost per million
-        result.update({"loss_percentage": float("{0:.4f}".format(loss_percentage))})
-        print("result : {}".format(result))
-                
-        # wait for finishing test
-        time.sleep(1)
-
-        cmd = r"""\
-cat ~/result.log -vT \
-|awk '{match($0,/\[8;40H +[0-9]+/)} \
-{print substr($0,RSTART,RLENGTH)}' \
-|grep -v ^$ |awk '{if ($2 != 0) print $2}'\
-"""
-        client_status, client_stdout, client_stderr = self.client.execute(cmd)
-
-        if client_status:
-            raise RuntimeError(client_stderr)
-
-        print("client_stdout : {}".format(client_stdout.split('\n')))
-
-        avg_latency = 0
-        if client_stdout:
-            latency_list = client_stdout.split('\n')[0:-1]
-            print("Latency list length : {}".format(len(latency_list)))
-            LOG.info("Samples of latency: %s", latency_list)
-            latency_sum = 0
-            for i in latency_list:
-                latency_sum += int(i)
-            avg_latency = latency_sum / len(latency_list)
-
-        result.update({"avg_latency": avg_latency})
+        avg_latency = result['avg_latency']
 
         if avg_latency and "sla" in self.scenario_cfg:
             sla_max_latency = int(self.scenario_cfg["sla"]["max_latency"])
