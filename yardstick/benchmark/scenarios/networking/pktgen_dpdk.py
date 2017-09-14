@@ -239,17 +239,26 @@ cat ~/result.log -vT \
                 
         framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, max_rate)
         
-        while max_rate - min_rate > 1:
-            iter_rate = (min_rate + max_rate) / 2.0
-            if framesize_result['loss_percentage'] > loss_tolerance:
-                
-                max_rate=(max_rate - min_rate) / 2.0
+        if framesize_result['loss_percentage'] > loss_tolerance:
+            print("we have loss beyond tolerance, starting binary search")
+            while max_rate - min_rate > 1:
+                iter_rate = (min_rate + max_rate) / 2.0
+                print("running with rate: {}".iter_rate)
                 framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, iter_rate)
                 
-            elif framesize_result['loss_percentage'] <= loss_tolerance:
-                min_rate=(max_rate - min_rate) / 2.0
-                framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, iter_rate)
-                
+                if framesize_result['loss_percentage'] > loss_tolerance:
+                    print("loss {} > tolerance {}, going down".format(framesize_result['loss_percentage'], loss_tolerance)
+                    
+                    max_rate=(max_rate - min_rate) / 2.0
+                    print("min rate : {}, max_rate : {}".format(min_rate, max_rate))
+                    
+                    
+                elif framesize_result['loss_percentage'] <= loss_tolerance:
+                    print("loss {} <= tolerance {}, going up".format(framesize_result['loss_percentage'], loss_tolerance)
+                    
+                    min_rate=(max_rate - min_rate) / 2.0
+                    print("min rate : {}, max_rate : {}".format(min_rate, max_rate))
+                                
         return framesize_result
         
 
