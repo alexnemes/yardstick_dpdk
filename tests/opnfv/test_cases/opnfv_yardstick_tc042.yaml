@@ -14,7 +14,8 @@ description: >
     Measure network latency using testpmd and pktgen-dpdk.
 
 scenarios:
-{% for pkt_size in [64,128,256,512,1024,1280,1518] %}
+#{% for pkt_size in [64,128,256,512,1024,1280,1518] %}
+{% for pkt_size in [64,1024] %}
 -
   type: PktgenDPDKLatency
   options:
