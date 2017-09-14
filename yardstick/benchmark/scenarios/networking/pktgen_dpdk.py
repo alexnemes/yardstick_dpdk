@@ -239,6 +239,16 @@ cat ~/result.log -vT \
                 
         framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, max_rate)
         
+        while max_rate - min_rate > 1:
+            if framesize_result['loss_percentage'] > loss_tolerance:
+                
+                max_rate=(max_rate - min_rate) / 2.0
+                framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, max_rate)
+                
+            elif framesize_result['loss_percentage'] < loss_tolerance:
+                min_rate=(max_rate - min_rate) / 2/0
+                framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, max_rate)
+                
         return framesize_result
         
 
@@ -270,7 +280,7 @@ cat ~/result.log -vT \
         options = self.scenario_cfg['options']
         packetsize = options.get("packetsize", 64)
         rate = options.get("rate", 100)
-        loss_tolerance=1
+        loss_tolerance=0.1 #less than one packet in a thousand
 
         result.update(self.binary_search(self.testpmd_args, self.pktgen_args, packetsize, rate, loss_tolerance))
         print("Frame Size {} result : {}".format(packetsize, result))
