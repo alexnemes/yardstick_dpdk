@@ -237,7 +237,7 @@ cat ~/result.log -vT \
         min_rate = 0.1
         max_rate=rate
                 
-        framesize_result = run_iteration(testpmd_args, pktgen_args, packetsize, max_rate)
+        framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, max_rate)
         
         return framesize_result
         
@@ -269,7 +269,7 @@ cat ~/result.log -vT \
         rate = options.get("rate", 100)
         loss_tolerance=1
 
-        result = binary_search(self.testpmd_args, self.pktgen_args, packetsize, rate, loss_tolerance)
+        result = self.binary_search(self.testpmd_args, self.pktgen_args, packetsize, rate, loss_tolerance)
          
         
         avg_latency = result['avg_latency']
