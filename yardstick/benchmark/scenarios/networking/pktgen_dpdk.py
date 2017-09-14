@@ -248,14 +248,14 @@ cat ~/result.log -vT \
                 framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, iter_rate)
                 
                 if framesize_result['loss_percentage'] > loss_tolerance:
-                    print("loss {} > tolerance {}, going down".format(framesize_result['loss_percentage'], loss_tolerance)
+                    print("loss {} > tolerance {}, going down".format(framesize_result['loss_percentage'], loss_tolerance))
                     
                     max_rate=(max_rate - min_rate) / 2.0
                     print("min rate : {}, max_rate : {}".format(min_rate, max_rate))
                     
                     
                 elif framesize_result['loss_percentage'] <= loss_tolerance:
-                    print("loss {} <= tolerance {}, going up".format(framesize_result['loss_percentage'], loss_tolerance)
+                    print("loss {} <= tolerance {}, going up".format(framesize_result['loss_percentage'], loss_tolerance))
                     
                     min_rate=(max_rate - min_rate) / 2.0
                     print("min rate : {}, max_rate : {}".format(min_rate, max_rate))
