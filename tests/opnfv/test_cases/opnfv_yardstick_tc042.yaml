@@ -12,10 +12,10 @@ schema: "yardstick:task:0.1"
 description: >
     Yardstick TC042 config file;
     Measure network latency using testpmd and pktgen-dpdk.
-    #{% for pkt_size in [64,128,256,512,1024,1280,1518] %}
+    ,128,256,512,1024,1280,1518
 
 scenarios:
-{% for pkt_size in [64,1024] %}
+{% for pkt_size in [64] %}
 -
   type: PktgenDPDKLatency
   options:
