@@ -127,7 +127,7 @@ class PktgenDPDKLatency(base.Scenario):
             return stdout.rstrip()
             
     
-    def run_iteration(testpmd_args, pktgen_args, packetsize, rate):
+    def run_iteration(self, testpmd_args, pktgen_args, packetsize, rate):
         iteration_result = {}
         print("pktgen args: {}".format(pktgen_args))
         print("testPMD args: {}".format(testpmd_args))
