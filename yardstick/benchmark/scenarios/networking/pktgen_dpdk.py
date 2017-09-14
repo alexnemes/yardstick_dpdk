@@ -185,7 +185,7 @@ class PktgenDPDKLatency(base.Scenario):
             
         print("iteration result : {}".format(iteration_result))
         
-        packets_per_second = result["packets_per_second"]
+        packets_per_second = iteration_result["packets_per_second"]
         megabits_per_second = packets_per_second * 8 * (packetsize + 20) // 10**6
         iteration_result.update({"megabits_per_second": megabits_per_second})
         print("iteration result : {}".format(iteration_result))
