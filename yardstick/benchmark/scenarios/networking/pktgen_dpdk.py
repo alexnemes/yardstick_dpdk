@@ -273,7 +273,7 @@ cat ~/result.log -vT \
         loss_tolerance=1
 
         result = self.binary_search(self.testpmd_args, self.pktgen_args, packetsize, rate, loss_tolerance)
-         
+        print("Frame Size {} result : {}".format(packetsize, result)) 
         
         avg_latency = result['avg_latency']
 
