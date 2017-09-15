@@ -21,17 +21,17 @@ PKT_SIZE=$6       # packet size
 DPDK_DIR=/dpdk
 
 if (( ${PKT_SIZE} == 64 )); then
-        RANGE="64 Bytes"
+        RANGE="64 Bytes";POSITION=9
 elif (( ${PKT_SIZE} > 64 )) && (( ${PKT_SIZE} <= 127 )); then
-        RANGE="65-127"
+        RANGE="65-127";POSITION=10
 elif (( ${PKT_SIZE} > 127 )) && (( ${PKT_SIZE} <= 225 )); then
-        RANGE="128-255"
+        RANGE="128-255";POSITION=11
 elif (( ${PKT_SIZE} >  255)) && (( ${PKT_SIZE} <= 511 )); then
-        RANGE="256-511"
+        RANGE="256-511";POSITION=12
 elif (( ${PKT_SIZE} > 511 )) && (( ${PKT_SIZE} <= 1023 )); then
-        RANGE="512-1023"
+        RANGE="512-1023";POSITION=13
 elif (( ${PKT_SIZE} > 1023 )) && (( ${PKT_SIZE} <= 1518 )); then
-        RANGE="1024-1518"
+        RANGE="1024-1518";POSITION=14
 fi
 
 load_modules()
@@ -170,7 +170,7 @@ output_json()
     result_pps=0
 
     sent=$(cat ~/result.log -vT | grep "Tx Pkts" | tail -1 | awk '{match($0,/\[18;20H +[0-9]+/)} {print substr($0,RSTART,RLENGTH)}' | awk '{if ($2 != 0) print $2}')
-    received=$(cat ~/result.log -vT | grep "$RANGE" | tail -1 | awk '{match($0,/\[17;40H +[0-9]+/)} {print substr($0,RSTART,RLENGTH)}' | awk '{if ($2 != 0) print $2}')
+    received=$(cat ~/result.log -vT | grep "$RANGE" | tail -1 | awk '{match($0,/\['$POSITION';40H +[0-9]+/)} {print substr($0,RSTART,RLENGTH)}' | awk '{if ($2 != 0) print $2}')
     result_pps=$(( received / 20 ))
     packets_lost=$(( sent - received ))
     #latency=$(cat ~/result.log -vT | grep "Latency" | tail -1 | awk '{match($0,/\[8;40H +[0-9]+/)} {print substr($0,RSTART,RLENGTH)}' | awk '{if ($2 != 0) print $2}')
