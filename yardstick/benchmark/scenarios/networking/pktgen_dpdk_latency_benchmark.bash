@@ -150,6 +150,7 @@ free_interfaces()
     sleep 3
     ifconfig ens4 up
     ifconfig ens5 up
+    sleep 2
     dhclient ens4 &> /dev/null
     dhclient ens5 &> /dev/null
 }
