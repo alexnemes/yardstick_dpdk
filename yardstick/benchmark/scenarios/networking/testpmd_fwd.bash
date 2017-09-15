@@ -18,6 +18,10 @@ PING_DST2=$3      # second destinatin for ping, from PMD VM to PKTGEN VM
 
 DPDK_DIR=/dpdk
 
+pid=`ps -eaf | grep SCREEN | grep -v grep | awk '{print $2}'`
+echo $pid
+
+
 ping_vm()
 {
     ping -c 2 ${PING_DST1}
