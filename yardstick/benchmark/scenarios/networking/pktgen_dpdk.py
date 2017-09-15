@@ -160,6 +160,7 @@ class PktgenDPDKLatency(base.Scenario):
         print("PKTGEN STatus : {}".format(status))
         print("PKTGEN STDOUT : {}".format(stdout.strip()))
         print("PKTGEN STDERR : {}".format(stderr))
+        time.sleep(5)
 
         if status:
             # error cause in json dict on stdout
