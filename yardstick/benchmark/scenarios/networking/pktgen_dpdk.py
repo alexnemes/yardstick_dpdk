@@ -291,7 +291,7 @@ cat ~/result.log -vT \
             client_src_ip = self.get_port_ip(self.client, 'ens4').strip()
             client_dst_ip = self.get_port_ip(self.client, 'ens5').strip()
             client_ens4_ip = client_src_ip
-            client_ens4_ip = client_dst_ip
+            client_ens5_ip = client_dst_ip
             self.pktgen_args = [client_src_ip, client_dst_ip,
                                 server_rev_mac, server_send_mac,
                                 client_ens4_ip, client_ens5_ip]
