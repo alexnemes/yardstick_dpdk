@@ -294,7 +294,7 @@ cat ~/result.log -vT \
             client_ens4_ip = client_dst_ip
             self.pktgen_args = [client_src_ip, client_dst_ip,
                                 server_rev_mac, server_send_mac,
-                                client_ens4_ip, client_ens4_ip]
+                                client_ens4_ip, client_ens5_ip]
 
         print("class pktgen args: {}".format(self.pktgen_args))
         print("class testPMD args: {}".format(self.testpmd_args))
