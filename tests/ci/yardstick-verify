@@ -44,7 +44,7 @@ EOF
 DISPATCHER_TYPE=influxdb
 DISPATCHER_FILE_NAME="/tmp/yardstick.out"
 DISPATCHER_HTTP_TARGET="http://testresults.opnfv.org/test/api/v1/results"
-DISPATCHER_INFLUXDB_TARGET=http://10.0.100.7
+DISPATCHER_INFLUXDB_TARGET=http://10.0.100.7:3000
 REPORTING_TARGET="${DISPATCHER_HTTP_TARGET}"
 
 while getopts "r:i:m:h" OPTION; do
@@ -169,8 +169,8 @@ target = ${DISPATCHER_HTTP_TARGET}
 timeout = 5
 target = ${DISPATCHER_INFLUXDB_TARGET}
 db_name = yardstick
-username = opnfv
-password = 0pnfv2015
+username = admin
+password = admin
 EOF
 
     local failed=0
