@@ -169,8 +169,8 @@ target = ${DISPATCHER_HTTP_TARGET}
 timeout = 5
 target = ${DISPATCHER_INFLUXDB_TARGET}
 db_name = yardstick
-username = admin
-password = admin
+username = opnfv
+password = 0pnfv2015
 EOF
 
     local failed=0
