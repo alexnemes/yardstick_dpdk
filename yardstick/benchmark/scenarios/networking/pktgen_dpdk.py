@@ -302,7 +302,7 @@ cat ~/result.log -vT \
         options = self.scenario_cfg['options']
         packetsize = options.get("packetsize", 64)
         rate = options.get("rate", 100)
-        loss_tolerance=0.05
+        loss_tolerance = options.get("loss_tolerance", 0.05)
 
         result.update(self.binary_search(self.testpmd_args, self.pktgen_args, packetsize, rate, loss_tolerance))
         print("Frame Size {} result : {}".format(packetsize, result))
