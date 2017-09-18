@@ -237,36 +237,29 @@ cat ~/result.log -vT \
 
 
     def binary_search(self, testpmd_args, pktgen_args, packetsize, rate, loss_tolerance):
-        min_rate = 0
         max_rate=rate
         iter_rate=max_rate
 
-        if framesize_result['loss_percentage'] > loss_tolerance:
-            print("we have loss beyond tolerance, starting binary search")
+        while max_rate - iter_rate > 0.1:
             
-            while max_rate - iter_rate > 0.1:
+            print("running with rate: {}".format(iter_rate))
+            framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, iter_rate)
+            
+            if framesize_result['loss_percentage'] > loss_tolerance:
+                print("loss {} > tolerance {}, going down".format(framesize_result['loss_percentage'], loss_tolerance))
                 
-                print("running with rate: {}".format(iter_rate))
-                framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, iter_rate)
+                iter_rate = iter_rate / 2.0
+                print("iter rate : {}, max_rate : {}".format(iter_rate, max_rate))
                 
-                if framesize_result['loss_percentage'] > loss_tolerance:
-                    print("loss {} > tolerance {}, going down".format(framesize_result['loss_percentage'], loss_tolerance))
-                    
-                    iter_rate = iter_rate / 2.0
-                    print("iter rate : {}, max_rate : {}".format(iter_rate, max_rate))
-                    
-                    
-                elif framesize_result['loss_percentage'] <= loss_tolerance:
-                    print("loss {} <= tolerance {}, going up".format(framesize_result['loss_percentage'], loss_tolerance))
-                    
-                    iter_rate=(max_rate + iter_rate) / 2.0
-                    print("iter rate : {}, max_rate : {}".format(iter_rate, max_rate))
-                      
-        else:
-            print("loss within tolerance")
-        
+                
+            elif framesize_result['loss_percentage'] <= loss_tolerance:
+                print("loss {} <= tolerance {}, going up".format(framesize_result['loss_percentage'], loss_tolerance))
+                
+                iter_rate=(max_rate + iter_rate) / 2.0
+                print("iter rate : {}, max_rate : {}".format(iter_rate, max_rate))
+
         return framesize_result
-        
+
 
     def run(self, result):
         """execute the benchmark"""
