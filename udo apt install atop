@@ -1,0 +1,777 @@
+[33mcommit 19565ad25921cb4a667aa6fa37b1d80fb4f4394b[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 11:10:30 2017 +0300
+
+    debugging
+
+[33mcommit be6d1db01bd22da151e53e13a267d249e6936fdf[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 15 16:34:47 2017 +0300
+
+    debugging
+
+[33mcommit b18c57d68d4a77923f52d0da9799fbd70f388dd8[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 15 15:42:02 2017 +0300
+
+    tol 0
+
+[33mcommit 2d990f5dafb8bd02bf0e39f3fcbef528bca78932[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 15 12:35:08 2017 +0300
+
+    binary search a
+
+[33mcommit d5c538e60c41aae184e9180eb84c6794054fed26[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 15 12:29:55 2017 +0300
+
+    binary search a
+
+[33mcommit c2a41416d61b06b8133b0768aabea2126604a7c7[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 18:22:22 2017 +0300
+
+    binary search a
+
+[33mcommit 9966971b3d2cb2b7552bec2d11859bf2a20a19de[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 18:19:00 2017 +0300
+
+    binary search a
+
+[33mcommit 768da85557262631456339794a5965c1ce3f1b7a[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 18:18:15 2017 +0300
+
+    binary search a
+
+[33mcommit 3d8cf5d8e7607e2fb89659ee252e4ae6e69dbf47[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 18:11:01 2017 +0300
+
+    binary search a
+
+[33mcommit 347d6fac5aba40aa8d44e499ccc6bd896d1d01c5[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 18:01:32 2017 +0300
+
+    binary search a
+
+[33mcommit 91c0126c8a6a834c5d97f7383a6646d0f3f04073[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 18:00:46 2017 +0300
+
+    binary search a
+
+[33mcommit a306c6302acffcff32d59bc3a3c1e92cef1737d1[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 17:42:07 2017 +0300
+
+    binary search a
+
+[33mcommit fe150183bce3e5cd12b66c374f464bc882e70a15[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 17:37:00 2017 +0300
+
+    binary search a
+
+[33mcommit 9fa8ce74892a84f826e4b838d3ba93a0c443f54f[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 17:23:28 2017 +0300
+
+    binary search a
+
+[33mcommit 34d7700dedcb106565eb2d23a503b5317e98fa2e[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 17:17:02 2017 +0300
+
+    binary search a
+
+[33mcommit 3be1a9b2e300a22fea5431374fb67954bc2bdf0f[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 17:05:12 2017 +0300
+
+    binary search a
+
+[33mcommit f91ae654a1b2a622e439c8ee032bfd2711fa364c[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 16:46:31 2017 +0300
+
+    binary search a
+
+[33mcommit 34ef9783bb810f473eb697e84011b28dca359f2b[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 16:41:26 2017 +0300
+
+    binary search a
+
+[33mcommit 59d49d28fb4d88773e90c981e90512a00a5b9fc3[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 16:37:18 2017 +0300
+
+    binary search a
+
+[33mcommit 2a18b0c2445033ad15d56ee809e718094d0582d4[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 16:33:43 2017 +0300
+
+    binary search a
+
+[33mcommit a382fcc94a8ceffc92ff14d107710558c5c5f980[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 16:29:38 2017 +0300
+
+    binary search a
+
+[33mcommit bb0b951b375d6e41f149fd9d8ac594f64726f2d6[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 16:23:00 2017 +0300
+
+    binary search a
+
+[33mcommit 3d5d4d4bab8e68c6792d3912d95de5acffde2444[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 15:23:04 2017 +0300
+
+    binary search a
+
+[33mcommit 4bfb8a20bc09bf67110c107c1cc13958b1d0c0c5[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 15:11:08 2017 +0300
+
+    binary search a
+
+[33mcommit 868a670243f288f136bf6c69fe3edaa6c00139af[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 15:06:29 2017 +0300
+
+    binary search a
+
+[33mcommit fe4fa4c0aa6e04cb79044d9ba3397a5bfba63f70[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 15:01:44 2017 +0300
+
+    binary search a
+
+[33mcommit 620f9bcf52a4e4627fed896a411ca18fbe7101e6[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 14:58:30 2017 +0300
+
+    binary search a
+
+[33mcommit 18c38d4248c6403f4ee9e24bf46f33d1e6104728[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 12:07:11 2017 +0300
+
+    binary search
+
+[33mcommit 91c300ff9afef12ef0cdec39c9a136abefedce46[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 12:02:29 2017 +0300
+
+    binary search
+
+[33mcommit 7bc190fcd84b9d9d2ce1865d7b34300008c80a97[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 13 14:57:18 2017 +0300
+
+    throughtput vs linerate
+
+[33mcommit fc1728a71cc7f799c3bb88c8ea8497a2e8899cc5[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 13 14:40:12 2017 +0300
+
+    throughtput vs linerate
+
+[33mcommit 8c59fb3e2d0affedf73a356f73f9cbd78fa2db63[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 13 14:36:35 2017 +0300
+
+    throughtput vs linerate
+
+[33mcommit 708a60aa34336110e6bad016b28ea4f236f750dd[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 13 14:23:49 2017 +0300
+
+    throughtput vs linerate
+
+[33mcommit 7d0e82d17e646fbd9753924d0d769a4fdfefd8bb[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 18:20:00 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit 60e83142343b37cf2ae51abc1008f6dbe898d985[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 17:31:37 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit 8f58a988f0cad07dce4dddef4c43436921ebf921[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 16:59:04 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit c66c087c2eda48835b4bfeb16740827b3c67ef58[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 16:51:38 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit c1a6ee513915d70ecff7e73611d06caaf43d715d[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 16:25:03 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit 7b8b06702c0b2c669b62aacf2372ddd826142ccf[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 16:17:35 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit 8ca25fd08bea1bfb3b8667bfff459c34f29f4060[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 16:09:02 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit fba5813a0d32ad8612b0a253d451325c0393c814[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 16:03:03 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit 3899b67fdc9b07b5bb9dd4b317f47130fe60fa6b[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 15:59:38 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit ff68631c622c22e795f6d98d8b3cf70819d4dd87[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 15:56:27 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit 7f07f62420249df8ec47595285a0107f12b5755d[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 15:53:33 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit 520cb2a98fec6b567f03fc24af41fdcf00158f2b[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 15:47:05 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit 287df3eb7ded234f35beab5ac55f62ae1722d229[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 15:37:06 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit f2651fdfa2bd8be0baa02f1e1f95c7a261de36c6[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 15:04:51 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit 83b787fbf6bba4160eb885a289ef68ca5258015b[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 14:48:36 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit 23fb8aaa8d457d1ea4b817ef991507991e8fa956[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 11:19:28 2017 +0300
+
+    frame sizes and kill pmd
+
+[33mcommit 972be777258402deb148b26812c4a564721f5faf[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 11:13:32 2017 +0300
+
+    frame sizes and kill pmd
+
+[33mcommit 022be6be703743a20986a0204857a47d27a26b7f[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 11:09:11 2017 +0300
+
+    frame sizes and kill pmd
+
+[33mcommit 54763c2758f8540c4eec5a12c0553efba09cc35e[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 11:00:55 2017 +0300
+
+    frame sizes and kill pmd
+
+[33mcommit a919d2429486e15657908c010ecb02e2715ad712[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 10:50:55 2017 +0300
+
+    frame sizes and kill pmd
+
+[33mcommit f55a0a7e8b11503aeb2d822fea7a99d0aed401d6[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 10:17:51 2017 +0300
+
+    frame sizes and kill pmd
+
+[33mcommit 906ec8542c51873329b94cf1bb4f14055152701b[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 10:07:12 2017 +0300
+
+    frame sizes and kill pmd
+
+[33mcommit 3c98d61c0ce752859303a56c7dce86e6c5e39844[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 19:32:45 2017 +0300
+
+    latency data
+
+[33mcommit 866956050c5f59fc9c0162b4a61e3d54cb6fe9d4[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 19:30:28 2017 +0300
+
+    latency data
+
+[33mcommit 0f8545d392fbcd60cda957ece8db152d9eead557[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 19:26:24 2017 +0300
+
+    latency data
+
+[33mcommit 24e202ca870185e4c4e2a43b028d61af1bd10f18[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 19:24:38 2017 +0300
+
+    latency data
+
+[33mcommit f4f18f29704c768e170dfebe91947597a5523487[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 18:19:29 2017 +0300
+
+    latency data
+
+[33mcommit 0a4124804bf2847a3dd0c7cad09e2b1d39a2f8ad[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 18:15:41 2017 +0300
+
+    latency data
+
+[33mcommit 26b6ffdccf9bbab144ed4e53869da5f1c2b387bd[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 18:11:47 2017 +0300
+
+    latency data
+
+[33mcommit 6f63fab99036cc30404bdab7070a8642dab5073c[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 17:46:55 2017 +0300
+
+    latency data
+
+[33mcommit 32c9bc334ff4d2fea32cc48d79931df2de19b426[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 17:33:57 2017 +0300
+
+    latency data
+
+[33mcommit f4960db438db5ab40d72bc7bd977a3932cdf5020[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 17:27:02 2017 +0300
+
+    latency data
+
+[33mcommit 50c43b8a220d62e58dc8a49b4e6e739ab2085dd2[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 15:15:18 2017 +0300
+
+    latency data
+
+[33mcommit 98ea1e7919eb5f10edb9b7ba892f959a6c4e4540[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 19:26:11 2017 +0300
+
+    debugging
+
+[33mcommit d0752b43ab22e312c1f36c68c5d5d8b4cfb8d4d9[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 18:38:23 2017 +0300
+
+    debugging
+
+[33mcommit 22e54f34a05efe270a54f3ff703c64ccf01c2376[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 18:29:07 2017 +0300
+
+    debugging
+
+[33mcommit 9697461943955e5db8ffc17d7cb7bf69a3c9cfef[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 18:20:22 2017 +0300
+
+    debugging
+
+[33mcommit d7ed82364305230234f7840d04bf98a0d5de8a24[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 18:14:37 2017 +0300
+
+    debugging
+
+[33mcommit e10b820af8ae0ebf3eee4dbf557998b14be1958f[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 18:04:08 2017 +0300
+
+    debugging
+
+[33mcommit f276d4763308894a0c42c9210af95e0cd7f61521[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 17:59:23 2017 +0300
+
+    results processing
+
+[33mcommit 1dfac81dccd356353cb116acca765f059f98d237[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 17:50:44 2017 +0300
+
+    results processing
+
+[33mcommit c40133a006ab160d01cd7feaefcf28ca2855dca4[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 16:39:55 2017 +0300
+
+    results processing
+
+[33mcommit f56d82fad53eea4af673c015fc0c487a4a5edb75[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 16:32:06 2017 +0300
+
+    results processing
+
+[33mcommit c2e94d6f9bc45ddf242e20ba5100efb5348ca469[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 16:26:25 2017 +0300
+
+    results processing
+
+[33mcommit 43be5381b87ca38142df09e6bbcadde4ae541fd8[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 7 17:03:25 2017 +0300
+
+    move ping on pmd machine
+
+[33mcommit 5cd64f89b47a4d16339431f1a8c81c41ba18bdc1[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 7 16:59:13 2017 +0300
+
+    move ping on pmd machine
+
+[33mcommit 7eb86c5647e22c1039f7835f46dcdb4125913b66[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 7 16:42:19 2017 +0300
+
+    initial ping for flow creation
+
+[33mcommit a802d731c35b46dbced42507bf8583d25b185120[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 4 16:11:28 2017 +0300
+
+    debug dekete
+
+[33mcommit 30403d1fa245056691173637d00a5615ded2f7b1[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 4 16:06:09 2017 +0300
+
+    debug dekete
+
+[33mcommit 594cc6e7b737b18ebe4a0e6de2601f3cd45778e5[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 4 16:03:35 2017 +0300
+
+    debug dekete
+
+[33mcommit be2a3254adb322e707de2d7ac148bff8e3a4bd1e[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 4 16:01:34 2017 +0300
+
+    debug dekete
+
+[33mcommit 17d6c3520d8d815556b12e527662e5fcfa93a522[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 4 15:58:54 2017 +0300
+
+    debug dekete
+
+[33mcommit 089f1c72d295c022282f610a5b746ea4f5abd786[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 31 16:59:46 2017 +0300
+
+    update flavor for dedicated cpu
+
+[33mcommit 2559c06a155f5c8d16e2a822f2417fa822a8dfdd[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 31 16:17:53 2017 +0300
+
+    workaround for port security anti-spoofing iptables rules
+
+[33mcommit a522451a2a98018f274acf9b84713b00613d92fa[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 31 16:13:18 2017 +0300
+
+    workaround for port security anti-spoofing iptables rules
+
+[33mcommit 8b704df7c534e16e89771900ffeb156d29848533[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 31 15:20:17 2017 +0300
+
+    workaround for port security anti-spoofing iptables rules
+
+[33mcommit de28e25572a21313783eab4c1d38159d6162042e[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 31 15:10:43 2017 +0300
+
+    workaround for port security anti-spoofing iptables rules
+
+[33mcommit 9e9c9d0b797d07dee131ce0a7e60e73ff2355f73[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Aug 22 18:41:34 2017 +0300
+
+    debugging
+
+[33mcommit 54c972d695d4df0c5afa2eda84802d8aa40491c8[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 21 17:24:54 2017 +0300
+
+    no screen options
+
+[33mcommit 39a663390fb6fc083dc6f8d02c42d6aa87da1740[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 21 17:12:31 2017 +0300
+
+    screen options
+
+[33mcommit d24e53124370b8323264ab4f59112ee401c0665f[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 21 17:06:28 2017 +0300
+
+    change command execution mode
+
+[33mcommit a90b86da8bf3530b577e9417de2b86c128fd8174[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 21 16:33:46 2017 +0300
+
+    expect is needed
+
+[33mcommit e1cdcb5c77601449e59066558c90cc141b03bc87[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 21 14:43:09 2017 +0300
+
+    python script debug printing
+
+[33mcommit fc87834fcc26e35704da1d5047d5bdf482a2fc3e[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 21 14:33:49 2017 +0300
+
+    test scripts corrections
+
+[33mcommit eb9702bc74bb318ac0069eb672b1ca13c770892f[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 17 17:56:49 2017 +0300
+
+    debugging
+
+[33mcommit 150481286dcf3c3c1fedd8213070cff48e5ad61d[m
+Author: Ross Brattain <ross.b.brattain@intel.com>
+Date:   Wed Mar 1 17:28:46 2017 -0800
+
+    standardize ssh auth
+    
+    we need to be following defautl paramiko rules,
+    first use pkey, then key_filenames (autodetecting ~/.ssh/ keys),
+    then password
+    
+    We have too much boilerplate redudant code everywhere, we need
+    to standardize on a factory function that takes a node dict.
+    
+    Using Python3 ChainMap we can layer overrides and defaults.
+    
+    VNF descriptors have to default key_filename, password to Python None.
+    The only way to do this is to omit key values if the variable is not
+    defined, this way the dict will not have the value and it will
+    default to Python None
+    
+    Add python2 chainmap backport
+    
+    Updated unittest mocking to use ssh.SSH.from_node
+    
+    Change-Id: I80b0cb606e593b33e317c9e5e8ed0b74da591514
+    Signed-off-by: Ross Brattain <ross.b.brattain@intel.com>
+    (cherry picked from commit 99abbb424007da2e01762f3c040a39c0157cbe1f)
+
+[33mcommit f4f7104e942988e6cf294c3ad80d1a96dc051aaa[m
+Author: Ross Brattain <ross.b.brattain@intel.com>
+Date:   Mon Apr 3 23:46:51 2017 -0700
+
+    cyclictest: use raw strings to escape \[8
+    
+    Change-Id: I36d93eacab2470f90af5653104ad5c07853411bf
+    Signed-off-by: Ross Brattain <ross.b.brattain@intel.com>
+    (cherry picked from commit 4a16c5c592f48953d0b6678376f540b54135d51c)
+
+[33mcommit fa3afbcac13e1aa3ae9cc2977dcb4cd882112f6f[m
+Author: chenjiankun <chenjiankun1@huawei.com>
+Date:   Mon Jan 16 09:17:48 2017 +0000
+
+    Use """ to replace ''' in docstring
+    
+    JIRA: YARDSTICK-525
+    
+    For consistency, we always use """triple double quotes""" around
+    docstrings.
+    
+    Change-Id: I47a20bbd8b55bc544b4841ea4006929af0a044ac
+    Signed-off-by: chenjiankun <chenjiankun1@huawei.com>
+
+[33mcommit f036e9898a69f5041f9cde02e3652c29e2de1643[m
+Author: Ross Brattain <ross.b.brattain@intel.com>
+Date:   Mon Dec 5 16:11:54 2016 -0500
+
+    Add support for Python 3
+    
+    Porting to Python3 using Openstack guidelines:
+    https://wiki.openstack.org/wiki/Python3
+    
+    This passes unittests on Python 3.5 and passes opnfv_smoke suite
+    
+    Updates:
+       use six for urlparse and urlopen
+       fix exception.message attribute removal
+       run unittests on python3
+       use unitest.mock on python 3
+       fix open mock for vsperf
+       fix float division by using delta/eplison comparison
+       use unicode in StringIO
+       use plugin/sample_config.yaml relative path from test case
+       fixed apexlake unittests
+       upgraded to mock 2.0.0 to match python3 unittest.mock features
+       fixed flake8 issues
+       implement safe JSON decode with oslo_serialization.jsonutils.dump_as_bytes()
+       implement safe unicode encode/decode with oslo_utils.encodeutils
+    
+    heat: convert pub key file from bytes to unicode
+        pkg_resources returns raw bytes, in python3
+        we have to decode this to utf-8 unicode
+        so JSON can encode it for heat template
+    
+    JIRA: YARDSTICK-452
+    
+    Change-Id: Ib80dd1d0c0eb0592acd832b82f6a7f8f7c20bfda
+    Signed-off-by: Ross Brattain <ross.b.brattain@intel.com>
+
+[33mcommit 0576844bb2cdae6b479504ec1532a5dc56c0b633[m
+Author: Ross Brattain <ross.b.brattain@intel.com>
+Date:   Wed Nov 30 19:56:38 2016 -0800
+
+    use context manager for stdin files and use _put_file_shell
+    
+    requires https://gerrit.opnfv.org/gerrit/#/c/25183/
+    
+    use new ssh method _put_file_shell to upload files.
+    We have to use _put_file_shell because we rely on ~/ path
+    expansions.  Eventually we should move to remote absolute
+    paths so we can use sftp upload.
+    
+    For ssh.execute() replace open() with context manager
+    
+    context managers were invented partly to control
+    freeing resources.  Opening files without closing
+    them will leak file descriptors.
+    
+    The old standard method for closing files:
+    
+    f = open('data.txt')
+    try:
+        data = f.read()
+    finally:
+        f.close()
+    
+    was replaced with a context manager
+    
+    with open('data.txt') as f:
+        data = f.read()
+    
+    Reference:  Raymond Hettinger's Pycon 2013 presentation:
+    https://speakerdeck.com/pyconslides/transforming-code-into-beautiful-idiomatic-python-by-raymond-hettinger-1
+    
+    Video: https://youtu.be/OSGv2VnC0go?t=2522
+    
+    Always use context managers for files
+    
+    Update:
+       rebased now that _put_file_shell was merged
+    
+    Change-Id: Iabfc0e43aa3b7766d7c658115e13d21c31efb2a9
+    Signed-off-by: Ross Brattain <ross.b.brattain@intel.com>
+
+[33mcommit eb527820ddb21081399b27deaacc8a651ea5f06a[m
+Author: Ross Brattain <ross.b.brattain@intel.com>
+Date:   Wed Nov 2 15:10:59 2016 -0700
+
+    add option to connect to non-standard ssh port
+    
+    not all enviroments have port 22 enabled for SSH.
+    
+    In particular for network isolation NAT and port forwarding may be used.
+    
+    example pod.yaml:
+    
+    nodes:
+    - ip: 10.2.45.145
+      name: node1
+      password: ''
+      role: Controller
+      ssh_port: 5000
+      user: root
+    - ip: 10.2.45.145
+      name: node2
+      password: ''
+      role: Controller
+      ssh_port: 5001
+      user: root
+    - ip: 10.2.45.145
+      name: node3
+      password: ''
+      role: Controller
+      ssh_port: 5002
+      user: root
+    
+    
+    JIRA: YARDSTICK-407
+    
+    Change-Id: I8f9d6e388f31d291dd15cb900d7f71f347e41ef6
+    Signed-off-by: Ross Brattain <ross.b.brattain@intel.com>
+
+[33mcommit 8953fa3d53019571a222a1aedb7cf796c5d67aec[m
+Author: wu.zhihui <wu.zhihui1@zte.com.cn>
+Date:   Fri Jul 22 22:11:53 2016 +0800
+
+    [Yardstick-233]latency measurment by using pktgen-dpdk
+    
+    VM A runs pktgen-dpdk as a traffic generator and is connected
+    back-to-back with VM B running testpmd for forwarding packets.
+    
+    1. use linux expect to fetch the latency statics data.
+    2. fetch 10 samples of latency and calculate avg_latency.
+    3. use screen to keep test scripts running in the background.
+    4. add a function send_command() for screen in ssh.py
+    
+    JIRA:YARDSTICK-233
+    
+    Change-Id: I90ae64b3d198c79f159275ae35715eb284f05080
+    Signed-off-by: wu.zhihui <wu.zhihui1@zte.com.cn>
