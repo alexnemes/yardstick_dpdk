@@ -17,6 +17,8 @@ FWD_REV_MAC=$3    # MAC address of forwarding receiver in VM B
 FWD_SEND_MAC=$4   # MAC address of forwarding sender in VM B
 RATE=$5           # packet rate in percentage
 PKT_SIZE=$6       # packet size
+ENS4_IP=$7
+ENS5_IP=$8
 
 DPDK_DIR=/dpdk
 
@@ -150,9 +152,10 @@ free_interfaces()
     sleep 3
     ifconfig ens4 up
     ifconfig ens5 up
-    sleep 2
-    dhclient ens4 &> /dev/null
-    dhclient ens5 &> /dev/null
+    #dhclient ens4 &> /dev/null
+    ifconfig ens4 $ENS4_IP netmask 255.255.255.0
+    #dhclient ens5 &> /dev/null
+    ifconfig ens5 $ENS5_IP netmask 255.255.255.0
 }
 
 run_pktgen()

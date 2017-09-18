@@ -132,15 +132,17 @@ class PktgenDPDKLatency(base.Scenario):
         print("pktgen args: {}".format(pktgen_args))
         print("testPMD args: {}".format(testpmd_args))
 
-        cmd_pmd = "screen sudo -E bash ~/testpmd_fwd.sh %s %s %s " % \
-                    (testpmd_args[0], testpmd_args[1], testpmd_args[2])
+        cmd_pmd = "screen sudo -E bash ~/testpmd_fwd.sh %s %s %s %s %s" % \
+                    (testpmd_args[0], testpmd_args[1], testpmd_args[2],
+                    testpmd_args[3], testpmd_args[4])
         
         print("testpmd command: {}".format(cmd_pmd))
         
         
-        cmd_pktgen = "sudo -E bash ~/pktgen_dpdk.sh %s %s %s %s %s %s" % \
+        cmd_pktgen = "sudo -E bash ~/pktgen_dpdk.sh %s %s %s %s %s %s %s %s" % \
             (pktgen_args[0], pktgen_args[1], pktgen_args[2],
-             pktgen_args[3], rate, packetsize)
+             pktgen_args[3], rate, packetsize,
+             pktgen_args[4], pktgen_args[5])
              
         print("pktgen command: {}".format(cmd_pktgen))
         
@@ -276,8 +278,11 @@ cat ~/result.log -vT \
         if not self.testpmd_args:
             client_src_ip = self.get_port_ip(self.client, 'ens4').strip()
             client_dst_ip = self.get_port_ip(self.client, 'ens5').strip()
+            server_ens4_ip = self.get_port_ip(self.server, 'ens4').strip()
+            server_ens5_ip = self.get_port_ip(self.server, 'ens5').strip()
             self.testpmd_args = [self.get_port_mac(self.client, 'ens5').strip(),
-                                    client_src_ip, client_dst_ip]
+                                    client_src_ip, client_dst_ip, 
+                                    server_ens4_ip, server_ens5_ip]
                     
 
         if not self.pktgen_args:
@@ -285,9 +290,11 @@ cat ~/result.log -vT \
             server_send_mac = self.get_port_mac(self.server, 'ens5').strip()
             client_src_ip = self.get_port_ip(self.client, 'ens4').strip()
             client_dst_ip = self.get_port_ip(self.client, 'ens5').strip()
-
+            client_ens4_ip = client_src_ip
+            client_ens4_ip = client_dst_ip
             self.pktgen_args = [client_src_ip, client_dst_ip,
-                                server_rev_mac, server_send_mac]
+                                server_rev_mac, server_send_mac,
+                                client_ens4_ip, client_ens4_ip]
 
         print("class pktgen args: {}".format(self.pktgen_args))
         print("class testPMD args: {}".format(self.testpmd_args))
@@ -295,7 +302,7 @@ cat ~/result.log -vT \
         options = self.scenario_cfg['options']
         packetsize = options.get("packetsize", 64)
         rate = options.get("rate", 100)
-        loss_tolerance=0.01
+        loss_tolerance=0.05
 
         result.update(self.binary_search(self.testpmd_args, self.pktgen_args, packetsize, rate, loss_tolerance))
         print("Frame Size {} result : {}".format(packetsize, result))

@@ -15,6 +15,8 @@ set -e
 DST_MAC=$1         # MAC address of the peer port
 PING_DST1=$2      # first destinatin for ping, from PMD VM to PKTGEN VM
 PING_DST2=$3      # second destinatin for ping, from PMD VM to PKTGEN VM
+ENS4_IP=$4
+ENS5_IP=$5
 
 DPDK_DIR=/dpdk
 
@@ -77,8 +79,10 @@ free_interfaces()
     sleep 3
     ifconfig ens4 up
     ifconfig ens5 up
-    dhclient ens4 &> /dev/null
-    dhclient ens5 &> /dev/null
+    #dhclient ens4 &> /dev/null
+    ifconfig ens4 $ENS4_IP netmask 255.255.255.0
+    #dhclient ens5 &> /dev/null
+    ifconfig ens5 $ENS5_IP netmask 255.255.255.0
 }
 
 main()
