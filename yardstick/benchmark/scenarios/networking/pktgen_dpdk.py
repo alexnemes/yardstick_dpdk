@@ -146,7 +146,7 @@ class PktgenDPDKLatency(base.Scenario):
         
         time.sleep(5)
         
-        LOG.debug("Executing command to start PMD: %s", cmd_pmd)
+        LOG.info("Executing command to start PMD: %s", cmd_pmd)
         self.server.send_command(cmd_pmd)
         #self.server.send_command(cmd)
                
