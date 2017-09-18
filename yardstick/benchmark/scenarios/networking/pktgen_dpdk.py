@@ -239,15 +239,17 @@ cat ~/result.log -vT \
     def binary_search(self, testpmd_args, pktgen_args, packetsize, rate, loss_tolerance):
         min_rate=0
         max_rate=rate
+        iter_rate=max_rate
 
         while max_rate - min_rate > 0.1:
-            iter_rate = ( max_rate + min_rate ) / 2.0
+            
             print("running with rate: {}".format(iter_rate))
             framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, iter_rate)
             
             if framesize_result['loss_percentage'] > loss_tolerance:
                 print("loss {} > tolerance {}, going down".format(framesize_result['loss_percentage'], loss_tolerance))
                 max_rate = iter_rate
+                iter_rate = ( max_rate + min_rate ) / 2.0
                                
                 print("min rate : {}, max_rate : {}".format(min_rate, max_rate))
                 
@@ -256,6 +258,7 @@ cat ~/result.log -vT \
                 print("loss {} <= tolerance {}, going up".format(framesize_result['loss_percentage'], loss_tolerance))
                 
                 min_rate = iter_rate
+                iter_rate = ( max_rate + min_rate ) / 2.0
                 print("min rate : {}, max_rate : {}".format(min_rate, max_rate))
 
         return framesize_result
