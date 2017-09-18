@@ -155,7 +155,7 @@ run_test()
 
     cat << EOF > /etc/yardstick/yardstick.conf
 [DEFAULT]
-debug = False
+debug = True
 dispatcher = ${DISPATCHER_TYPE}
 
 [dispatcher_file]
@@ -169,8 +169,8 @@ target = ${DISPATCHER_HTTP_TARGET}
 timeout = 5
 target = ${DISPATCHER_INFLUXDB_TARGET}
 db_name = yardstick
-username = admin
-password = admin
+username = root
+password = root
 EOF
 
     local failed=0
