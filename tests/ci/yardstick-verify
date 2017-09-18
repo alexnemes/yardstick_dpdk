@@ -41,10 +41,10 @@ OPTIONS:
 EOF
 }
 
-DISPATCHER_TYPE=file
+DISPATCHER_TYPE=influxdb
 DISPATCHER_FILE_NAME="/tmp/yardstick.out"
 DISPATCHER_HTTP_TARGET="http://testresults.opnfv.org/test/api/v1/results"
-DISPATCHER_INFLUXDB_TARGET=
+DISPATCHER_INFLUXDB_TARGET=http://10.0.100.7
 REPORTING_TARGET="${DISPATCHER_HTTP_TARGET}"
 
 while getopts "r:i:m:h" OPTION; do
