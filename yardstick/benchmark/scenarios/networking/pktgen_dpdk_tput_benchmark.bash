@@ -102,6 +102,10 @@ function pktgen_config()
   pktgen.latency("all","on");
 
   pktgen.start("0");
+  pktgen.sleep($DURATION)
+  pktgen.stop("0");
+  pktgen.sleep(1)
+
   end
 
 pktgen_config()
@@ -126,13 +130,7 @@ expect "Pktgen"
 send "on\n"
 expect "Pktgen"
 sleep $duration
-send "page latency\n"
-expect "Pktgen"
-send "page latency\n"
-expect "Pktgen"
-send "page latency\n"
-expect "Pktgen"
-send "page latency\n"
+send "page main\n"
 expect "Pktgen"
 sleep 1
 send "quit\n"
@@ -162,8 +160,8 @@ run_pktgen()
 {
     blacklist=$(lspci |grep Eth |awk '{print $1}'|head -1)
     cd /pktgen-dpdk
-    touch /home/ubuntu/result_latency.log
-    result_log="/home/ubuntu/result_latency.log"
+    touch /home/ubuntu/result.log
+    result_log="/home/ubuntu/result.log"
     sudo expect /home/ubuntu/pktgen.exp $blacklist $DURATION > $result_log 2>&1
     #sudo expect /home/ubuntu/pktgen.exp $blacklist $DURATION 2>&1 | tee $result_log
 }
@@ -192,7 +190,7 @@ main()
     create_expect_file
     add_interface_to_dpdk
     run_pktgen
-    #output_json
+    output_json
     free_interfaces
 }
 

@@ -29,7 +29,8 @@ class PktgenDPDKLatency(base.Scenario):
     """
     __scenario_type__ = "PktgenDPDKLatency"
 
-    PKTGEN_DPDK_SCRIPT = 'pktgen_dpdk_latency_benchmark.bash'
+    PKTGEN_DPDK_LATENCY_SCRIPT = 'pktgen_dpdk_latency_benchmark.bash'
+    PKTGEN_DPDK_TPUT_SCRIPT = 'pktgen_dpdk_tput_benchmark.bash'
     TESTPMD_SCRIPT = 'testpmd_fwd.bash'
 
     def __init__(self, scenario_cfg, context_cfg):
@@ -39,12 +40,16 @@ class PktgenDPDKLatency(base.Scenario):
 
     def setup(self):
         """scenario setup"""
-        self.pktgen_dpdk_script = pkg_resources.resource_filename(
+        self.pktgen_dpdk_latency_script = pkg_resources.resource_filename(
             'yardstick.benchmark.scenarios.networking',
-            PktgenDPDKLatency.PKTGEN_DPDK_SCRIPT)
+            PktgenDPDKLatency.PKTGEN_DPDK_LATENCY_SCRIPT)
+        self.pktgen_dpdk_tput_script = pkg_resources.resource_filename(
+            'yardstick.benchmark.scenarios.networking',
+            PktgenDPDKLatency.PKTGEN_DPDK_TPUT_SCRIPT)
         self.testpmd_script = pkg_resources.resource_filename(
             'yardstick.benchmark.scenarios.networking',
             PktgenDPDKLatency.TESTPMD_SCRIPT)
+
         host = self.context_cfg['host']
         target = self.context_cfg['target']
         LOG.info("user:%s, target:%s", target['user'], target['ip'])
@@ -60,7 +65,11 @@ class PktgenDPDKLatency(base.Scenario):
 
         # copy script to host
         self.client._put_file_shell(
-            self.pktgen_dpdk_script, '~/pktgen_dpdk.sh')
+            self.pktgen_dpdk_tput_script, '~/pktgen_dpdk.sh')
+            
+        self.client._put_file_shell(
+            self.pktgen_dpdk_latency_script, '~/pktgen_dpdk_latency.sh')
+        
         print("test scripts copied")
         time.sleep(10)
         
@@ -127,7 +136,7 @@ class PktgenDPDKLatency(base.Scenario):
             return stdout.rstrip()
             
     
-    def run_iteration(self, testpmd_args, pktgen_args, packetsize, rate, duration):
+    def run_iteration(self, testpmd_args, pktgen_args, packetsize, rate, duration, latency=False):
         iteration_result = {}
         print("pktgen args: {}".format(pktgen_args))
         print("testPMD args: {}".format(testpmd_args))
@@ -139,10 +148,18 @@ class PktgenDPDKLatency(base.Scenario):
         print("testpmd command: {}".format(cmd_pmd))
         
         
-        cmd_pktgen = "sudo -E bash ~/pktgen_dpdk.sh %s %s %s %s %s %s %s %s %s" % \
-            (pktgen_args[0], pktgen_args[1], pktgen_args[2],
-             pktgen_args[3], rate, packetsize,
-             pktgen_args[4], pktgen_args[5], duration)
+        if latency:
+            cmd_pktgen = "sudo -E bash ~/pktgen_dpdk_latency.sh %s %s %s %s %s %s %s %s %s" % \
+                (pktgen_args[0], pktgen_args[1], pktgen_args[2],
+                 pktgen_args[3], rate, packetsize,
+                 pktgen_args[4], pktgen_args[5], duration)
+                 
+           
+        else:
+            cmd_pktgen = "sudo -E bash ~/pktgen_dpdk.sh %s %s %s %s %s %s %s %s %s" % \
+                (pktgen_args[0], pktgen_args[1], pktgen_args[2],
+                 pktgen_args[3], rate, packetsize,
+                 pktgen_args[4], pktgen_args[5], duration)
              
         print("pktgen command: {}".format(cmd_pktgen))
         
@@ -208,31 +225,35 @@ class PktgenDPDKLatency(base.Scenario):
         # wait for finishing test
         time.sleep(1)
         
-        cmd_latency = r"""\
+        if latency:
+        
+            cmd_latency = r"""\
 cat ~/result.log -vT \
 |awk '{match($0,/\[8;40H +[0-9]+/)} \
 {print substr($0,RSTART,RLENGTH)}' \
 |grep -v ^$ |awk '{if ($2 != 0) print $2}'\
 """
-        client_status, client_stdout, client_stderr = self.client.execute(cmd_latency)
+            client_status, client_stdout, client_stderr = self.client.execute(cmd_latency)
 
-        if client_status:
-            raise RuntimeError(client_stderr)
+            if client_status:
+                raise RuntimeError(client_stderr)
 
-        print("client_stdout : {}".format(client_stdout.split('\n')))
+            print("client_stdout : {}".format(client_stdout.split('\n')))
 
-        avg_latency = 0
-        if client_stdout:
-            latency_list = client_stdout.split('\n')[0:-1]
-            print("Latency list length : {}".format(len(latency_list)))
-            LOG.info("Samples of latency: %s", latency_list)
-            latency_sum = 0
-            for i in latency_list:
-                latency_sum += int(i)
-            avg_latency = latency_sum / len(latency_list)
+            avg_latency = 0
+            if client_stdout:
+                latency_list = client_stdout.split('\n')[0:-1]
+                print("Latency list length : {}".format(len(latency_list)))
+                LOG.info("Samples of latency: %s", latency_list)
+                latency_sum = 0
+                for i in latency_list:
+                    latency_sum += int(i)
+                avg_latency = latency_sum / len(latency_list)
 
-        iteration_result.update({"avg_latency": avg_latency})
+            iteration_result.update({"avg_latency": avg_latency})
+            
 
+        
         return iteration_result
 
 
@@ -305,6 +326,10 @@ cat ~/result.log -vT \
         result.update(self.binary_search(self.testpmd_args, self.pktgen_args, packetsize, rate, loss_tolerance,duration))
         print("Frame Size {} result : {}".format(packetsize, result))
         
+        print("Running latency measurements for frame size {} with rate {}".format(packetsize, result['linerate_percentage']))
+
+        result.update(self.run_iteration(testpmd_args, pktgen_args, packetsize, result['linerate_percentage'], duration, latency=True))
+
         avg_latency = result['avg_latency']
 
         if avg_latency and "sla" in self.scenario_cfg:
@@ -314,3 +339,6 @@ cat ~/result.log -vT \
             debug_info = "avg_latency %d > sla_max_latency %d" \
                 % (avg_latency, sla_max_latency)
             assert avg_latency <= sla_max_latency, debug_info
+            
+        print("Frame Size {} result with latency : {}".format(packetsize, result))
+
