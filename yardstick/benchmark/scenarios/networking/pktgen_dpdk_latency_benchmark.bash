@@ -129,7 +129,7 @@ send "page latency\n"
 expect "Pktgen"
 send "start 0\n"
 expect "Pktgen"
-sleep 20
+sleep 30
 send "stop 0\n"
 expect "Pktgen"
 #sleep 2
@@ -175,7 +175,7 @@ output_json()
 
     sent=$(cat ~/result.log -vT | grep "Tx Pkts" | tail -1 | awk '{match($0,/\[18;20H +[0-9]+/)} {print substr($0,RSTART,RLENGTH)}' | awk '{if ($2 != 0) print $2}')
     received=$(cat ~/result.log -vT | grep "$RANGE" | tail -1 | awk '{match($0,/\['$POSITION';40H +[0-9]+/)} {print substr($0,RSTART,RLENGTH)}' | awk '{if ($2 != 0) print $2}')
-    result_pps=$(( received / 20 ))
+    result_pps=$(( received / 30 ))
     packets_lost=$(( sent - received ))
     #latency=$(cat ~/result.log -vT | grep "Latency" | tail -1 | awk '{match($0,/\[8;40H +[0-9]+/)} {print substr($0,RSTART,RLENGTH)}' | awk '{if ($2 != 0) print $2}')
     
