@@ -241,7 +241,7 @@ cat ~/result.log -vT \
         max_rate=rate
         iter_rate=max_rate
 
-        while max_rate - min_rate > 0.1:
+        while max_rate - min_rate > 0.5:
             
             print("running with rate: {}".format(iter_rate))
             framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, iter_rate, duration)
