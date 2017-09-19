@@ -22,6 +22,7 @@ scenarios:
     packetsize: {{pkt_size}}
     rate: 100
     loss_tolerance: 0.1
+    duration: 30
 
   host: demeter.yardstick-TC042
   target: poseidon.yardstick-TC042

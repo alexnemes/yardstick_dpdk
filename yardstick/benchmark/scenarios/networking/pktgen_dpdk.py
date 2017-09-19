@@ -127,7 +127,7 @@ class PktgenDPDKLatency(base.Scenario):
             return stdout.rstrip()
             
     
-    def run_iteration(self, testpmd_args, pktgen_args, packetsize, rate):
+    def run_iteration(self, testpmd_args, pktgen_args, packetsize, rate, duration):
         iteration_result = {}
         print("pktgen args: {}".format(pktgen_args))
         print("testPMD args: {}".format(testpmd_args))
@@ -139,10 +139,10 @@ class PktgenDPDKLatency(base.Scenario):
         print("testpmd command: {}".format(cmd_pmd))
         
         
-        cmd_pktgen = "sudo -E bash ~/pktgen_dpdk.sh %s %s %s %s %s %s %s %s" % \
+        cmd_pktgen = "sudo -E bash ~/pktgen_dpdk.sh %s %s %s %s %s %s %s %s %s" % \
             (pktgen_args[0], pktgen_args[1], pktgen_args[2],
              pktgen_args[3], rate, packetsize,
-             pktgen_args[4], pktgen_args[5])
+             pktgen_args[4], pktgen_args[5], duration)
              
         print("pktgen command: {}".format(cmd_pktgen))
         
@@ -236,7 +236,7 @@ cat ~/result.log -vT \
         return iteration_result
 
 
-    def binary_search(self, testpmd_args, pktgen_args, packetsize, rate, loss_tolerance):
+    def binary_search(self, testpmd_args, pktgen_args, packetsize, rate, loss_tolerance, duration):
         min_rate=0
         max_rate=rate
         iter_rate=max_rate
@@ -244,7 +244,7 @@ cat ~/result.log -vT \
         while max_rate - min_rate > 0.1:
             
             print("running with rate: {}".format(iter_rate))
-            framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, iter_rate)
+            framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, iter_rate, duration)
             
             if framesize_result['loss_percentage'] > loss_tolerance:
                 print("loss {} > tolerance {}, going down".format(framesize_result['loss_percentage'], loss_tolerance))
@@ -298,8 +298,9 @@ cat ~/result.log -vT \
         packetsize = options.get("packetsize", 64)
         rate = options.get("rate", 100)
         loss_tolerance = options.get("loss_tolerance", 0.05)
+        duration = options.get("duration", 30)
 
-        result.update(self.binary_search(self.testpmd_args, self.pktgen_args, packetsize, rate, loss_tolerance))
+        result.update(self.binary_search(self.testpmd_args, self.pktgen_args, packetsize, rate, loss_tolerance,duration))
         print("Frame Size {} result : {}".format(packetsize, result))
         
         avg_latency = result['avg_latency']

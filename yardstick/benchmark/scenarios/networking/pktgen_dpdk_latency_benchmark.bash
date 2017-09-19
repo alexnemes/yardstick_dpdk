@@ -19,6 +19,7 @@ RATE=$5           # packet rate in percentage
 PKT_SIZE=$6       # packet size
 ENS4_IP=$7
 ENS5_IP=$8
+DURATION=$9
 
 DPDK_DIR=/dpdk
 
@@ -118,6 +119,7 @@ create_expect_file()
 #!/usr/bin/expect
 
 set blacklist  [lindex $argv 0]
+set duration  [lindex $argv 1]
 set result {}
 set timeout 15
 spawn ./app/app/x86_64-native-linuxapp-gcc/pktgen -c 0x07 -n 4 -b $blacklist -- -P -m "1.0,2.1" -f /home/ubuntu/pktgen_latency.lua
@@ -129,7 +131,7 @@ send "page latency\n"
 expect "Pktgen"
 send "start 0\n"
 expect "Pktgen"
-sleep 30
+sleep duration
 send "stop 0\n"
 expect "Pktgen"
 #sleep 2
@@ -164,7 +166,7 @@ run_pktgen()
     cd /pktgen-dpdk
     touch /home/ubuntu/result.log
     result_log="/home/ubuntu/result.log"
-    sudo expect /home/ubuntu/pktgen.exp $blacklist > $result_log 2>&1
+    sudo expect /home/ubuntu/pktgen.exp $blacklist $DURATION > $result_log 2>&1
     #sudo expect /home/ubuntu/pktgen.exp $blacklist 2>&1 | tee $result_log
 }
 
@@ -175,7 +177,7 @@ output_json()
 
     sent=$(cat ~/result.log -vT | grep "Tx Pkts" | tail -1 | awk '{match($0,/\[18;20H +[0-9]+/)} {print substr($0,RSTART,RLENGTH)}' | awk '{if ($2 != 0) print $2}')
     received=$(cat ~/result.log -vT | grep "$RANGE" | tail -1 | awk '{match($0,/\['$POSITION';40H +[0-9]+/)} {print substr($0,RSTART,RLENGTH)}' | awk '{if ($2 != 0) print $2}')
-    result_pps=$(( received / 30 ))
+    result_pps=$(( received / duration ))
     packets_lost=$(( sent - received ))
     #latency=$(cat ~/result.log -vT | grep "Latency" | tail -1 | awk '{match($0,/\[8;40H +[0-9]+/)} {print substr($0,RSTART,RLENGTH)}' | awk '{if ($2 != 0) print $2}')
     
