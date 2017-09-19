@@ -260,8 +260,10 @@ cat ~/result.log -vT \
                 min_rate = iter_rate
                 iter_rate = ( max_rate + min_rate ) / 2.0
                 print("min rate : {}, max_rate : {}".format(min_rate, max_rate))
+                
+                res = framesize_result #last iteration result with loss within tolerance is the temporary result
 
-        return framesize_result
+        return res
 
 
     def run(self, result):
