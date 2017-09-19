@@ -131,8 +131,8 @@ send "start 0\n"
 expect "Pktgen"
 sleep 20
 send "stop 0\n"
-sleep 2
 expect "Pktgen"
+sleep 2
 send "page main\n"
 expect "Pktgen"
 sleep 1
