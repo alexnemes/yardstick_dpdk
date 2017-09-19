@@ -101,6 +101,11 @@ function pktgen_config()
   pktgen.latency("all","enable");
   pktgen.latency("all","on");
 
+  pktgen.start("0");
+  pktgen.sleep($DURATION)
+  pktgen.stop("0");
+  pktgen.sleep(1)
+
   end
 
 pktgen_config()
@@ -120,26 +125,17 @@ create_expect_file()
 
 set blacklist  [lindex $argv 0]
 set duration  [lindex $argv 1]
-set result {}
-set timeout 15
 spawn ./app/app/x86_64-native-linuxapp-gcc/pktgen -c 0x07 -n 4 -b $blacklist -- -P -m "1.0,2.1" -f /home/ubuntu/pktgen_latency.lua
 expect "Pktgen"
-sleep 1
 send "on\n"
 expect "Pktgen"
-send "page latency\n"
-expect "Pktgen"
-send "start 0\n"
-expect "Pktgen"
-sleep duration
-send "stop 0\n"
-expect "Pktgen"
-#sleep 2
+sleep $duration
 send "page main\n"
 expect "Pktgen"
 sleep 1
 send "quit\n"
 expect "#"
+
 
 EOF
 
@@ -167,7 +163,7 @@ run_pktgen()
     touch /home/ubuntu/result.log
     result_log="/home/ubuntu/result.log"
     sudo expect /home/ubuntu/pktgen.exp $blacklist $DURATION > $result_log 2>&1
-    #sudo expect /home/ubuntu/pktgen.exp $blacklist 2>&1 | tee $result_log
+    #sudo expect /home/ubuntu/pktgen.exp $blacklist $DURATION 2>&1 | tee $result_log
 }
 
 output_json()
