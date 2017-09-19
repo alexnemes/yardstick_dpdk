@@ -164,8 +164,8 @@ run_pktgen()
     cd /pktgen-dpdk
     touch /home/ubuntu/result.log
     result_log="/home/ubuntu/result.log"
-    sudo expect /home/ubuntu/pktgen.exp $blacklist > $result_log 2>&1
-    #sudo expect /home/ubuntu/pktgen.exp $blacklist 2>&1 | tee $result_log
+    #sudo expect /home/ubuntu/pktgen.exp $blacklist > $result_log 2>&1
+    sudo expect /home/ubuntu/pktgen.exp $blacklist 2>&1 | tee $result_log
 }
 
 output_json()
