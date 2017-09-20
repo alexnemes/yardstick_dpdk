@@ -263,7 +263,7 @@ cat ~/result_latency.log -vT \
 
         while max_rate - min_rate > 0.5:
             
-            LOG.info("Iteration runs with rate: {} for frame size".format(iter_rate, packetsize))
+            LOG.info("Iteration runs with rate: {}".format(iter_rate))
             framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, iter_rate, duration)
             
             if framesize_result['loss_percentage'] > loss_tolerance:
@@ -321,6 +321,8 @@ cat ~/result_latency.log -vT \
         rate = options.get("rate", 100)
         loss_tolerance = options.get("loss_tolerance", 0.05)
         duration = options.get("duration", 30)
+
+        LOG.info("Running throughput measurements for frame size {}".format(packetsize))
 
         result.update(self.binary_search(self.testpmd_args, self.pktgen_args, packetsize, rate, loss_tolerance,duration))
         
