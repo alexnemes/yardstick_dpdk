@@ -17,11 +17,11 @@ description: >
 scenarios:
 {% for pkt_size in [64,128,256,512,1024,1280,1518] %}
 -
-  type: PktgenDPDKLatency
+  type: PktgenDPDKTputLatency
   options:
     packetsize: {{pkt_size}}
     rate: 100
-    loss_tolerance: 0.005
+    loss_tolerance: 0.1
     duration: 30
 
   host: demeter.yardstick-TC042

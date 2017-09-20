@@ -11,6 +11,8 @@ import pkg_resources
 import logging
 import json
 import time
+import subprocess
+import os
 
 import yardstick.ssh as ssh
 from yardstick.benchmark.scenarios import base
@@ -18,7 +20,7 @@ from yardstick.benchmark.scenarios import base
 LOG = logging.getLogger(__name__)
 
 
-class PktgenDPDKLatency(base.Scenario):
+class PktgenDPDKTputLatency(base.Scenario):
     """Execute pktgen-dpdk on one vm and execute testpmd on the other vm
 
   Parameters
@@ -27,7 +29,7 @@ class PktgenDPDKLatency(base.Scenario):
         unit:    bytes
         default: 64
     """
-    __scenario_type__ = "PktgenDPDKLatency"
+    __scenario_type__ = "PktgenDPDKTputLatency"
 
     PKTGEN_DPDK_LATENCY_SCRIPT = 'pktgen_dpdk_latency_benchmark.bash'
     PKTGEN_DPDK_TPUT_SCRIPT = 'pktgen_dpdk_tput_benchmark.bash'
@@ -70,16 +72,11 @@ class PktgenDPDKLatency(base.Scenario):
         self.client._put_file_shell(
             self.pktgen_dpdk_latency_script, '~/pktgen_dpdk_latency.sh')
         
-        print("test scripts copied")
-        time.sleep(10)
-        
-        
+        LOG.info("test scripts copied")
+
         ############################
 
-        import subprocess
-        import os
-
-        print("################# PORT SECURITY ###############")
+        LOG.info("Disabling PORT SECURITY")
         d = dict(os.environ)
         d['OS_AUTH_URL'] = "http://192.168.0.2:5000/"
         p = subprocess.Popen('openstack port list', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
@@ -87,27 +84,35 @@ class PktgenDPDKLatency(base.Scenario):
             if "demeter" in line or "poseidon" in line:
                 elements = line.split("|")
                 port_id = elements[1].strip()
-                print("Removing port security from port {}".format(port_id))
-                cmd = "neutron port-update " + port_id + " --no-security-groups"
+                print("Checking port {} ".format(port_id))
+                cmd = "openstack port show " + port_id + " show" + " | grep port_security_enabled"
                 q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
-                time.sleep(2)
-                cmd = "neutron port-update " + port_id + " --port_security_enabled=False"
-                q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
-                time.sleep(2)
-                print(q.stdout.readlines())
-                if q.stderr:
-                    print(q.stderr.readlines())
+                for line in q.stdout.readlines():
+                    if line.split("|")[2].strip() != False:
+                
+                        
+                        print("Removing port security from port {}".format(port_id))
+                        cmd = "neutron port-update " + port_id + " --no-security-groups"
+                        q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
+                        time.sleep(2)
+                        cmd = "neutron port-update " + port_id + " --port_security_enabled=False"
+                        q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
+                        time.sleep(2)
+                        print(q.stdout.readlines())
+                        if q.stderr:
+                            print(q.stderr.readlines())
+                    else:
+                        print("Port security already disabled for this port. Doing nothing")
                 #~ cmd = "neutron port-show " + port_id + " show" + " | grep port_security_enabled"
                 #~ time.sleep(5)
                 #~ q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
                 #~ for line in q.stdout.readlines():
                     #~ print(line)
 
-        print("################ PORT SECURITY OVER ##########")
+        LOG.info("PORT SECURITY Disabled for all test ports")
 
         #############################
 
-        
         self.setup_done = True
         self.testpmd_args = []
         self.pktgen_args = []
@@ -343,6 +348,3 @@ cat ~/result_latency.log -vT \
             debug_info = "avg_latency %d > sla_max_latency %d" \
                 % (avg_latency, sla_max_latency)
             assert avg_latency <= sla_max_latency, debug_info
-            
-        
-
