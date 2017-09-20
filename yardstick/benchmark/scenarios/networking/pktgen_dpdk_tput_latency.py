@@ -127,6 +127,17 @@ class PktgenDPDKTputLatency(base.Scenario):
         else:
             return stdout.rstrip()
             
+    @staticmethod
+    def force_dhclient(sshclient, port):
+        cmd = "sudo dhclient %s" % port
+        LOG.debug("Executing command: %s", cmd)
+        status, stdout, stderr = sshclient.execute(cmd)
+
+        if status:
+            raise RuntimeError(stderr)
+        else:
+            return stdout.rstrip()
+            
     
     def run_iteration(self, testpmd_args, pktgen_args, packetsize, rate, duration, latency=False):
         iteration_result = {}
@@ -285,22 +296,28 @@ cat ~/result_latency.log -vT \
 
         if not self.setup_done:
             self.setup()
+            
+        #sometimes the test instances start without IP addresses on test interfaces
+        self.force_dhclient(self.client, 'ens4')
+        self.force_dhclient(self.client, 'ens5')
+        self.force_dhclient(self.server, 'ens4')
+        self.force_dhclient(self.server, 'ens5')
 
         if not self.testpmd_args:
-            client_src_ip = self.get_port_ip(self.client, 'ens4').strip()
-            client_dst_ip = self.get_port_ip(self.client, 'ens5').strip()
-            server_ens4_ip = self.get_port_ip(self.server, 'ens4').strip()
-            server_ens5_ip = self.get_port_ip(self.server, 'ens5').strip()
-            self.testpmd_args = [self.get_port_mac(self.client, 'ens5').strip(),
+            client_src_ip = self.get_port_ip(self.client, 'ens4')
+            client_dst_ip = self.get_port_ip(self.client, 'ens5')
+            server_ens4_ip = self.get_port_ip(self.server, 'ens4')
+            server_ens5_ip = self.get_port_ip(self.server, 'ens5')
+            self.testpmd_args = [self.get_port_mac(self.client, 'ens5'),
                                     client_src_ip, client_dst_ip, 
                                     server_ens4_ip, server_ens5_ip]
                     
 
         if not self.pktgen_args:
-            server_rev_mac = self.get_port_mac(self.server, 'ens4').strip()
-            server_send_mac = self.get_port_mac(self.server, 'ens5').strip()
-            client_src_ip = self.get_port_ip(self.client, 'ens4').strip()
-            client_dst_ip = self.get_port_ip(self.client, 'ens5').strip()
+            server_rev_mac = self.get_port_mac(self.server, 'ens4')
+            server_send_mac = self.get_port_mac(self.server, 'ens5')
+            client_src_ip = self.get_port_ip(self.client, 'ens4')
+            client_dst_ip = self.get_port_ip(self.client, 'ens5')
             client_ens4_ip = client_src_ip
             client_ens5_ip = client_dst_ip
             self.pktgen_args = [client_src_ip, client_dst_ip,
