@@ -207,23 +207,21 @@ class PktgenDPDKLatency(base.Scenario):
             cmdkill_status, cmdkill_stdout, cmdkill_stderr = self.server.execute(cmd_kill)
         
         if not latency:    
-            print("iteration result : {}".format(iteration_result))
             
             packets_per_second = iteration_result["packets_per_second"]
             bits_per_second = packets_per_second * 8 * (packetsize + 20)
             megabits_per_second = packets_per_second * 8 * (packetsize + 20) // 10**6
             iteration_result.update({"megabits_per_second": megabits_per_second})
-            print("iteration result : {}".format(iteration_result))
             
             #for a 10Gbps line
             linerate_percentage = ( float(bits_per_second) / 10**10 ) * 100
             linerate_percentage = float("{0:.2f}".format(linerate_percentage))
             iteration_result.update({"linerate_percentage": linerate_percentage})
-            print("result : {}".format(iteration_result))
             
             loss_percentage = (iteration_result['packets_lost'] / float(iteration_result['packets_sent'])) * 100
             #take only four decimals, to show packets lost per million
             iteration_result.update({"loss_percentage": float("{0:.4f}".format(loss_percentage))})
+
             print("result : {}".format(iteration_result))
                     
             # wait for finishing test
