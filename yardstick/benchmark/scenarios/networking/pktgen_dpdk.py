@@ -84,23 +84,23 @@ class PktgenDPDKTputLatency(base.Scenario):
             if "demeter" in line or "poseidon" in line:
                 elements = line.split("|")
                 port_id = elements[1].strip()
-                LOG.info("Checking port {} ".format(port_id))
+                LOG.debug("Checking port {} ".format(port_id))
                 cmd = "openstack port show " + port_id + " | grep port_security_enabled"
                 q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
                 for line in q.stdout.readlines():
                     if line.split("|")[2].strip() == "True":
-                        LOG.info("Removing port security from port {}".format(port_id))
+                        LOG.debug("Removing port security from port {}".format(port_id))
                         cmd = "neutron port-update " + port_id + " --no-security-groups"
                         q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
                         time.sleep(2)
                         cmd = "neutron port-update " + port_id + " --port_security_enabled=False"
                         q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
                         time.sleep(2)
-                        LOG.info(q.stdout.readlines())
+                        LOG.debug(q.stdout.readlines())
                         if q.stderr:
-                            print(q.stderr.readlines())
+                            LOG.debug(q.stderr.readlines())
                     else:
-                        print("Port security already disabled for this port. Doing nothing")
+                        LOG.debug("Port security already disabled for this port. Doing nothing")
 
         LOG.info("Port Security Disabled for all test ports")
 
@@ -171,7 +171,7 @@ class PktgenDPDKTputLatency(base.Scenario):
         time.sleep(5)
         LOG.info("Launching PKTGEN")
         
-        LOG.debug("Executing command to start PKTGEN: %s", cmd_pktgen)
+        LOG.info("Executing command to start PKTGEN: %s", cmd_pktgen)
         status, stdout, stderr = self.client.execute(cmd_pktgen)
 
         LOG.debug("PKTGEN STatus : {}".format(status))
@@ -219,7 +219,7 @@ class PktgenDPDKTputLatency(base.Scenario):
             #take 5 decimals, to show packets lost per 10 million
             iteration_result.update({"loss_percentage": float("{0:.5f}".format(loss_percentage))})
 
-            LOG.info("result : {}".format(iteration_result))
+            LOG.info("Iteration with rate {} result : {}".format(rate, iteration_result))
                     
             # wait for finishing test
             time.sleep(1)
