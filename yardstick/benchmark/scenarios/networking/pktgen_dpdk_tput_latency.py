@@ -72,11 +72,11 @@ class PktgenDPDKTputLatency(base.Scenario):
         self.client._put_file_shell(
             self.pktgen_dpdk_latency_script, '~/pktgen_dpdk_latency.sh')
         
-        LOG.info("test scripts copied")
+        LOG.info("Test scripts copied")
 
         ############################
 
-        LOG.info("Disabling PORT SECURITY")
+        LOG.info("Disabling Port Security")
         d = dict(os.environ)
         d['OS_AUTH_URL'] = "http://192.168.0.2:5000/"
         p = subprocess.Popen('openstack port list', shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
@@ -263,23 +263,23 @@ cat ~/result_latency.log -vT \
 
         while max_rate - min_rate > 0.5:
             
-            LOG.info("running with rate: {}".format(iter_rate))
+            LOG.info("Iteration runs with rate: {}".format(iter_rate))
             framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, iter_rate, duration)
             
             if framesize_result['loss_percentage'] > loss_tolerance:
-                LOG.info("loss {} > tolerance {}, going down".format(framesize_result['loss_percentage'], loss_tolerance))
+                LOG.info("Loss {} > Tolerance {}, going down".format(framesize_result['loss_percentage'], loss_tolerance))
                 max_rate = iter_rate
                 iter_rate = ( max_rate + min_rate ) / 2.0
                                
-                LOG.info("min rate : {}, max_rate : {}".format(min_rate, max_rate))
+                LOG.info("Min rate : {}, Max_rate : {}".format(min_rate, max_rate))
                 
                 
             elif framesize_result['loss_percentage'] <= loss_tolerance:
-                LOG.info("loss {} <= tolerance {}, going up".format(framesize_result['loss_percentage'], loss_tolerance))
+                LOG.info("Loss {} <= Tolerance {}, going up".format(framesize_result['loss_percentage'], loss_tolerance))
                 
                 min_rate = iter_rate
                 iter_rate = ( max_rate + min_rate ) / 2.0
-                LOG.info("min rate : {}, max_rate : {}".format(min_rate, max_rate))
+                LOG.info("Min rate : {}, Max_rate : {}".format(min_rate, max_rate))
                 
                 res = framesize_result #last iteration result with loss within tolerance is the temporary result
 
