@@ -44,13 +44,13 @@ class PktgenDPDKTputLatency(base.Scenario):
         """scenario setup"""
         self.pktgen_dpdk_latency_script = pkg_resources.resource_filename(
             'yardstick.benchmark.scenarios.networking',
-            PktgenDPDKLatency.PKTGEN_DPDK_LATENCY_SCRIPT)
+            PktgenDPDKTputLatency.PKTGEN_DPDK_LATENCY_SCRIPT)
         self.pktgen_dpdk_tput_script = pkg_resources.resource_filename(
             'yardstick.benchmark.scenarios.networking',
-            PktgenDPDKLatency.PKTGEN_DPDK_TPUT_SCRIPT)
+            PktgenDPDKTputLatency.PKTGEN_DPDK_TPUT_SCRIPT)
         self.testpmd_script = pkg_resources.resource_filename(
             'yardstick.benchmark.scenarios.networking',
-            PktgenDPDKLatency.TESTPMD_SCRIPT)
+            PktgenDPDKTputLatency.TESTPMD_SCRIPT)
 
         host = self.context_cfg['host']
         target = self.context_cfg['target']
