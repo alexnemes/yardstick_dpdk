@@ -333,6 +333,8 @@ cat ~/result.log -vT \
         print("Running latency measurements for frame size {} with rate {}".format(packetsize, result['linerate_percentage']))
 
         result.update(self.run_iteration(self.testpmd_args, self.pktgen_args, packetsize, result['linerate_percentage'], duration, latency=True))
+        
+        print("Frame Size {} result with latency : {}".format(packetsize, result))
 
         avg_latency = result['avg_latency']
 
@@ -344,5 +346,5 @@ cat ~/result.log -vT \
                 % (avg_latency, sla_max_latency)
             assert avg_latency <= sla_max_latency, debug_info
             
-        print("Frame Size {} result with latency : {}".format(packetsize, result))
+        
 
