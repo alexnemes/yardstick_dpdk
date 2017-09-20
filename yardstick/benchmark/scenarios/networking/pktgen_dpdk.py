@@ -84,35 +84,25 @@ class PktgenDPDKTputLatency(base.Scenario):
             if "demeter" in line or "poseidon" in line:
                 elements = line.split("|")
                 port_id = elements[1].strip()
-                print("Checking port {} ".format(port_id))
+                LOG.info("Checking port {} ".format(port_id))
                 cmd = "openstack port show " + port_id + " | grep port_security_enabled"
-                print cmd
                 q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
                 for line in q.stdout.readlines():
-                    #print("line: {}".format(line))
-                    print(line.split("|")[2].strip())
                     if line.split("|")[2].strip() == "True":
-                
-                        
-                        print("Removing port security from port {}".format(port_id))
+                        LOG.info("Removing port security from port {}".format(port_id))
                         cmd = "neutron port-update " + port_id + " --no-security-groups"
                         q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
                         time.sleep(2)
                         cmd = "neutron port-update " + port_id + " --port_security_enabled=False"
                         q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
                         time.sleep(2)
-                        print(q.stdout.readlines())
+                        LOG.info(q.stdout.readlines())
                         if q.stderr:
                             print(q.stderr.readlines())
                     else:
                         print("Port security already disabled for this port. Doing nothing")
-                #~ cmd = "neutron port-show " + port_id + " show" + " | grep port_security_enabled"
-                #~ time.sleep(5)
-                #~ q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
-                #~ for line in q.stdout.readlines():
-                    #~ print(line)
 
-        LOG.info("PORT SECURITY Disabled for all test ports")
+        LOG.info("Port Security Disabled for all test ports")
 
         #############################
 
@@ -146,14 +136,14 @@ class PktgenDPDKTputLatency(base.Scenario):
     
     def run_iteration(self, testpmd_args, pktgen_args, packetsize, rate, duration, latency=False):
         iteration_result = {}
-        print("pktgen args: {}".format(pktgen_args))
-        print("testPMD args: {}".format(testpmd_args))
+        LOG.debug("pktgen args: {}".format(pktgen_args))
+        LOG.debug("testPMD args: {}".format(testpmd_args))
 
         cmd_pmd = "screen sudo -E bash ~/testpmd_fwd.sh %s %s %s %s %s" % \
                     (testpmd_args[0], testpmd_args[1], testpmd_args[2],
                     testpmd_args[3], testpmd_args[4])
         
-        print("testpmd command: {}".format(cmd_pmd))
+        LOG.debug("testpmd command: {}".format(cmd_pmd))
         
         
         if latency:
@@ -169,7 +159,7 @@ class PktgenDPDKTputLatency(base.Scenario):
                  pktgen_args[3], rate, packetsize,
                  pktgen_args[4], pktgen_args[5], duration)
              
-        print("pktgen command: {}".format(cmd_pktgen))
+        LOG.debug("pktgen command: {}".format(cmd_pktgen))
         
         time.sleep(5)
         
@@ -177,16 +167,16 @@ class PktgenDPDKTputLatency(base.Scenario):
         self.server.send_command(cmd_pmd)
         #self.server.send_command(cmd)
                
-        print("PMD launched")
+        LOG.info("PMD launched")
         time.sleep(5)
-        print("Launching PKTGEN")
+        LOG.info("Launching PKTGEN")
         
         LOG.debug("Executing command to start PKTGEN: %s", cmd_pktgen)
         status, stdout, stderr = self.client.execute(cmd_pktgen)
 
-        print("PKTGEN STatus : {}".format(status))
-        print("PKTGEN STDOUT : {}".format(stdout.strip()))
-        print("PKTGEN STDERR : {}".format(stderr))
+        LOG.debug("PKTGEN STatus : {}".format(status))
+        LOG.debug("PKTGEN STDOUT : {}".format(stdout.strip()))
+        LOG.debug("PKTGEN STDERR : {}".format(stderr))
         time.sleep(5)
         
         
@@ -198,18 +188,17 @@ class PktgenDPDKTputLatency(base.Scenario):
             result_output = "{" + stdout.strip().split("{")[1]
             iteration_result.update(json.loads(result_output))
         
-        print("Stopping PMD Screen")
-        time.sleep(10)
+        LOG.info("Stopping PMD Screen")
+        time.sleep(2)
 
-        print("killing pmd")
         cmd_pid="ps -eaf | grep SCREEN | grep -v grep | awk '{print $2}'"
         cmdpid_status, cmdpid_stdout, cmdpid_stderr = self.server.execute(cmd_pid)
-        print(cmdpid_stdout.strip())
+        LOG.debug(cmdpid_stdout.strip())
 
         if cmdpid_stdout !=  "":
             cmd_kill="screen -S " + cmdpid_stdout.strip() + " -X stuff 'command'$(echo -ne \'\\015\')"
-            print("screen stop cmd : {}".format(cmd_kill))
-            print("killing screen PID - " + cmdpid_stdout.strip())
+            LOG.debug("screen stop cmd : {}".format(cmd_kill))
+            LOG.debug("killing screen PID - " + cmdpid_stdout.strip())
             cmdkill_status, cmdkill_stdout, cmdkill_stderr = self.server.execute(cmd_kill)
             time.sleep(2)
             cmdkill_status, cmdkill_stdout, cmdkill_stderr = self.server.execute(cmd_kill)
@@ -227,10 +216,10 @@ class PktgenDPDKTputLatency(base.Scenario):
             iteration_result.update({"linerate_percentage": linerate_percentage})
             
             loss_percentage = (iteration_result['packets_lost'] / float(iteration_result['packets_sent'])) * 100
-            #take only four decimals, to show packets lost per million
-            iteration_result.update({"loss_percentage": float("{0:.4f}".format(loss_percentage))})
+            #take 5 decimals, to show packets lost per 10 million
+            iteration_result.update({"loss_percentage": float("{0:.5f}".format(loss_percentage))})
 
-            print("result : {}".format(iteration_result))
+            LOG.info("result : {}".format(iteration_result))
                     
             # wait for finishing test
             time.sleep(1)
@@ -248,12 +237,12 @@ cat ~/result_latency.log -vT \
             if client_status:
                 raise RuntimeError(client_stderr)
 
-            print("client_stdout : {}".format(client_stdout.split('\n')))
+            LOG.debug("client_stdout : {}".format(client_stdout.split('\n')))
 
             avg_latency = 0
             if client_stdout:
                 latency_list = client_stdout.split('\n')[0:-1]
-                print("Latency list length : {}".format(len(latency_list)))
+                LOG.info("Latency list length : {}".format(len(latency_list)))
                 LOG.info("Samples of latency: %s", latency_list)
                 latency_sum = 0
                 for i in latency_list:
@@ -274,23 +263,23 @@ cat ~/result_latency.log -vT \
 
         while max_rate - min_rate > 0.5:
             
-            print("running with rate: {}".format(iter_rate))
+            LOG.info("running with rate: {}".format(iter_rate))
             framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, iter_rate, duration)
             
             if framesize_result['loss_percentage'] > loss_tolerance:
-                print("loss {} > tolerance {}, going down".format(framesize_result['loss_percentage'], loss_tolerance))
+                LOG.info("loss {} > tolerance {}, going down".format(framesize_result['loss_percentage'], loss_tolerance))
                 max_rate = iter_rate
                 iter_rate = ( max_rate + min_rate ) / 2.0
                                
-                print("min rate : {}, max_rate : {}".format(min_rate, max_rate))
+                LOG.info("min rate : {}, max_rate : {}".format(min_rate, max_rate))
                 
                 
             elif framesize_result['loss_percentage'] <= loss_tolerance:
-                print("loss {} <= tolerance {}, going up".format(framesize_result['loss_percentage'], loss_tolerance))
+                LOG.info("loss {} <= tolerance {}, going up".format(framesize_result['loss_percentage'], loss_tolerance))
                 
                 min_rate = iter_rate
                 iter_rate = ( max_rate + min_rate ) / 2.0
-                print("min rate : {}, max_rate : {}".format(min_rate, max_rate))
+                LOG.info("min rate : {}, max_rate : {}".format(min_rate, max_rate))
                 
                 res = framesize_result #last iteration result with loss within tolerance is the temporary result
 
@@ -324,8 +313,8 @@ cat ~/result_latency.log -vT \
                                 server_rev_mac, server_send_mac,
                                 client_ens4_ip, client_ens5_ip]
 
-        print("class pktgen args: {}".format(self.pktgen_args))
-        print("class testPMD args: {}".format(self.testpmd_args))
+        LOG.debug("class pktgen args: {}".format(self.pktgen_args))
+        LOG.debug("class testPMD args: {}".format(self.testpmd_args))
 
         options = self.scenario_cfg['options']
         packetsize = options.get("packetsize", 64)
@@ -334,13 +323,12 @@ cat ~/result_latency.log -vT \
         duration = options.get("duration", 30)
 
         result.update(self.binary_search(self.testpmd_args, self.pktgen_args, packetsize, rate, loss_tolerance,duration))
-        print("Frame Size {} result : {}".format(packetsize, result))
         
-        print("Running latency measurements for frame size {} with rate {}".format(packetsize, result['linerate_percentage']))
+        LOG.info("Running latency measurements for frame size {} with rate {}".format(packetsize, result['linerate_percentage']))
 
         result.update(self.run_iteration(self.testpmd_args, self.pktgen_args, packetsize, result['linerate_percentage'], duration, latency=True))
         
-        print("Frame Size {} result with latency : {}".format(packetsize, result))
+        LOG.info("Frame Size {} result with latency : {}".format(packetsize, result))
 
         avg_latency = result['avg_latency']
 
