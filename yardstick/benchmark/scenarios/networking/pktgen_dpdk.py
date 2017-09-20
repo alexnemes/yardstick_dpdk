@@ -90,7 +90,7 @@ class PktgenDPDKTputLatency(base.Scenario):
                 q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
                 for line in q.stdout.readlines():
                     print("line: {}".format(line))
-                    print line.split("|")[2].strip()
+                    print line.split("|")
                     if line.split("|")[2].strip() != False:
                 
                         
