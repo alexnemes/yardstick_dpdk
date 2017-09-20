@@ -85,7 +85,7 @@ class PktgenDPDKTputLatency(base.Scenario):
                 elements = line.split("|")
                 port_id = elements[1].strip()
                 print("Checking port {} ".format(port_id))
-                cmd = "openstack port show " + port_id + " " | grep port_security_enabled"
+                cmd = "openstack port show " + port_id + " | grep port_security_enabled"
                 print cmd
                 q = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, env=d)
                 for line in q.stdout.readlines():
