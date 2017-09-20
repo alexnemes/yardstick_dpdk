@@ -232,7 +232,7 @@ class PktgenDPDKLatency(base.Scenario):
         if latency:
         
             cmd_latency = r"""\
-cat ~/result.log -vT \
+cat ~/result_latency.log -vT \
 |awk '{match($0,/\[8;40H +[0-9]+/)} \
 {print substr($0,RSTART,RLENGTH)}' \
 |grep -v ^$ |awk '{if ($2 != 0) print $2}'\
