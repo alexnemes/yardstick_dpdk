@@ -72,10 +72,6 @@ class PktgenDPDKTputLatency(base.Scenario):
         self.client._put_file_shell(
             self.pktgen_dpdk_latency_script, '~/pktgen_dpdk_latency.sh')
         
-        LOG.info("Test scripts copied")
-
-        ############################
-
         LOG.info("Disabling Port Security")
         d = dict(os.environ)
         d['OS_AUTH_URL'] = "http://192.168.0.2:5000/"
@@ -103,8 +99,6 @@ class PktgenDPDKTputLatency(base.Scenario):
                         LOG.debug("Port security already disabled for this port. Doing nothing")
 
         LOG.info("Port Security Disabled for all test ports")
-
-        #############################
 
         self.setup_done = True
         self.testpmd_args = []
@@ -263,7 +257,7 @@ cat ~/result_latency.log -vT \
 
         while max_rate - min_rate > 0.5:
             
-            LOG.info("Iteration runs with rate: {}".format(iter_rate))
+            LOG.info("Current iteration runs with rate: {}".format(iter_rate))
             framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, iter_rate, duration)
             
             if framesize_result['loss_percentage'] > loss_tolerance:
@@ -282,7 +276,7 @@ cat ~/result_latency.log -vT \
                 LOG.info("Min rate : {}, Max_rate : {}".format(min_rate, max_rate))
                 
                 res = framesize_result #last iteration result with loss within tolerance is the temporary result
-
+        LOG.info("Finished iterating for frame size: {}".format(packetsize))
         return res
 
 
