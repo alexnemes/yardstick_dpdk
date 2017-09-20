@@ -263,7 +263,7 @@ cat ~/result_latency.log -vT \
 
         while max_rate - min_rate > 0.5:
             
-            LOG.info("Iteration runs with rate: {}".format(iter_rate))
+            LOG.info("Iteration runs with rate: {} for frame size".format(iter_rate, packetsize))
             framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, iter_rate, duration)
             
             if framesize_result['loss_percentage'] > loss_tolerance:
@@ -334,7 +334,7 @@ cat ~/result_latency.log -vT \
 
         if avg_latency and "sla" in self.scenario_cfg:
             sla_max_latency = int(self.scenario_cfg["sla"]["max_latency"])
-            LOG.info("avg_latency : %d ", avg_latency)
+            LOG.info("Average Latency : %d ", avg_latency)
             LOG.info("sla_max_latency: %d", sla_max_latency)
             debug_info = "avg_latency %d > sla_max_latency %d" \
                 % (avg_latency, sla_max_latency)
