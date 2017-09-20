@@ -20,7 +20,7 @@ from yardstick.benchmark.scenarios import base
 LOG = logging.getLogger(__name__)
 
 
-class PktgenDPDKTputLatency(base.Scenario):
+class PktgenDPDKLatency(base.Scenario):
     """Execute pktgen-dpdk on one vm and execute testpmd on the other vm
 
   Parameters
@@ -29,7 +29,7 @@ class PktgenDPDKTputLatency(base.Scenario):
         unit:    bytes
         default: 64
     """
-    __scenario_type__ = "PktgenDPDKTputLatency"
+    __scenario_type__ = "PktgenDPDKLatency"
 
     PKTGEN_DPDK_LATENCY_SCRIPT = 'pktgen_dpdk_latency_benchmark.bash'
     PKTGEN_DPDK_TPUT_SCRIPT = 'pktgen_dpdk_tput_benchmark.bash'
@@ -44,13 +44,13 @@ class PktgenDPDKTputLatency(base.Scenario):
         """scenario setup"""
         self.pktgen_dpdk_latency_script = pkg_resources.resource_filename(
             'yardstick.benchmark.scenarios.networking',
-            PktgenDPDKTputLatency.PKTGEN_DPDK_LATENCY_SCRIPT)
+            PktgenDPDKLatency.PKTGEN_DPDK_LATENCY_SCRIPT)
         self.pktgen_dpdk_tput_script = pkg_resources.resource_filename(
             'yardstick.benchmark.scenarios.networking',
-            PktgenDPDKTputLatency.PKTGEN_DPDK_TPUT_SCRIPT)
+            PktgenDPDKLatency.PKTGEN_DPDK_TPUT_SCRIPT)
         self.testpmd_script = pkg_resources.resource_filename(
             'yardstick.benchmark.scenarios.networking',
-            PktgenDPDKTputLatency.TESTPMD_SCRIPT)
+            PktgenDPDKLatency.TESTPMD_SCRIPT)
 
         host = self.context_cfg['host']
         target = self.context_cfg['target']
