@@ -186,7 +186,7 @@ class PktgenDPDKLatency(base.Scenario):
             # error cause in json dict on stdout
             raise RuntimeError(stdout)
         
-        it not latency:
+        if not latency:
             result_output = "{" + stdout.strip().split("{")[1]
             iteration_result.update(json.loads(result_output))
         
