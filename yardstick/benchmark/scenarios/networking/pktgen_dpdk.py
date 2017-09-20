@@ -254,7 +254,7 @@ cat ~/result.log -vT \
                     latency_sum += int(i)
                 avg_latency = latency_sum / len(latency_list)
 
-            return avg_latency
+            return {"avg_latency": avg_latency}
             
 
         
