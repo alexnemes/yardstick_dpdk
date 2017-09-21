@@ -17,25 +17,11 @@ FWD_REV_MAC=$3    # MAC address of forwarding receiver in VM B
 FWD_SEND_MAC=$4   # MAC address of forwarding sender in VM B
 RATE=$5           # packet rate in percentage
 PKT_SIZE=$6       # packet size
-ENS4_IP=$7
-ENS5_IP=$8
+ENS4_IP=$7        # IP address to be statically configured after unbind
+ENS5_IP=$8        # IP address to be statically configured after unbind
 DURATION=$9
 
 DPDK_DIR=/dpdk
-
-if (( ${PKT_SIZE} == 64 )); then
-        RANGE="64 Bytes";POSITION=9
-elif (( ${PKT_SIZE} > 64 )) && (( ${PKT_SIZE} <= 127 )); then
-        RANGE="65-127";POSITION=10
-elif (( ${PKT_SIZE} > 127 )) && (( ${PKT_SIZE} <= 225 )); then
-        RANGE="128-255";POSITION=11
-elif (( ${PKT_SIZE} >  255)) && (( ${PKT_SIZE} <= 511 )); then
-        RANGE="256-511";POSITION=12
-elif (( ${PKT_SIZE} > 511 )) && (( ${PKT_SIZE} <= 1023 )); then
-        RANGE="512-1023";POSITION=13
-elif (( ${PKT_SIZE} > 1023 )) && (( ${PKT_SIZE} <= 1518 )); then
-        RANGE="1024-1518";POSITION=14
-fi
 
 load_modules()
 {
@@ -120,12 +106,10 @@ create_expect_file()
 #!/usr/bin/expect
 
 set blacklist  [lindex $argv 0]
-set duration  [lindex $argv 1]
 spawn ./app/app/x86_64-native-linuxapp-gcc/pktgen -c 0x07 -n 4 -b $blacklist -- -P -m "1.0,2.1" -f /home/ubuntu/pktgen_latency.lua
 expect "Pktgen"
 send "on\n"
 expect "Pktgen"
-sleep $duration
 send "page latency\n"
 expect "Pktgen"
 send "page latency\n"
@@ -176,23 +160,8 @@ run_pktgen()
     cd /pktgen-dpdk
     touch /home/ubuntu/result_latency.log
     result_log="/home/ubuntu/result_latency.log"
-    sudo expect /home/ubuntu/pktgen.exp $blacklist $DURATION > $result_log 2>&1
-    #sudo expect /home/ubuntu/pktgen.exp $blacklist $DURATION 2>&1 | tee $result_log
-}
-
-output_json()
-{
-    sent=0
-    result_pps=0
-
-    sent=$(cat ~/result.log -vT | grep "Tx Pkts" | tail -1 | awk '{match($0,/\[18;20H +[0-9]+/)} {print substr($0,RSTART,RLENGTH)}' | awk '{if ($2 != 0) print $2}')
-    received=$(cat ~/result.log -vT | grep "$RANGE" | tail -1 | awk '{match($0,/\['$POSITION';40H +[0-9]+/)} {print substr($0,RSTART,RLENGTH)}' | awk '{if ($2 != 0) print $2}')
-    result_pps=$(( received / DURATION ))
-    packets_lost=$(( sent - received ))
-    #latency=$(cat ~/result.log -vT | grep "Latency" | tail -1 | awk '{match($0,/\[8;40H +[0-9]+/)} {print substr($0,RSTART,RLENGTH)}' | awk '{if ($2 != 0) print $2}')
-    
-    #echo '{ "frame_size"':${PKT_SIZE} ,   '"packets_sent"':${sent} , '"packets_received"':${received} , '"packets_per_second"':${result_pps} , '"latency"':${latency}   '}'
-    echo '{ "frame_size"':${PKT_SIZE} ,   '"packets_sent"':${sent} , '"packets_received"':${received} , '"packets_per_second"':${result_pps} , '"packets_lost"':${packets_lost} '}'
+    sudo expect /home/ubuntu/pktgen.exp $blacklist > $result_log 2>&1
+    #sudo expect /home/ubuntu/pktgen.exp $blacklist 2>&1 | tee $result_log
 }
 
 main()
@@ -204,7 +173,6 @@ main()
     create_expect_file
     add_interface_to_dpdk
     run_pktgen
-    #output_json
     free_interfaces
 }
 
