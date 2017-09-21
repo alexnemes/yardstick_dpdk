@@ -97,7 +97,7 @@ EOF
 
 create_expect_file()
 {
-    touch /home/ubuntu/pktgen.exp &> /dev/null
+    touch /home/ubuntu/pktgen_latency.exp &> /dev/null
     expect_file="/home/ubuntu/pktgen_latency.exp"
     chmod 777 $expect_file
     #echo $expect_file

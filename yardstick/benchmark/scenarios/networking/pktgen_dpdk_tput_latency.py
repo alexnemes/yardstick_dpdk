@@ -272,7 +272,7 @@ cat ~/result_latency.log -vT \
 
         while max_rate - min_rate > 0.5:
             
-            LOG.info("Current iteration runs with rate: {}".format(iter_rate))
+            LOG.info("Current iteration runs with rate: {} %".format(iter_rate))
             framesize_result = self.run_iteration(testpmd_args, pktgen_args, packetsize, iter_rate, duration)
             
             if framesize_result['loss_percentage'] > loss_tolerance:
@@ -280,7 +280,7 @@ cat ~/result_latency.log -vT \
                 max_rate = iter_rate
                 iter_rate = ( max_rate + min_rate ) / 2.0
                                
-                LOG.info("Min rate : {}, Max_rate : {}".format(min_rate, max_rate))
+                LOG.info("Min rate : {} %, Max_rate : {} %".format(min_rate, max_rate))
                 
                 
             elif framesize_result['loss_percentage'] <= loss_tolerance:
@@ -288,7 +288,7 @@ cat ~/result_latency.log -vT \
                 
                 min_rate = iter_rate
                 iter_rate = ( max_rate + min_rate ) / 2.0
-                LOG.info("Min rate : {}, Max_rate : {}".format(min_rate, max_rate))
+                LOG.info("Min rate : {} %, Max_rate : {} %".format(min_rate, max_rate))
                 
                 res = framesize_result #last iteration result with loss within tolerance is the temporary result
         LOG.info("Finished iterating for frame size: {}".format(packetsize))
@@ -341,7 +341,7 @@ cat ~/result_latency.log -vT \
 
         result.update(self.binary_search(self.testpmd_args, self.pktgen_args, packetsize, rate, loss_tolerance,duration))
         
-        LOG.info("Running latency measurements for frame size {} with rate {}".format(packetsize, result['linerate_percentage']))
+        LOG.info("Running latency measurements for frame size {} with rate {} %".format(packetsize, result['linerate_percentage']))
 
         result.update(self.run_iteration(self.testpmd_args, self.pktgen_args, packetsize, result['linerate_percentage'], duration, latency=True))
         
