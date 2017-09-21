@@ -289,7 +289,7 @@ create_nova_flavor()
 
 main()
 {
-    elif [[ "$DEPLOY_SCENARIO" == *"dpdk"* ]]; then
+    if [[ "$DEPLOY_SCENARIO" == *"dpdk"* ]]; then
         QCOW_IMAGE="/tmp/workspace/yardstick/yardstick-dpdk-image.img"
     else
         QCOW_IMAGE="/tmp/workspace/yardstick/yardstick-image.img"
