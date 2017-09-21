@@ -19,7 +19,6 @@ RATE=$5           # packet rate in percentage
 PKT_SIZE=$6       # packet size
 ENS4_IP=$7        # IP address to be statically configured after unbind
 ENS5_IP=$8        # IP address to be statically configured after unbind
-DURATION=$9
 
 DPDK_DIR=/dpdk
 
@@ -98,11 +97,11 @@ EOF
 create_expect_file()
 {
     touch /home/ubuntu/pktgen.exp &> /dev/null
-    expect_file="/home/ubuntu/pktgen.exp"
+    expect_file="/home/ubuntu/pktgen_latency.exp"
     chmod 777 $expect_file
     #echo $expect_file
 
-    cat << 'EOF' > "/home/ubuntu/pktgen.exp"
+    cat << 'EOF' > "/home/ubuntu/pktgen_latency.exp"
 #!/usr/bin/expect
 
 set blacklist  [lindex $argv 0]
@@ -166,8 +165,8 @@ run_pktgen()
     cd /pktgen-dpdk
     touch /home/ubuntu/result_latency.log
     result_log="/home/ubuntu/result_latency.log"
-    sudo expect /home/ubuntu/pktgen.exp $blacklist > $result_log 2>&1
-    #sudo expect /home/ubuntu/pktgen.exp $blacklist 2>&1 | tee $result_log
+    sudo expect /home/ubuntu/pktgen_latency.exp $blacklist > $result_log 2>&1
+    #sudo expect /home/ubuntu/pktgen_latency.exp $blacklist 2>&1 | tee $result_log
 }
 
 main()

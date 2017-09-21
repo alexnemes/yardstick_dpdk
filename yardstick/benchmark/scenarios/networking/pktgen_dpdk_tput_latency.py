@@ -237,12 +237,16 @@ cat ~/result_latency.log -vT \
 {print substr($0,RSTART,RLENGTH)}' \
 |grep -v ^$ |awk '{if ($2 != 0) print $2}'\
 """
+            cmd_latency_log = "cat ~/result_latency.log"
             client_status, client_stdout, client_stderr = self.client.execute(cmd_latency)
-
+            latency_status, latency_stdout, latency_stderr = self.client.execute(cmd_latency_log)
+            
+            print latency_stdout
+            
             if client_status:
                 raise RuntimeError(client_stderr)
 
-            LOG.info("Client_Latency_stdout : {}".format(client_stdout.split('\n')))
+            LOG.debug("Client_Latency_stdout : {}".format(client_stdout.split('\n')))
 
             avg_latency = 0
             if client_stdout:
