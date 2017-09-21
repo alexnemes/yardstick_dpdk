@@ -245,8 +245,6 @@ class PktgenDPDKTputLatency(base.Scenario):
             if latency_status:
                 raise RuntimeError(client_stderr)
 
-            LOG.debug("Client_Latency_stdout : {}".format(client_stdout.split('\n')))
-
             avg_latency = 0
             if client_stdout:
                 LOG.info("Latency list length : {}".format(len(latency_list)))
