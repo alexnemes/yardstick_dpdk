@@ -291,19 +291,25 @@ main()
 {
     if [[ "$DEPLOY_SCENARIO" == *"dpdk"* ]]; then
         QCOW_IMAGE="/tmp/workspace/yardstick/yardstick-dpdk-image.img"
+        RAW_IMAGE="/tmp/workspace/yardstick/yardstick-dpdk-image.tar.gz"
+        if [ -f /home/opnfv/images/yardstick-dpdk-image.img ];then
+            QCOW_IMAGE='/home/opnfv/images/yardstick-dpdk-image.img'
+        fi
+        if [ -f /home/opnfv/images/yardstick-image.tar.gz ];then
+            RAW_IMAGE='/home/opnfv/images/yardstick-dpdk-image.tar.gz'
+        fi
+    fi
     else
         QCOW_IMAGE="/tmp/workspace/yardstick/yardstick-image.img"
+        RAW_IMAGE="/tmp/workspace/yardstick/yardstick-image.tar.gz"
+        if [ -f /home/opnfv/images/yardstick-image.img ];then
+            QCOW_IMAGE='/home/opnfv/images/yardstick-image.img'
+        fi
+        if [ -f /home/opnfv/images/yardstick-image.tar.gz ];then
+            RAW_IMAGE='/home/opnfv/images/yardstick-image.tar.gz'
+        fi
     fi
-    RAW_IMAGE="/tmp/workspace/yardstick/yardstick-image.tar.gz"
-
-    if [ -f /home/opnfv/images/yardstick-image.img ];then
-        QCOW_IMAGE='/home/opnfv/images/yardstick-image.img'
-    elif [ -f /home/opnfv/images/yardstick-dpdk-image.img ];then
-        QCOW_IMAGE='/home/opnfv/images/yardstick-dpdk-image.img'
-    fi
-    if [ -f /home/opnfv/images/yardstick-image.tar.gz ];then
-        RAW_IMAGE='/home/opnfv/images/yardstick-image.tar.gz'
-    fi
+    
 
     if [ $OS_INSECURE ] && [ "$(echo $OS_INSECURE | tr '[:upper:]' '[:lower:]')" = "true" ]; then
         SECURE="--insecure"
