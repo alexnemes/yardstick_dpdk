@@ -242,7 +242,7 @@ cat ~/result_latency.log -vT \
             latency_status, latency_stdout, latency_stderr = self.client.execute(cmd_latency_log)
             
             latency_output =  latency_stdout.encode('utf-8')
-            print latency_output
+            print latency_output.split("Latency usec")
             
             if client_status:
                 raise RuntimeError(client_stderr)
