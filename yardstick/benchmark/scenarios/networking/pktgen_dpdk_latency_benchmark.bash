@@ -19,6 +19,7 @@ RATE=$5           # packet rate in percentage
 PKT_SIZE=$6       # packet size
 ENS4_IP=$7        # IP address to be statically configured after unbind
 ENS5_IP=$8        # IP address to be statically configured after unbind
+DURATION=$9
 
 DPDK_DIR=/dpdk
 

@@ -1,0 +1,2079 @@
+[33mcommit 55e425b88416d6f510125586bd7b31c6fd570033[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 21 14:36:57 2017 +0300
+
+    refine latency measurement sscript
+
+[33mcommit b542aab6c21a2369cf1697416caa4de958dc9150[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 21 11:39:52 2017 +0300
+
+    refine latency measurement sscript
+
+[33mcommit 5d7736636c41c0dff3ca76b102fdd1eaae0b44f4[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 21 11:34:02 2017 +0300
+
+    refine latency measurement sscript
+
+[33mcommit 40987e76356d026a33a662629413a9971ba6adf3[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 21 11:25:48 2017 +0300
+
+    rm useless file
+
+[33mcommit b9df8462a54dc1f84c809905a6c89469b1a4377d[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 19:18:35 2017 +0300
+
+    force dhclient
+
+[33mcommit 4b267eb10f97f36ba055de4b196e69d813b6368b[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 19:00:08 2017 +0300
+
+    refining printed stuff
+
+[33mcommit a1c2244cf520036de95a23236cd4951e492fd236[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 18:55:10 2017 +0300
+
+    refining printed stuff
+
+[33mcommit fbfc0308959673862e5edb69f0456f1a7d9fc498[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 18:52:16 2017 +0300
+
+    refining printed stuff
+
+[33mcommit 23846dee2377b48ad50f305ecd9bfd01eb8d89d0[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 18:49:29 2017 +0300
+
+    refining printed stuff
+
+[33mcommit 1bf5509e377a0e426e30c64ab80c18f7c6e4c21f[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 18:45:34 2017 +0300
+
+    rename py file
+
+[33mcommit 025e470bcba5b52521694502ae259333aee16b7f[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 18:43:20 2017 +0300
+
+    rename py file
+
+[33mcommit fcba1ea7a7924c90663613570ca3004d3cae4f8a[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 18:40:17 2017 +0300
+
+    refining printed stuff
+
+[33mcommit 2a659a6b33384d8529f533d5bbaa50b8ede75fa8[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 18:35:29 2017 +0300
+
+    check optimized port security. TOL 0.1
+
+[33mcommit fde33f76ce3fd5027dabadeba587e46f1d97ddcb[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 18:20:55 2017 +0300
+
+    check optimized port security. TOL 0.1
+
+[33mcommit 895013897ad9ae4aadb4baccd28b28c260cb41fd[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 18:18:27 2017 +0300
+
+    check optimized port security. TOL 0.1
+
+[33mcommit 0f84eeca8f790eea9a4d1b19e41bef8cb44a61b4[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 18:11:25 2017 +0300
+
+    check optimized port security. TOL 0.1
+
+[33mcommit 0f21431aedc377ae2882083cf0716e72a0fab819[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 18:08:43 2017 +0300
+
+    check optimized port security. TOL 0.1
+
+[33mcommit 69fc29a6b23cce65d426bf3f393753069250f0a7[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 17:19:23 2017 +0300
+
+    check optimized port security. TOL 0.1
+
+[33mcommit 192709f99c2ac5709a46cb2bf2f610e8712a2d46[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 17:16:47 2017 +0300
+
+    check optimized port security. TOL 0.1
+
+[33mcommit 04d4e5979a021af61d15f14d61255a7552c73651[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 17:14:10 2017 +0300
+
+    check optimized port security. TOL 0.1
+
+[33mcommit 5d75d598d7937f0738dc41b4043316913ced1af0[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 17:06:00 2017 +0300
+
+    check optimized port security. TOL 0.1
+
+[33mcommit 2d9c85dfba95dd33369300734b96e502a28b2efa[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 17:03:41 2017 +0300
+
+    check optimized port security. TOL 0.1
+
+[33mcommit ef49d1264d5c4c544758dc77a20853e0ddc4b685[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 17:01:34 2017 +0300
+
+    check optimized port security. TOL 0.1
+
+[33mcommit 6b83f0c7f462b114a7a50e98b895f933a5b036f8[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 15:27:37 2017 +0300
+
+    collect results with latency for all frame sizes. TOL 0.005
+
+[33mcommit 038095339fe9a4ff33114f03596393e8eea89922[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 15:11:54 2017 +0300
+
+    collect results with latency for all frame sizes. TOL 0.005
+
+[33mcommit becc8c4a52416cac75e46cede47adfc6c76d541a[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 13:19:42 2017 +0300
+
+    collect results with latency for all frame sizes. TOL 0.01
+
+[33mcommit 319e996519ca6585312be866bd3e5906a1cf561a[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 11:46:26 2017 +0300
+
+    collect results with latency for all frame sizes. TOL 0.1
+
+[33mcommit 34a0278f802d3f3436d6c207e1e596ff99b0afe9[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 11:40:56 2017 +0300
+
+    collect results with latency for all frame sizes. TOL 0.1
+
+[33mcommit bc6aeb99c69bab968fb1e2790183dffb28fd403f[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 11:31:44 2017 +0300
+
+    support for latency measurement
+
+[33mcommit 5633f52fcb8cf5d3486cbf2bf4d9c7a465d5c0c6[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 11:26:47 2017 +0300
+
+    support for latency measurement
+
+[33mcommit 9d45dcc7968dc8eb897efa41fc8e6406f2701594[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 11:26:10 2017 +0300
+
+    support for latency measurement
+
+[33mcommit 023fbccd60a454bc733a438c9cab00eb432eaa12[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 11:23:45 2017 +0300
+
+    support for latency measurement
+
+[33mcommit ab095034ca4c10c2b388e3b0165148162f822e08[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 20 11:21:57 2017 +0300
+
+    support for latency measurement
+
+[33mcommit 2bea6fd12dc4a8d6116529af14124d0ec984720e[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 19 19:07:18 2017 +0300
+
+    support for latency measurement
+
+[33mcommit c3b612a286ab9f698052f8c46c6b0fd8ed6952ba[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 19 19:03:46 2017 +0300
+
+    support for latency measurement
+
+[33mcommit bc7ffecf3a7f52aa57ebfbf9a5269e95573fa1e4[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 19 18:59:56 2017 +0300
+
+    support for latency measurement
+
+[33mcommit 4aa2a7fb98b3256508470c298b54187b096ad205[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 19 18:59:30 2017 +0300
+
+    support for latency measurement
+
+[33mcommit 9e0450716b31d88dc5efbbe9e16fc237428bc0be[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 19 17:09:17 2017 +0300
+
+    results with 0.01 loss tol
+
+[33mcommit 79babe80ef249d39cbf11665f2697b9d2f0cbf6e[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 19 16:13:40 2017 +0300
+
+    debug 11gbps tput
+
+[33mcommit 63dab583285653072be4e4e026edfe1836fea415[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 19 16:12:27 2017 +0300
+
+    debug 11gbps tput
+
+[33mcommit 9a4735344dcb19177263b22fe036634f077c46a9[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 19 16:01:41 2017 +0300
+
+    debug 11gbps tput
+
+[33mcommit 6bab07531373675c4a879209ab96bc723a5a20b1[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 19 15:55:04 2017 +0300
+
+    debug 11gbps tput
+
+[33mcommit d456a1e239c7f8894d6454fd535d174883d69619[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 19 15:36:09 2017 +0300
+
+    debug 11gbps tput
+
+[33mcommit 4a8a596c431fa445b27e935a1a68c3e28c005e7a[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 19 15:32:18 2017 +0300
+
+    debug 11gbps tput
+
+[33mcommit 9fa71f0e774416f99f559f963fd375dc5f2164c2[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 19 15:23:06 2017 +0300
+
+    debug 11gbps tput
+
+[33mcommit b09ec11215458721d3cf2241ad37cf9f7694c976[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 19 15:18:54 2017 +0300
+
+    debug 11gbps tput
+
+[33mcommit 3cec9ef393bb93e4aa6fe5985d03e4bcae131b39[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 19 15:06:00 2017 +0300
+
+    debug 11gbps tput
+
+[33mcommit ab3159f8f8656ca7bd8d79df363a0dbb27d17c66[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 19 15:04:51 2017 +0300
+
+    debug 11gbps tput
+
+[33mcommit 42edfddae42d55dcece9e5cb73aba59a073ada62[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 19 14:57:36 2017 +0300
+
+    debug 11gbps tput
+
+[33mcommit 9a03de50cc0dfc4afbad9350d0e819c0bf8af118[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 19 11:27:24 2017 +0300
+
+    debug 11gbps tput
+
+[33mcommit 3e6308919ca4942095fccc81a1bc0f7535cdf1fe[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 19 11:23:46 2017 +0300
+
+    debug 11gbps tput
+
+[33mcommit b3703bd1d36df7289c0f75e9066ba02fcaa91252[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 20:22:34 2017 +0300
+
+    grafanaing
+
+[33mcommit 084dcd050fe49fd8c0b10dbd9de36531c67e98ff[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 20:15:01 2017 +0300
+
+    grafanaing
+
+[33mcommit 2bc64bb7c843289b9a127e80778f8076f4db0589[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 20:14:47 2017 +0300
+
+    grafanaing
+
+[33mcommit 6252ad34bca092665c7c7ade093702416c6c56f6[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 20:14:32 2017 +0300
+
+    grafanaing
+
+[33mcommit 3943a891af8c27205d76140b32a11bf382c3c42d[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 20:03:53 2017 +0300
+
+    grafanaing
+
+[33mcommit 5036149e8cd1ac62715f2802f503676fcedd332a[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 19:38:16 2017 +0300
+
+    grafanaing
+
+[33mcommit c0f4c9e7e2f0a1e7ec5d2276fbc487edaf8088b1[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 19:29:45 2017 +0300
+
+    grafanaing
+
+[33mcommit 6cbde695f5fc68976703ced95e3b1eeaab351170[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 19:26:07 2017 +0300
+
+    grafanaing
+
+[33mcommit 46293a7f5068b08708b92054aa641f92e272b7eb[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 19:21:39 2017 +0300
+
+    grafanaing
+
+[33mcommit 482d896ce9c88f43473a9c298bf93c94bcba08d6[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 19:13:36 2017 +0300
+
+    grafanaing
+
+[33mcommit 7e21596864bb8ece7a4edf799156446e63a532b2[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 18:58:42 2017 +0300
+
+    grafanaing
+
+[33mcommit 2a68c0651d362084623c0fada49d1f8bbba36f93[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 16:34:16 2017 +0300
+
+    binary
+
+[33mcommit 63929af524d23643ea6e463a1966eb235046d309[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 16:33:00 2017 +0300
+
+    binary
+
+[33mcommit b5d6c105cdbbb4f2fdabc2886abee08ee541b3fa[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 15:35:14 2017 +0300
+
+    binary
+
+[33mcommit f33c4e95abc9bc5d52fd02a8095cbff9a14617b0[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 15:28:02 2017 +0300
+
+    binary
+
+[33mcommit 7b6940ffa7e578bc9e781c0834cf93f8fc9b8d84[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 15:26:43 2017 +0300
+
+    binary
+
+[33mcommit 1ab623696f9a25d25d4ae0b82cba190669cb8af4[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 15:24:49 2017 +0300
+
+    binary
+
+[33mcommit 63a6f294f44310a015aab1a6bbafe9a0a38d88ce[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 14:31:54 2017 +0300
+
+    binary
+
+[33mcommit f24e8989ae11d70fc7335fa2dd5ad4e5f70e7989[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 14:17:36 2017 +0300
+
+    param for loss tolerance
+
+[33mcommit 987e8ab00811d057090e0dc54e9136c7e6099012[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 14:08:59 2017 +0300
+
+    fix lost IP addresses after 10 iterations
+
+[33mcommit 3920df4412f889b895ac2630db3fb507c22fd772[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 14:08:21 2017 +0300
+
+    fix lost IP addresses after 10 iterations
+
+[33mcommit f191567de996f55467e618f80a5f2ffd064c984e[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 14:05:30 2017 +0300
+
+    fix lost IP addresses after 10 iterations
+
+[33mcommit 82828e7ada80e65c3975e4c4d793a4e372f3c919[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 12:12:02 2017 +0300
+
+    binary
+
+[33mcommit f0c31cd595158d4511ac86b22613bc19dc080117[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 11:50:34 2017 +0300
+
+    binary
+
+[33mcommit f3cb73da5deed451205cd2b32b1c9c2a5070717e[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 11:36:27 2017 +0300
+
+    debug
+
+[33mcommit 19565ad25921cb4a667aa6fa37b1d80fb4f4394b[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 18 11:10:30 2017 +0300
+
+    debugging
+
+[33mcommit 0d3e09b329edee0672b5f6a82db636e7308d748a[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 15 16:49:31 2017 +0300
+
+    debugging
+
+[33mcommit be6d1db01bd22da151e53e13a267d249e6936fdf[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 15 16:34:47 2017 +0300
+
+    debugging
+
+[33mcommit b18c57d68d4a77923f52d0da9799fbd70f388dd8[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 15 15:42:02 2017 +0300
+
+    tol 0
+
+[33mcommit f201e6699177e6e4f4e593288a5babec304138d0[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 15 15:30:57 2017 +0300
+
+    redo received frames count filter
+
+[33mcommit 2d990f5dafb8bd02bf0e39f3fcbef528bca78932[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 15 12:35:08 2017 +0300
+
+    binary search a
+
+[33mcommit d5c538e60c41aae184e9180eb84c6794054fed26[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 15 12:29:55 2017 +0300
+
+    binary search a
+
+[33mcommit 8e038046445030024317d709536e98248c5511fa[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 15 11:27:10 2017 +0300
+
+    binary search a
+
+[33mcommit c2a41416d61b06b8133b0768aabea2126604a7c7[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 18:22:22 2017 +0300
+
+    binary search a
+
+[33mcommit 9966971b3d2cb2b7552bec2d11859bf2a20a19de[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 18:19:00 2017 +0300
+
+    binary search a
+
+[33mcommit 768da85557262631456339794a5965c1ce3f1b7a[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 18:18:15 2017 +0300
+
+    binary search a
+
+[33mcommit 3d8cf5d8e7607e2fb89659ee252e4ae6e69dbf47[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 18:11:01 2017 +0300
+
+    binary search a
+
+[33mcommit 347d6fac5aba40aa8d44e499ccc6bd896d1d01c5[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 18:01:32 2017 +0300
+
+    binary search a
+
+[33mcommit 91c0126c8a6a834c5d97f7383a6646d0f3f04073[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 18:00:46 2017 +0300
+
+    binary search a
+
+[33mcommit a306c6302acffcff32d59bc3a3c1e92cef1737d1[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 17:42:07 2017 +0300
+
+    binary search a
+
+[33mcommit fe150183bce3e5cd12b66c374f464bc882e70a15[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 17:37:00 2017 +0300
+
+    binary search a
+
+[33mcommit 9fa8ce74892a84f826e4b838d3ba93a0c443f54f[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 17:23:28 2017 +0300
+
+    binary search a
+
+[33mcommit 112b079a251d6fb072edc2f52aca5d50ee0cbe65[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 17:22:02 2017 +0300
+
+    binary search a
+
+[33mcommit 33e5c37485862b954d459d8d0b0a9e9124761521[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 17:19:29 2017 +0300
+
+    binary search a
+
+[33mcommit 34d7700dedcb106565eb2d23a503b5317e98fa2e[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 17:17:02 2017 +0300
+
+    binary search a
+
+[33mcommit bb7e09ca548ffd3db19c878fe6b7da8b3346274e[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 17:09:41 2017 +0300
+
+    binary search a
+
+[33mcommit 3be1a9b2e300a22fea5431374fb67954bc2bdf0f[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 17:05:12 2017 +0300
+
+    binary search a
+
+[33mcommit f91ae654a1b2a622e439c8ee032bfd2711fa364c[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 16:46:31 2017 +0300
+
+    binary search a
+
+[33mcommit 34ef9783bb810f473eb697e84011b28dca359f2b[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 16:41:26 2017 +0300
+
+    binary search a
+
+[33mcommit 59d49d28fb4d88773e90c981e90512a00a5b9fc3[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 16:37:18 2017 +0300
+
+    binary search a
+
+[33mcommit 2a18b0c2445033ad15d56ee809e718094d0582d4[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 16:33:43 2017 +0300
+
+    binary search a
+
+[33mcommit a382fcc94a8ceffc92ff14d107710558c5c5f980[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 16:29:38 2017 +0300
+
+    binary search a
+
+[33mcommit bb0b951b375d6e41f149fd9d8ac594f64726f2d6[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 16:23:00 2017 +0300
+
+    binary search a
+
+[33mcommit 3d5d4d4bab8e68c6792d3912d95de5acffde2444[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 15:23:04 2017 +0300
+
+    binary search a
+
+[33mcommit 4bfb8a20bc09bf67110c107c1cc13958b1d0c0c5[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 15:11:08 2017 +0300
+
+    binary search a
+
+[33mcommit 868a670243f288f136bf6c69fe3edaa6c00139af[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 15:06:29 2017 +0300
+
+    binary search a
+
+[33mcommit fe4fa4c0aa6e04cb79044d9ba3397a5bfba63f70[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 15:01:44 2017 +0300
+
+    binary search a
+
+[33mcommit 620f9bcf52a4e4627fed896a411ca18fbe7101e6[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 14:58:30 2017 +0300
+
+    binary search a
+
+[33mcommit 18c38d4248c6403f4ee9e24bf46f33d1e6104728[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 12:07:11 2017 +0300
+
+    binary search
+
+[33mcommit 91c300ff9afef12ef0cdec39c9a136abefedce46[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 12:02:29 2017 +0300
+
+    binary search
+
+[33mcommit b1fac39d136eddc2b848a800de2a6af8b5dd4794[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 14 11:54:35 2017 +0300
+
+    binary search
+
+[33mcommit 7bc190fcd84b9d9d2ce1865d7b34300008c80a97[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 13 14:57:18 2017 +0300
+
+    throughtput vs linerate
+
+[33mcommit fc1728a71cc7f799c3bb88c8ea8497a2e8899cc5[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 13 14:40:12 2017 +0300
+
+    throughtput vs linerate
+
+[33mcommit 8c59fb3e2d0affedf73a356f73f9cbd78fa2db63[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 13 14:36:35 2017 +0300
+
+    throughtput vs linerate
+
+[33mcommit 708a60aa34336110e6bad016b28ea4f236f750dd[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 13 14:23:49 2017 +0300
+
+    throughtput vs linerate
+
+[33mcommit 7d0e82d17e646fbd9753924d0d769a4fdfefd8bb[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 18:20:00 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit 60e83142343b37cf2ae51abc1008f6dbe898d985[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 17:31:37 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit 8f58a988f0cad07dce4dddef4c43436921ebf921[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 16:59:04 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit c66c087c2eda48835b4bfeb16740827b3c67ef58[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 16:51:38 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit c1a6ee513915d70ecff7e73611d06caaf43d715d[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 16:25:03 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit 7b8b06702c0b2c669b62aacf2372ddd826142ccf[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 16:17:35 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit 8ca25fd08bea1bfb3b8667bfff459c34f29f4060[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 16:09:02 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit fba5813a0d32ad8612b0a253d451325c0393c814[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 16:03:03 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit 3899b67fdc9b07b5bb9dd4b317f47130fe60fa6b[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 15:59:38 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit ff68631c622c22e795f6d98d8b3cf70819d4dd87[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 15:56:27 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit 7f07f62420249df8ec47595285a0107f12b5755d[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 15:53:33 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit 520cb2a98fec6b567f03fc24af41fdcf00158f2b[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 15:47:05 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit 287df3eb7ded234f35beab5ac55f62ae1722d229[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 15:37:06 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit f2651fdfa2bd8be0baa02f1e1f95c7a261de36c6[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 15:04:51 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit 83b787fbf6bba4160eb885a289ef68ca5258015b[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 14:48:36 2017 +0300
+
+    kill pmd between iterations
+
+[33mcommit 00d06d18a7d975546d0d7cfecb0b0e5b8612d60c[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 11:31:37 2017 +0300
+
+    frame sizes and kill pmd
+
+[33mcommit 23fb8aaa8d457d1ea4b817ef991507991e8fa956[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 11:19:28 2017 +0300
+
+    frame sizes and kill pmd
+
+[33mcommit 972be777258402deb148b26812c4a564721f5faf[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 11:13:32 2017 +0300
+
+    frame sizes and kill pmd
+
+[33mcommit 022be6be703743a20986a0204857a47d27a26b7f[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 11:09:11 2017 +0300
+
+    frame sizes and kill pmd
+
+[33mcommit 54763c2758f8540c4eec5a12c0553efba09cc35e[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 11:00:55 2017 +0300
+
+    frame sizes and kill pmd
+
+[33mcommit a919d2429486e15657908c010ecb02e2715ad712[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 10:50:55 2017 +0300
+
+    frame sizes and kill pmd
+
+[33mcommit f55a0a7e8b11503aeb2d822fea7a99d0aed401d6[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 10:17:51 2017 +0300
+
+    frame sizes and kill pmd
+
+[33mcommit 906ec8542c51873329b94cf1bb4f14055152701b[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 12 10:07:12 2017 +0300
+
+    frame sizes and kill pmd
+
+[33mcommit fc62574cea444cb23197dd948d5a836dbcca36c2[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 19:51:59 2017 +0300
+
+    latency data
+
+[33mcommit 3c98d61c0ce752859303a56c7dce86e6c5e39844[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 19:32:45 2017 +0300
+
+    latency data
+
+[33mcommit 866956050c5f59fc9c0162b4a61e3d54cb6fe9d4[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 19:30:28 2017 +0300
+
+    latency data
+
+[33mcommit 0f8545d392fbcd60cda957ece8db152d9eead557[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 19:26:24 2017 +0300
+
+    latency data
+
+[33mcommit 24e202ca870185e4c4e2a43b028d61af1bd10f18[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 19:24:38 2017 +0300
+
+    latency data
+
+[33mcommit a6925047c611fae6abc1605698687a00366f60b5[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 19:14:18 2017 +0300
+
+    latency data
+
+[33mcommit cd5210c505bae3acd67e5f2b4885ef1d29c54432[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 19:01:30 2017 +0300
+
+    latency data
+
+[33mcommit 640a14c1a3996df561ade533fb039a324f1cc322[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 18:53:01 2017 +0300
+
+    latency data
+
+[33mcommit f4f18f29704c768e170dfebe91947597a5523487[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 18:19:29 2017 +0300
+
+    latency data
+
+[33mcommit 0a4124804bf2847a3dd0c7cad09e2b1d39a2f8ad[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 18:15:41 2017 +0300
+
+    latency data
+
+[33mcommit 26b6ffdccf9bbab144ed4e53869da5f1c2b387bd[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 18:11:47 2017 +0300
+
+    latency data
+
+[33mcommit a68f9b3b316f09b497f47e93262b74659493780b[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 18:05:41 2017 +0300
+
+    latency data
+
+[33mcommit f3baa887a8e5cd1cdcf3564c4489ab56406e7624[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 18:01:30 2017 +0300
+
+    latency data
+
+[33mcommit b48ca51de8d55c28ef4f3940ee6ecb28896e0862[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 17:56:30 2017 +0300
+
+    latency data
+
+[33mcommit 6f63fab99036cc30404bdab7070a8642dab5073c[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 17:46:55 2017 +0300
+
+    latency data
+
+[33mcommit 32c9bc334ff4d2fea32cc48d79931df2de19b426[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 17:33:57 2017 +0300
+
+    latency data
+
+[33mcommit 0d3e5d499a91909c9d5ba13af2af29c535c23fa6[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 17:28:24 2017 +0300
+
+    latency data
+
+[33mcommit f4960db438db5ab40d72bc7bd977a3932cdf5020[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 17:27:02 2017 +0300
+
+    latency data
+
+[33mcommit 50c43b8a220d62e58dc8a49b4e6e739ab2085dd2[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 15:15:18 2017 +0300
+
+    latency data
+
+[33mcommit 6fb610a7c60f279e7b28e1ce2d92251a5574aedb[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 11 15:04:45 2017 +0300
+
+    latency data
+
+[33mcommit 98ea1e7919eb5f10edb9b7ba892f959a6c4e4540[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 19:26:11 2017 +0300
+
+    debugging
+
+[33mcommit 1d607a615767ea99d1de7d5719c1a648caaae91a[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 18:57:10 2017 +0300
+
+    debugging
+
+[33mcommit 940896a88e33ef425c96daa764f0a2e685277be2[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 18:50:32 2017 +0300
+
+    debugging
+
+[33mcommit 1d8a6b3ccd9dfe1262a9a580bde56b51812aa99c[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 18:42:00 2017 +0300
+
+    debugging
+
+[33mcommit d0752b43ab22e312c1f36c68c5d5d8b4cfb8d4d9[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 18:38:23 2017 +0300
+
+    debugging
+
+[33mcommit 22e54f34a05efe270a54f3ff703c64ccf01c2376[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 18:29:07 2017 +0300
+
+    debugging
+
+[33mcommit 9697461943955e5db8ffc17d7cb7bf69a3c9cfef[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 18:20:22 2017 +0300
+
+    debugging
+
+[33mcommit d7ed82364305230234f7840d04bf98a0d5de8a24[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 18:14:37 2017 +0300
+
+    debugging
+
+[33mcommit e10b820af8ae0ebf3eee4dbf557998b14be1958f[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 18:04:08 2017 +0300
+
+    debugging
+
+[33mcommit f276d4763308894a0c42c9210af95e0cd7f61521[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 17:59:23 2017 +0300
+
+    results processing
+
+[33mcommit 1dfac81dccd356353cb116acca765f059f98d237[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 17:50:44 2017 +0300
+
+    results processing
+
+[33mcommit c40133a006ab160d01cd7feaefcf28ca2855dca4[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 16:39:55 2017 +0300
+
+    results processing
+
+[33mcommit f56d82fad53eea4af673c015fc0c487a4a5edb75[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 16:32:06 2017 +0300
+
+    results processing
+
+[33mcommit c2e94d6f9bc45ddf242e20ba5100efb5348ca469[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Sep 8 16:26:25 2017 +0300
+
+    results processing
+
+[33mcommit 43be5381b87ca38142df09e6bbcadde4ae541fd8[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 7 17:03:25 2017 +0300
+
+    move ping on pmd machine
+
+[33mcommit 5cd64f89b47a4d16339431f1a8c81c41ba18bdc1[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 7 16:59:13 2017 +0300
+
+    move ping on pmd machine
+
+[33mcommit 080c7e25dd2581b8a008d83e55f9445096cd8b0d[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 7 16:45:36 2017 +0300
+
+    simplify expect
+
+[33mcommit 7eb86c5647e22c1039f7835f46dcdb4125913b66[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Sep 7 16:42:19 2017 +0300
+
+    initial ping for flow creation
+
+[33mcommit fd10b4de7d2c8252e8d104ac7ee1c8b3d69fb5ad[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 6 17:39:56 2017 +0300
+
+    fixes
+
+[33mcommit 32230103565fbc8b86ad249b8fe938af2c4f3465[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 6 16:12:35 2017 +0300
+
+    keep image
+
+[33mcommit 5a1c614dedc575ef37740c385e8bf07ce102f20f[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Sep 6 15:40:39 2017 +0300
+
+    change dpdk version
+
+[33mcommit 9c2a9cac75a70baa66be2e5fefa71dd1ec09581d[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 5 19:02:11 2017 +0300
+
+    host passtru
+
+[33mcommit d34fb216d97a91c62f711deb1d01042244e3e96d[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 5 18:57:09 2017 +0300
+
+    host passtru
+
+[33mcommit 248c55c753c5f1ce56c4c2c428e5af50d17d87fe[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 5 18:39:03 2017 +0300
+
+    keep image
+
+[33mcommit 757ba6289c38ea218f3797a3e64beb78f5343cce[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 5 18:24:55 2017 +0300
+
+    add flavor param for intermediary image
+
+[33mcommit 69e414d974d0368b578315a28070e6fbd6fa6991[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 5 16:18:38 2017 +0300
+
+    bump dpdk and pktgen versions
+
+[33mcommit b4758df4c2c4372fa23e3cc911c228d60be5abac[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 5 14:17:02 2017 +0300
+
+    bump dpdk and pktgen versions
+
+[33mcommit 203d92494fccf423948712fb27e7acaae59f9dc8[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Sep 5 12:51:30 2017 +0300
+
+    build load image
+
+[33mcommit a802d731c35b46dbced42507bf8583d25b185120[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 4 16:11:28 2017 +0300
+
+    debug dekete
+
+[33mcommit 30403d1fa245056691173637d00a5615ded2f7b1[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 4 16:06:09 2017 +0300
+
+    debug dekete
+
+[33mcommit 594cc6e7b737b18ebe4a0e6de2601f3cd45778e5[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 4 16:03:35 2017 +0300
+
+    debug dekete
+
+[33mcommit be2a3254adb322e707de2d7ac148bff8e3a4bd1e[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 4 16:01:34 2017 +0300
+
+    debug dekete
+
+[33mcommit 17d6c3520d8d815556b12e527662e5fcfa93a522[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 4 15:58:54 2017 +0300
+
+    debug dekete
+
+[33mcommit cc6c65c0004ac0812c9d89c88a6adcc9a9406374[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Sep 4 13:39:21 2017 +0300
+
+    revert cpu policy
+
+[33mcommit 089f1c72d295c022282f610a5b746ea4f5abd786[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 31 16:59:46 2017 +0300
+
+    update flavor for dedicated cpu
+
+[33mcommit 2559c06a155f5c8d16e2a822f2417fa822a8dfdd[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 31 16:17:53 2017 +0300
+
+    workaround for port security anti-spoofing iptables rules
+
+[33mcommit a522451a2a98018f274acf9b84713b00613d92fa[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 31 16:13:18 2017 +0300
+
+    workaround for port security anti-spoofing iptables rules
+
+[33mcommit 8b704df7c534e16e89771900ffeb156d29848533[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 31 15:20:17 2017 +0300
+
+    workaround for port security anti-spoofing iptables rules
+
+[33mcommit de28e25572a21313783eab4c1d38159d6162042e[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 31 15:10:43 2017 +0300
+
+    workaround for port security anti-spoofing iptables rules
+
+[33mcommit 12e3ae9a2e403baf7e7eb792acec453405d898d2[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 24 12:23:59 2017 +0300
+
+    leave image
+
+[33mcommit a273b7696cf99508d942a3bac3767f2cb490d96e[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 24 12:09:55 2017 +0300
+
+    bump pktgen version to 3.2.12
+
+[33mcommit 02dd3660b63558fab265800f047e2d0c89bee2b7[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 24 11:51:08 2017 +0300
+
+    build and load new image
+
+[33mcommit aec0d0275bb5fbf99c11489a9d047dff62484f03[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 24 11:49:56 2017 +0300
+
+    bump pktgen version to 3.3.8
+
+[33mcommit 83b7536b9eb5ae7783fe66f4cbf05b3556fb0e36[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Aug 23 11:09:12 2017 +0300
+
+    keep image
+
+[33mcommit 32ee6e014204776ba847a1ab0b08cd0466f5b51f[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Aug 22 19:58:30 2017 +0300
+
+    bump pktgen to 3.2.11
+
+[33mcommit 9e9c9d0b797d07dee131ce0a7e60e73ff2355f73[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Aug 22 18:41:34 2017 +0300
+
+    debugging
+
+[33mcommit c35c5d4a3e2a4feaa4c2a6d2d48c213eb3217e8d[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Aug 22 18:17:52 2017 +0300
+
+    screen on syntax change
+
+[33mcommit 03d26842851c24e742b4a1c3bac72c4cc097f235[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Aug 22 15:15:48 2017 +0300
+
+    use existing image
+
+[33mcommit 9a5abe2e8be3a98950e484d7bb2029f8fd7de5eb[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Aug 22 14:50:05 2017 +0300
+
+    build and load fresh image
+
+[33mcommit 3e0cc2aa7f263e355d463cc16361b38ca34a92cb[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Aug 22 14:49:31 2017 +0300
+
+    bumping pktgen version
+
+[33mcommit 22593be5e83c8bead28c6065ba751e10822b9174[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Tue Aug 22 13:45:15 2017 +0300
+
+    remove bogus text
+
+[33mcommit 54c972d695d4df0c5afa2eda84802d8aa40491c8[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 21 17:24:54 2017 +0300
+
+    no screen options
+
+[33mcommit 39a663390fb6fc083dc6f8d02c42d6aa87da1740[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 21 17:12:31 2017 +0300
+
+    screen options
+
+[33mcommit d24e53124370b8323264ab4f59112ee401c0665f[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 21 17:06:28 2017 +0300
+
+    change command execution mode
+
+[33mcommit 28253af6d7621e79a6a3d07653a199da8e08dd4c[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 21 16:58:20 2017 +0300
+
+    leave image there; no new image created needed
+
+[33mcommit cd5baa8c50b7b4215fb95e1fd0afa9e0c420386e[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 21 16:34:51 2017 +0300
+
+    rebuild image
+
+[33mcommit a90b86da8bf3530b577e9417de2b86c128fd8174[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 21 16:33:46 2017 +0300
+
+    expect is needed
+
+[33mcommit e1cdcb5c77601449e59066558c90cc141b03bc87[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 21 14:43:09 2017 +0300
+
+    python script debug printing
+
+[33mcommit ad97042edec7756624751c19a91b1ccb342da53f[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 21 14:37:33 2017 +0300
+
+    leave image there; no new image created needed
+
+[33mcommit fc87834fcc26e35704da1d5047d5bdf482a2fc3e[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 21 14:33:49 2017 +0300
+
+    test scripts corrections
+
+[33mcommit 4d3d5a2d19da1831beca6484f97e1886b18a884b[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 21 11:06:25 2017 +0300
+
+    compile scripts fixes
+
+[33mcommit eb6d72845f2ca59874491990b9d2675beea83ade[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 21 11:00:24 2017 +0300
+
+    compile scripts fixes
+
+[33mcommit b29bf035679468258d4be748192fea3ae3dd008e[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Aug 18 18:22:18 2017 +0300
+
+    startup script corrections
+
+[33mcommit 531f09d2854c62573932e1f227e67222c84c8440[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Aug 18 17:50:15 2017 +0300
+
+    startup script
+
+[33mcommit d7fd12924b4c8e4a6835347b9304bdabaab6f647[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Aug 18 17:38:58 2017 +0300
+
+    gpg error workarounds
+
+[33mcommit 1c0c9b2e60d3222dde78e79e8e55f972f4252287[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Aug 18 16:39:57 2017 +0300
+
+    gpg error workarounds
+
+[33mcommit 4a0c77eb73c3a91d8be42d3a6e7113b8b381f14c[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Aug 18 16:32:39 2017 +0300
+
+    keyring errors
+
+[33mcommit b74b800ac5cce9a381affdc4995de76213fd4111[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Aug 18 16:22:40 2017 +0300
+
+    without debutils
+
+[33mcommit a680cfdb5f76e90cc68a741a3c189df57a7ab6db[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Aug 18 16:18:23 2017 +0300
+
+    change the way dpdk sources are downloaded and compiled
+
+[33mcommit 9e7ae4d7b56da960edbc709e108bb3b3ce718262[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Aug 18 14:14:07 2017 +0300
+
+    debug
+
+[33mcommit cf61782c95ff78f9079e1350b421e6ec9764f2d7[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Aug 18 14:09:32 2017 +0300
+
+    debugging
+
+[33mcommit 21f1b9752e5f6c53acf4dd8e99469124bb4c7ec3[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Aug 18 14:01:18 2017 +0300
+
+    skip uploading ubuntu and cirros images
+
+[33mcommit 02773da4e82971cb68f1357cde396af80e7a5b7b[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 17 18:07:38 2017 +0300
+
+    correct path
+
+[33mcommit eb9702bc74bb318ac0069eb672b1ca13c770892f[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 17 17:56:49 2017 +0300
+
+    debugging
+
+[33mcommit 2cba6fcbb3e3c6d56e580dd44bc74164d3598200[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 17 17:44:32 2017 +0300
+
+    startup script changes
+
+[33mcommit aeb9bacfc2f50a446c1a3d06bb0c7e090f164c07[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 17 17:30:57 2017 +0300
+
+    repo update
+
+[33mcommit 2b269a9e805df622b5d1c034c7175f85aa2bb1c3[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 17 17:23:16 2017 +0300
+
+    change dpdk install mode
+
+[33mcommit 29d58da13801f57396356015ea7ea904f4290ca3[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 17 16:23:22 2017 +0300
+
+    use new interface name convention
+
+[33mcommit 54204965b5f9dd97b54baefb9dd89902cf4c458d[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 17 15:28:18 2017 +0300
+
+    update bind script path; add flavor param
+
+[33mcommit ca34a165233cc9ac978fd5e16ef0262519ec06c4[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 17 12:53:23 2017 +0300
+
+    improve cleanup
+
+[33mcommit 0ba239eb243bc64e3ba9e177c90fa6c0164f8017[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 17 12:51:41 2017 +0300
+
+    improve cleanup
+
+[33mcommit 45b00cab8df9e365f9d57090481410c49f54cc24[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 17 12:41:43 2017 +0300
+
+    delete yardstick dpdk flavor during cleanup
+
+[33mcommit ee07c0717a1806d55acd3c8a8ed31e91bbd8bdcf[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 17 12:18:34 2017 +0300
+
+    let test run
+
+[33mcommit 4f09fa1a64e7f87232120c3c69b355134bb369f6[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Thu Aug 17 11:22:12 2017 +0300
+
+    uncomment exit
+
+[33mcommit 67940d5e933caec411f6d64bad0f1da95e75d41d[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Aug 16 19:42:40 2017 +0300
+
+    run config drive script at boot
+
+[33mcommit 171c201ea5a5703fb738bbb2d9e67d639b584257[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Aug 16 19:40:13 2017 +0300
+
+    correct path for devbind.py file
+
+[33mcommit e705442f459a1acb1dda2d5af00ce2d26826370a[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Aug 16 19:28:25 2017 +0300
+
+    also install libnuma. otherwise dpdk make fails
+
+[33mcommit 3fa6ad68887aa08fb13cff38bdadce48e16fed96[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Aug 16 18:44:59 2017 +0300
+
+    debuggin stack shell failures
+
+[33mcommit 0064df28a7571a32a859a9d4a85e40ab818f10fd[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Aug 16 17:44:16 2017 +0300
+
+    flavor
+
+[33mcommit a50420f4052e352fd7fdd8d84090ac1aa081295c[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Aug 16 17:43:20 2017 +0300
+
+    flavor
+
+[33mcommit 1c428b9a69fe83f4bc54581a024c480f69f61fcd[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Aug 16 15:33:26 2017 +0300
+
+    call finalize script AFTER image is loaded
+
+[33mcommit ee74bffdcf9ec5d4cbb9c79dc782de674e32bac0[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Aug 16 15:02:51 2017 +0300
+
+    change path to heat template
+
+[33mcommit 146b5b6ec124064df1396d1aaf7de7411b69fd29[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Aug 16 14:53:58 2017 +0300
+
+    change image used by heat
+
+[33mcommit d2eac70dc8b79c3ef2e4cb67600ac3c576c84fe9[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Aug 16 14:43:35 2017 +0300
+
+    source correct creds file
+
+[33mcommit d9e7586fa5a3fbe9ee371cce8550919a45eea577[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Aug 16 14:22:36 2017 +0300
+
+    source creds file
+
+[33mcommit eecf97ccd65537a78dd33fe5d9718cb8444254bb[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Aug 16 12:36:08 2017 +0300
+
+    revert
+
+[33mcommit d76fb6c10595f00f66860fc7af8bce09b3509151[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Aug 16 12:32:57 2017 +0300
+
+    added finalize script to setup.py
+
+[33mcommit e9a1cd3fb75905bf56e7d75e6caa606a5351b877[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Aug 16 12:24:45 2017 +0300
+
+    investigating
+
+[33mcommit a3fe643a3593e1aabafc54ac0ba4f01cbabe2ce0[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Aug 16 12:23:14 2017 +0300
+
+    investigating
+
+[33mcommit 43e1851db72a7087864cc9cfb1c559c7a7febac7[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Wed Aug 16 12:18:50 2017 +0300
+
+    change permission on dpdk scripts
+
+[33mcommit a838ceae2e161dbd3189e88e7bb1d04f453b7c0d[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 14 19:15:38 2017 +0300
+
+    moved finalize call to correct section
+
+[33mcommit 0875504a879a9e73e898b83424e0d6560c34b282[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 14 19:08:47 2017 +0300
+
+    correct cmd2
+
+[33mcommit 9eae431f0aababcd59e63b1649ed33bf36d61c0a[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 14 18:55:43 2017 +0300
+
+    print better
+
+[33mcommit 05c574168b3f8cf2b1de2b378f4450c412dea88a[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 14 18:46:49 2017 +0300
+
+    print finalise script
+
+[33mcommit 25c4a2c195961337f1558aa12201e6a55ef8a266[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 14 18:40:51 2017 +0300
+
+    removed extra spaces
+
+[33mcommit 424d7703cb58fc773a0dfc94bf2966fdc8757e49[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 14 18:33:22 2017 +0300
+
+    loaded image name and heat template used image. finalize script calling
+
+[33mcommit cf3063462894c57cfe48f172a09daa1cf9736dba[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 14 18:02:59 2017 +0300
+
+    change glance image name
+    
+    Signed-off-by: Alexandru Nemes <alexandru.nemes@enea.com>
+
+[33mcommit 2faabfbe0b3805e4f277cf24bc64a12615492144[m
+Merge: 8ae3e5c d4ecab1
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 14 17:58:54 2017 +0300
+
+    Merge branch 'stable/danube' of https://github.com/alexnemes/yardstick_dpdk into stable/danube
+
+[33mcommit 8ae3e5cc36ced4f4c9018692e7ea8f9eb7657eb0[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 14 17:58:21 2017 +0300
+
+    Update local image file name
+    
+    Signed-off-by: Alexandru Nemes <alexandru.nemes@enea.com>
+
+[33mcommit d4ecab1cdf05bcd448ee8eb715cd0fe50483828f[m
+Author: alexnemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 14 17:51:12 2017 +0300
+
+    Update load_images.sh
+
+[33mcommit 28e5cf6747406b0f9edeeaf2721ff48201c201b3[m
+Author: alexnemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 14 14:30:59 2017 +0300
+
+    Update Dockerfile
+
+[33mcommit bfe3ec0c80b619e0b65cf8a2df8249914e9bd590[m
+Author: alexnemes <alexandru.nemes@enea.com>
+Date:   Mon Aug 14 14:06:27 2017 +0300
+
+    Update Dockerfile
+
+[33mcommit e0a68af083eeb7cc8659a51b076137e585a0a26c[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Aug 11 19:10:06 2017 +0300
+
+    dpdk updates
+    
+    Signed-off-by: Alexandru Nemes <alexandru.nemes@enea.com>
+
+[33mcommit 770f79741c7e4cca8f6a7ced4bed7be95f4b3e87[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Aug 11 19:06:18 2017 +0300
+
+    dpdk updates
+    
+    Signed-off-by: Alexandru Nemes <alexandru.nemes@enea.com>
+
+[33mcommit db62adbef7ecb431a1836f75f3c98dbad5d36a4d[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Aug 11 18:36:47 2017 +0300
+
+    try
+    
+    Signed-off-by: Alexandru Nemes <alexandru.nemes@enea.com>
+
+[33mcommit 9f303274516e43db97d065b9c6a9ac3980a2c0ce[m
+Author: chenjiankun <chenjiankun1@huawei.com>
+Date:   Wed Aug 9 04:04:20 2017 +0000
+
+    Bugfix: cannot run task if without yardstick.conf in danube
+    
+    JIRA: YARDSTICK-776
+    
+    In danube.0.3.0, if we do not have yardstick.conf and then run task directly,
+    we will get a RuntimeError, so yardstick.conf is must. This is not reasonable.
+    In this patch, I fix it. So we can run it without yardstick.conf
+    
+    Change-Id: Ic069f67221da109db17cbd1bd51d299f6e267e6d
+    Signed-off-by: chenjiankun <chenjiankun1@huawei.com>
+
+[33mcommit 795438d0766a0c1bd7480c68f3234434019e6917[m
+Author: Ross Brattain <ross.b.brattain@intel.com>
+Date:   Fri Jul 14 21:59:21 2017 -0700
+
+    add release date
+    
+    Change-Id: Icf12b7a59144754f65f67ed54a5c455a64c5042f
+    Signed-off-by: Ross Brattain <ross.b.brattain@intel.com>
+
+[33mcommit d553d668cfcb24befeeb3464b6d0b5d328c45a2d[m
+Author: Ross Brattain <ross.b.brattain@intel.com>
+Date:   Sun Jun 25 15:36:21 2017 -0700
+
+    Danube 3.1 release notes
+    
+    Change-Id: I7032dd2348dd7212484a4a3cbd40e1d7698c8668
+    Signed-off-by: Ross Brattain <ross.b.brattain@intel.com>
+    (cherry picked from commit 9449bbf4608d74da8cf61cb4178c844a0095f78f)
+
+[33mcommit cce6fa7f1bca039bedc7484aff6f7862d9074053[m
+Author: chenjiankun <chenjiankun1@huawei.com>
+Date:   Fri Jul 14 08:26:53 2017 +0000
+
+    yardstick env influxdb/grafana cmd support centos
+    
+    JIRA: YARDSTICK-714
+    
+    Currently yardstick env influxdb/grafana command do not support centos.
+    Because we use the gateway ip to get the service of influxdb and grafana.
+    But in centos, we can not access influxdb/grafana service via gateway ip.
+    In this patch, I use docker inspect to get the ip of influxdb and grafana.
+    So these command can support centos.
+    
+    Change-Id: I4599cbbd0fe43de9cf08e5d9e74d31edbb742998
+    Signed-off-by: chenjiankun <chenjiankun1@huawei.com>
+
+[33mcommit 961de9447288c431a47a42a31a70df23ccc726eb[m
+Author: JingLu5 <lvjing5@huawei.com>
+Date:   Fri Jun 30 06:27:23 2017 +0000
+
+    Use "OS_INSECURE" variable as the insecure mode indicator
+    
+    Now we use "OS_CACERT" as the insecure mode indicator, it is better to use "OS_INSECURE".
+    
+    Change-Id: I1406193e27510390b4b8fd8f4751d8361560172f
+    Signed-off-by: JingLu5 <lvjing5@huawei.com>
+    (cherry picked from commit a2176af5514fc55ad8421635ad70ce4f26890ed6)
+
+[33mcommit 7bdb37105fb4520abba6568c85e1cf17dc4aafe6[m
+Author: JingLu5 <lvjing5@huawei.com>
+Date:   Mon Jul 3 04:16:14 2017 +0000
+
+    Bugfix: amend the CLI to build yardstick-image manually
+    
+    Change-Id: I8fbf0d6383375660c05e55d36fb0d2f91e1d8de8
+    Signed-off-by: JingLu5 <lvjing5@huawei.com>
+
+[33mcommit 64c7cc4212cf46cf8d39fa0d40a20caf6230e777[m
+Author: JingLu5 <lvjing5@huawei.com>
+Date:   Tue Jun 27 03:34:49 2017 +0000
+
+    Set TEST_DB_URL for storperf
+    
+    JIRA: YARDSTICK-692
+    
+    add the URL for the test results DB to the storperd_admin-rc
+    TEST_DB_URL=http://testresults.opnfv.org/test/api/v1
+    Also, add metadata JSON to the POST to /job API when creating the job:
+    
+    Change-Id: Ib950f759d80e707bc49d9015bc120d985051f131
+    Signed-off-by: JingLu5 <lvjing5@huawei.com>
+    (cherry picked from commit 1c69f20b0f681ea66d68d077c7f85466363fee4d)
+
+[33mcommit 75be9a172539d9e45f113001ed0b3daeb06e0e1c[m
+Author: Ross Brattain <ross.b.brattain@intel.com>
+Date:   Wed Jun 21 18:00:22 2017 -0700
+
+    increase line length to 99
+    
+    When line length is 79 I have to spend too much
+    time manually wrapping my code into unreadable junk
+    
+    I can't use expressive tuple unpacking and I start
+    shortening variables and other bad tricks to decrease
+    the line length.
+    
+    We have too many levels of indent to manage with 79
+    
+    class:
+      def:
+         if:
+             for:
+                  etc.
+    
+    Change-Id: Ib2ce9cf887f9880c46815822c8d0e1a7806e53ca
+    Signed-off-by: Ross Brattain <ross.b.brattain@intel.com>
+    (cherry picked from commit 98fdb2810a7010edf0f12af0ed5d706df2af615c)
+
+[33mcommit d609aa7438e543354debfe86ab9d34a0e6402eda[m
+Author: zshi <zshi@redhat.com>
+Date:   Fri Jun 30 09:40:58 2017 +0800
+
+    Bugfix: remove test.dbf file in recovery script
+    
+    JIRA: YARDSTICK-696
+    
+    Change-Id: I09b73079ff828c43040723794115bb07f74242e8
+    Signed-off-by: zshi <zshi@redhat.com>
+    (cherry picked from commit d578927cd63784616f11c4d669815192fd5fa336)
+
+[33mcommit 1dae2ed45bb425de276441c99da64b21ee4f97de[m
+Author: Jing Zhang <jing.c.zhang@nokia.com>
+Date:   Fri Mar 31 09:20:46 2017 -0400
+
+    Add SRIOV support
+    
+    A generic provider network solution is introduced. To identify whether a network specified in the test case is a provider network new attributes are introduced in the test case network section:
+    
+    networks:
+      test-net:
+        cidr: '192.168.1.0/24'
+        provider: "sriov"
+        physical_network: 'physnet1'
+    
+    If the "provider" attribute is present, the network is an existing provider network. If the value is "sriov", binding:vnic_type=direct is added to the interface in the heat deployment template. In orchestrator/heat.py, the interface creating functions are given a new parameter that tells if the network in use is a provider network. The benchmark/contexts/model.py is changed to store the value of the provider attribute from the test case and function calls to port creation is updated with the provider parameter. The same change is made in contexts/heat.py as well. Also calls for creating a new tenant network is replaced for creating a new provider network if the provider attribute is present.
+    
+    Update-1: Change test_model.py
+    Update-2: Per comment, change comment style to """"
+    Update-3: Change test_heat.py
+    Update-4: Add unit test cases to pass coverage test
+    Update-5: Add SRIOV provider network example in opnfv_yardstick_tc008.yaml
+    Update-6: Per comment, remove empty line in orchestrator/test_heat.py
+    Update-7: Per comment, change comment lines in orchestrator/test_heat.py
+    Update-8: Add more unit test cases to pass coverage test
+    Update-9: Change to create SRIOV provider network on the fly so as to support co-current test runs
+    Update-10: Per comment, init physical_network to 'physnet1'
+    
+    Change-Id: I76004c4fcc9bffcfd8ed021fd647e0cecb346ef4
+    JIRA: YARDSTICK-612
+    Signed-off-by: Jing Zhang <jing.c.zhang@nokia.com>
+    (cherry picked from commit f51ba41255d6ab2c03fd62a044d372b73b496459)
+
+[33mcommit ac370f93eb345f9aee456cb19724902587c10209[m
+Author: rexlee8776 <limingjiang@huawei.com>
+Date:   Thu Mar 30 10:37:02 2017 +0800
+
+    Bugfix: cacert should suppot insecure mode if needed
+    
+    currently, we use env variable "OS_CACERT" to specify the location of
+    cert file. but if there's no cacert and use for personal verification,
+    it's better to also support insecure mode by set OS_CACERT=False
+    
+    JIRA: YARDSTICK-616
+    
+    Change-Id: I73b0860863bf6386f9114328c52594ef87e02fa3
+    Signed-off-by: rexlee8776 <limingjiang@huawei.com>
+    (cherry picked from commit aa477334a3cb2e49c4343f66bff44c89d7edcf24)
+
+[33mcommit 2f9126f350bff38eec2ff452866e5a2ca3d0bdd7[m
+Author: JingLu5 <lvjing5@huawei.com>
+Date:   Mon Jun 26 03:18:56 2017 +0000
+
+    Bugfix: remove double quote around SECURE variable
+    
+    JIRA: YARDSTICK-689
+    
+    This patch remove the double quote around the SECURE varibale as it may cause the fowllowing error:
+    $ openstack "${SECURE}" image list
+    openstack: ' image list' is not an openstack command. See 'openstack --help'.
+    Did you mean one of these?
+      access token create
+      address scope create
+      address scope delete
+      address scope list
+      address scope set
+      address scope show
+      aggregate add host
+      aggregate create
+      ...
+    
+    Change-Id: Ibb22e85b3dd89b0e3b62821bd5ebe4f155886ffc
+    Signed-off-by: JingLu5 <lvjing5@huawei.com>
+    (cherry picked from commit b04755b5148daf36db436dc066e1bef2c93f1879)
+
+[33mcommit abc37694c6b0d1d80fa5942386d41f69d1bc085a[m
+Author: JingLu5 <lvjing5@huawei.com>
+Date:   Fri Jun 23 03:13:04 2017 +0000
+
+    Improve Yardstick user-guide
+    
+    This patch adds a short description on how to use the "yardstick env prepare"
+    command in a Non-OPNFV installer environtment.
+    
+    Change-Id: Idf54bf5318499d2b129a1445e0758e351945e755
+    Signed-off-by: JingLu5 <lvjing5@huawei.com>
+
+[33mcommit 6e3cb9346cb11acd6bf0882bd7f715b879246909[m
+Merge: b93bbc0 f92c10a
+Author: Jing Lu <lvjing5@huawei.com>
+Date:   Fri Jun 23 01:52:13 2017 +0000
+
+    Merge "HA testcase improvement" into stable/danube
+
+[33mcommit b93bbc01bf90d4fe6defb137145e74aee8c3081e[m
+Merge: a055421 19c3566
+Author: Ross Brattain <ross.b.brattain@intel.com>
+Date:   Thu Jun 22 15:27:54 2017 +0000
+
+    Merge "temp freeze releng version for stable/danube workaround" into stable/danube
+
+[33mcommit 19c356645c9eda78916237796ed81f9ce8c6ccee[m
+Author: Ross Brattain <ross.b.brattain@intel.com>
+Date:   Thu Jun 22 08:08:03 2017 -0700
+
+    temp freeze releng version for stable/danube workaround
+    
+    releng doesn't have a branch, so we need to freeze
+    the releng version.
+    
+    There is an issue with releng fetch_os_creds.sh change
+    
+    /home/opnfv/repos/releng/utils/fetch_os_creds.sh: line 75: BRANCH:
+    unbound variable
+    
+    So we need to revert back to commit before this change
+    
+    Change-Id: Ie8b0f68879a873aab584aa32b576d8b5ba602a13
+    Signed-off-by: Ross Brattain <ross.b.brattain@intel.com>
+
+[33mcommit f92c10a994a2818d8e03ac0be35c6d697530bcb3[m
+Author: JingLu5 <lvjing5@huawei.com>
+Date:   Wed Jun 21 10:07:41 2017 +0000
+
+    HA testcase improvement
+    
+    This patch improve HA test case in the following aspects:
+    1. the "GeneralHA" type now will check if the target service process in the controller node.
+    2. support ignore server certificate
+    3. add debug log for recovering service failed
+    4. improve method to kill keystone process
+    
+    Change-Id: I9ae7ab54391fe41d5d7f3e4951a7ac2e3ba75968
+    Signed-off-by: JingLu5 <lvjing5@huawei.com>
+    (cherry picked from commit 5b99f1532ec4d15258ec86e970acd2904954b3bc)
+
+[33mcommit a055421f37b8c25d455c6599484743b6dd0179a4[m
+Author: rexlee8776 <limingjiang@huawei.com>
+Date:   Mon Jun 19 06:53:12 2017 +0000
+
+    bugfix: storperf timeout in ci
+    
+    JIRA: YARDSTICK-680
+    
+    Change-Id: Ie405187b8ab085a9e4f40a7e7e7e661c94e83630
+    Signed-off-by: rexlee8776 <limingjiang@huawei.com>
+    (cherry picked from commit 6552d3b7b08c3b9dcaa8f44adc31d5028c00e863)
+
+[33mcommit 9ae5680998c044bd4d9e39c6dba24ac55c252dd7[m
+Merge: 9e0b246 d3b6455
+Author: Rex Lee <limingjiang@huawei.com>
+Date:   Thu Jun 22 12:27:24 2017 +0000
+
+    Merge "Adapt lmbench scripts for aarch64 nodes" into stable/danube
+
+[33mcommit 9e0b2465e53fda587c003e8d646308d0a2b62cbd[m
+Merge: d583b11 502c5b0
+Author: Ross Brattain <ross.b.brattain@intel.com>
+Date:   Thu Jun 22 09:33:55 2017 +0000
+
+    Merge "improve git code with devstack functions" into stable/danube
+
+[33mcommit 502c5b07b53a49b708b7a6b71ed2dc5360829b9b[m
+Author: Ross Brattain <ross.b.brattain@intel.com>
+Date:   Wed Jun 21 22:49:25 2017 -0700
+
+    improve git code with devstack functions
+    
+    if we aren't re-cloning we still need to make sure
+    we update the branch/tag/commit to the version from the remote
+    
+    so we need to fetch and then checkout again
+    
+    it is more complicated.  Dockerfile does a shallow
+    clone, so we don't get all the remote ref information.
+    
+    To clone a random remote commit id we have to unshallow
+    
+    Change-Id: If15f504b6ff2cfdfc8894fd3b37e687a19616714
+    Signed-off-by: Ross Brattain <ross.b.brattain@intel.com>
+
+[33mcommit d3b6455e19f9bc291601ee6400d99552d1962711[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Fri Jun 2 13:26:30 2017 +0300
+
+    Adapt lmbench scripts for aarch64 nodes
+    
+    LMBench shell scripts were invoking x86_64 executables.
+    This made them fail when executed on aarch64 nodes.
+    Added architecture detection and proper command call.
+    
+    JIRA: ARMBAND-268
+    
+    Change-Id: I8c9e87158631f7f5479adc2fda9558f9f7e54406
+    Signed-off-by: Alexandru Nemes <alexandru.nemes@enea.com>
+    (cherry picked from commit fd2b3173d21d34720f714e7e6358dafe7d1ada12)
+
+[33mcommit d583b110cf0952b2a61a74e35ac7c42ad7a0a33f[m
+Author: Ross Brattain <ross.b.brattain@intel.com>
+Date:   Mon May 22 01:08:39 2017 -0700
+
+    ping: don't split if target_vm is a dict
+    
+    If we run sample/ping-hot.yaml, it will encounter an AttributeError, log
+    see below:
+    Traceback (most recent call last):
+    File
+    "/usr/local/lib/python2.7/dist-packages/yardstick/benchmark/runners/duration.py",
+    line 69, in _worker_process
+    method(data)
+    File
+    "/usr/local/lib/python2.7/dist-packages/yardstick/benchmark/scenarios/networking/ping.py",
+    line 94, in run
+    target_vm_name = target_vm.split('.')[0]
+    AttributeError: 'dict' object has no attribute 'split'
+    Because here host and target will be a dict
+    
+    JIRA: YARDSTICK-561
+    
+    Change-Id: I4b7628bf20050d6d516a80efe3785f750d27c05e
+    Signed-off-by: Ross Brattain <ross.b.brattain@intel.com>
+    (cherry picked from commit eb142a953a59f447f1c186d2f58004fe354e4c4b)
+
+[33mcommit f9e384775559bca42e25f2f0ee952e2e304e678b[m
+Author: Alexandru Nemes <alexandru.nemes@enea.com>
+Date:   Mon Jun 19 12:04:56 2017 +0300
+
+    Configure Yardstick flavor to give more RAM to ARM instances
+    
+    Yardstick TC005 fails with errors that indicate low memory conditions:
+    "fio: error while loading shared libraries:
+    librbd.so.1: cannot map zero-fill pages"
+    Changing the yardstick flavor to give 1024MB of RAM instead of 512MB
+    made this test case work.
+    
+    JIRA: ARMBAND-275
+    
+    Change-Id: I2193802082c28edb20004964d2df3780eb5eccb7
+    Signed-off-by: Alexandru Nemes <alexandru.nemes@enea.com>
+    (cherry picked from commit 5c8e38667e17059db1c62dd21f868966a6b2a519)
+
+[33mcommit 9f576f22b8233f4baea14e42786c1a07f8afecd9[m
+Merge: a19d16b 9f4a060
+Author: Jing Lu <lvjing5@huawei.com>
+Date:   Tue Jun 20 08:13:20 2017 +0000
+
+    Merge "Terminate openstack service process using kill command in HA test cases" into stable/danube
+
+[33mcommit a19d16bca4499604894c464cd9e2435bf85edefd[m
+Author: tjuyinkanglin <14_ykl@tongji.edu.cn>
+Date:   Tue May 23 14:05:14 2017 +0800
+
+    Fix configuration error in TC025
+    
+    JIRA: YARDSTICK-647
+    
+    Change-Id: Idc2a87d20a631c37f151cc945de155ef8855e9c3
+    Signed-off-by: tjuyinkanglin <14_ykl@tongji.edu.cn>
+    (cherry picked from commit c076c8372f32a88059783fbc993ab2ebb8967e2e)
+
+[33mcommit 9f4a06097892451912bd8251fff5482592cfe33c[m
+Author: JingLu5 <lvjing5@huawei.com>
+Date:   Thu May 25 03:58:52 2017 +0000
+
+    Terminate openstack service process using kill command in HA test cases
+    
+    JIRA: YARDSTICK-659
+    
+    In some openstack environment, the service process cannot be killed by killall
+    command but can be terminate by kill command.
+    This patch is about to switch to use kill command in the
+    fault_process_kill.bash to kill processes.
+    
+    Change-Id: Iec455ee56d3f31fb5c16de5994870d1acd33f41a
+    Signed-off-by: JingLu5 <lvjing5@huawei.com>
+    (cherry picked from commit dd42ba3cafb908246da5b90c8bbbc2c7d0beb801)
+
+[33mcommit 5bdc049447e44738f8a0d67228906c07fd94821e[m
+Merge: 9a372b8 e0d2d7f
+Author: Jing Lu <lvjing5@huawei.com>
+Date:   Fri Jun 2 03:20:26 2017 +0000
+
+    Merge "fix bug: multi monitor" into stable/danube
+
+[33mcommit 9a372b8adf618981e4fbfb8d0cb3a48674c65d92[m
+Author: JingLu5 <lvjing5@huawei.com>
+Date:   Thu May 25 08:48:15 2017 +0000
+
+    Imporve monitor_process pass criteria
+    
+    JIRA: YARDSTICK-660
+    
+    The monitor func()'s criteria in the monitor_process.py now is whether at least
+    one process of the specific controller node service is recovered. But in reality
+    is more resonable to use whether processes have been recoverd to it's original
+    amount. This patch is aiming at improving the isssue
+    
+    Change-Id: I950ce2a89555801b96092735b0d670e892049927
+    Signed-off-by: JingLu5 <lvjing5@huawei.com>
+    (cherry picked from commit 37921fcd232cd2fbba9f45ef9fa5d8c912f54af6)
