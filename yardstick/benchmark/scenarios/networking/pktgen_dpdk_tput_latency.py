@@ -231,27 +231,24 @@ class PktgenDPDKTputLatency(base.Scenario):
         
         if latency:
         
-            cmd_latency = r"""\
-cat ~/result_latency.log -vT \
-|awk '{match($0,/\[8;40H +[0-9]+/)} \
-{print substr($0,RSTART,RLENGTH)}' \
-|grep -v ^$ |awk '{if ($2 != 0) print $2}'\
-"""
             cmd_latency_log = "cat ~/result_latency.log"
-            client_status, client_stdout, client_stderr = self.client.execute(cmd_latency)
             latency_status, latency_stdout, latency_stderr = self.client.execute(cmd_latency_log)
             
-            latency_output =  latency_stdout.encode('utf-8', 'ignore').decode('utf-8')
-            print latency_output.split("Pktgen:/> page latency")
-            
-            if client_status:
+            latency_output =  latency_stdout.encode('utf-8', 'ignore').decode('utf-8').split("Pktgen:/> page latency")
+           
+            latency_list=[]
+            for elem in latency_output[0].split("[8;40H")[1:]:
+                sample = int((elem.split("[9;40H")[0].split("\x1b")[0].strip()))
+                if sample != 0:
+                    latency_list.append(sample)
+
+            if latency_status:
                 raise RuntimeError(client_stderr)
 
             LOG.debug("Client_Latency_stdout : {}".format(client_stdout.split('\n')))
 
             avg_latency = 0
             if client_stdout:
-                latency_list = client_stdout.split('\n')[0:-1]
                 LOG.info("Latency list length : {}".format(len(latency_list)))
                 LOG.info("Samples of latency: %s", latency_list)
                 latency_sum = 0
