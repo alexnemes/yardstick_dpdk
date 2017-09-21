@@ -57,7 +57,7 @@ build_yardstick_image()
                 exit 1
             fi
         fi
-    if [[ "$DEPLOY_SCENARIO" == *"dpdk"* ]]; then
+    elif [[ "$DEPLOY_SCENARIO" == *"dpdk"* ]]; then
         #create special image with DPDK and PKTGEN inside it
         if [ ! -f "${RAW_IMAGE}" ];then
             local cmd
