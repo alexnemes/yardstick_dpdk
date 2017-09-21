@@ -57,15 +57,28 @@ build_yardstick_image()
                 exit 1
             fi
         fi
+    if [[ "$DEPLOY_SCENARIO" == *"dpdk"* ]]; then
+        #create special image with DPDK and PKTGEN inside it
+        if [ ! -f "${RAW_IMAGE}" ];then
+            local cmd
+            cmd="sudo $(which yardstick-img-dpdk-modify) $(pwd)/tools/ubuntu-server-cloudimg-dpdk-modify.sh"
+
+            # Build the image. Retry once if the build fails
+            $cmd || $cmd  
+            
+            if [ ! -f "${RAW_IMAGE}" ]; then
+                echo "Failed building RAW image"
+                exit 1
+            fi
+        fi
     else
         if [ ! -f "${QCOW_IMAGE}" ];then
             local cmd
-            #cmd="sudo $(which yardstick-img-modify) $(pwd)/tools/ubuntu-server-cloudimg-modify.sh"
-            cmd="sudo $(which yardstick-img-dpdk-modify) $(pwd)/tools/ubuntu-server-cloudimg-dpdk-modify.sh"
-            
+            cmd="sudo $(which yardstick-img-modify) $(pwd)/tools/ubuntu-server-cloudimg-modify.sh"
+
             # Build the image. Retry once if the build fails
             $cmd || $cmd
-       
+
             if [ ! -f "${QCOW_IMAGE}" ]; then
                 echo "Failed building QCOW image"
                 exit 1
@@ -127,6 +140,14 @@ load_yardstick_image()
             ${EXTRA_PARAMS} \
             --file ${RAW_IMAGE} \
             yardstick-image)
+    elif [[ "$DEPLOY_SCENARIO" == *"dpdk"* ]]; then
+        output=$(eval openstack ${SECURE} image create \
+            --public \
+            --disk-format qcow2 \
+            --container-format bare \
+            ${EXTRA_PARAMS} \
+            --file ${QCOW_IMAGE} \
+            yardstick-dpdk-image)    
     else
         output=$(eval openstack ${SECURE} image create \
             --public \
@@ -134,7 +155,7 @@ load_yardstick_image()
             --container-format bare \
             ${EXTRA_PARAMS} \
             --file ${QCOW_IMAGE} \
-            yardstick-dpdk-image)
+            yardstick-image)
     fi
 
     echo "$output"
@@ -154,12 +175,13 @@ load_yardstick_image()
 
     echo "Glance image id: $GLANCE_IMAGE_ID"
     
-    cmd2="sudo $(which yardstick-img-dpdk-finalize.sh)"
-    echo "Finalize script: $cmd2"
-    
-    # Call the dpdk finalize script
-    $cmd2
-    #exit 1
+    if [[ "$DEPLOY_SCENARIO" == *"dpdk"* ]]; then    
+        cmd2="sudo $(which yardstick-img-dpdk-finalize.sh)"
+        echo "Finalize script: $cmd2"
+        
+        # Call the dpdk finalize script
+        $cmd2
+    fi
 }
 
 load_cirros_image()
@@ -234,10 +256,16 @@ create_nova_flavor()
         echo "========== Creating yardstick-flavor =========="
         # delete flavor, if it exists, befoare creating, in order to avoid conflict
         openstack ${SECURE} flavor delete yardstick-dpdk-flavor &> /dev/null || true
-        # Create the nova flavor used by some sample test cases
-        openstack ${SECURE} flavor create --id 100 --ram 4096 --disk 4 --vcpus 4 yardstick-dpdk-flavor 
-        nova flavor-key yardstick-dpdk-flavor set hw:mem_page_size=any
-        openstack ${SECURE} flavor set --property hw:cpu_policy=dedicated yardstick-dpdk-flavor
+        
+        if [[ "$DEPLOY_SCENARIO" == *"dpdk"* ]]; then
+            # Create the nova flavor used by test cases with DPDK inside guest
+            openstack ${SECURE} flavor create --id 100 --ram 4096 --disk 4 --vcpus 4 yardstick-dpdk-flavor 
+            nova flavor-key yardstick-dpdk-flavor set hw:mem_page_size=any
+            openstack ${SECURE} flavor set --property hw:cpu_policy=dedicated yardstick-dpdk-flavor
+        else
+            # Create the nova flavor used by some sample test cases
+            openstack ${SECURE} flavor create --id 100 --ram 1024 --disk 3 --vcpus 1 yardstick-flavor
+        fi
         
         # DPDK-enabled OVS requires guest memory to be backed by large pages
         if [[ $DEPLOY_SCENARIO == *[_-]ovs[_-]* ]]; then
@@ -259,11 +287,17 @@ create_nova_flavor()
 
 main()
 {
-    QCOW_IMAGE="/tmp/workspace/yardstick/yardstick-dpdk-image.img"
+    elif [[ "$DEPLOY_SCENARIO" == *"dpdk"* ]]; then
+        QCOW_IMAGE="/tmp/workspace/yardstick/yardstick-dpdk-image.img"
+    else
+        QCOW_IMAGE="/tmp/workspace/yardstick/yardstick-image.img"
+    fi
     RAW_IMAGE="/tmp/workspace/yardstick/yardstick-image.tar.gz"
 
     if [ -f /home/opnfv/images/yardstick-image.img ];then
         QCOW_IMAGE='/home/opnfv/images/yardstick-image.img'
+    elif [ -f /home/opnfv/images/yardstick-dpdk-image.img ];then
+        QCOW_IMAGE='/home/opnfv/images/yardstick-dpdk-image.img'
     fi
     if [ -f /home/opnfv/images/yardstick-image.tar.gz ];then
         RAW_IMAGE='/home/opnfv/images/yardstick-image.tar.gz'
@@ -275,8 +309,8 @@ main()
         SECURE=""
     fi
 
-    #build_yardstick_image
-    #load_yardstick_image
+    build_yardstick_image
+    load_yardstick_image
     if [ "${YARD_IMG_ARCH}" == "arm64" ]; then
         sed -i 's/image: {{image}}/image: TestVM/g' tests/opnfv/test_cases/opnfv_yardstick_tc002.yaml
         sed -i 's/image: cirros-0.3.5/image: TestVM/g' samples/ping.yaml
@@ -285,8 +319,8 @@ main()
             sed -i "s/cidr: '10.0.1.0\/24'/cidr: '10.3.1.0\/24'/g" "${filename}"
         done
     else
-        #load_cirros_image
-        #load_ubuntu_image
+        load_cirros_image
+        load_ubuntu_image
         echo "not uploading ubuntu and cirros"
     fi
     create_nova_flavor
