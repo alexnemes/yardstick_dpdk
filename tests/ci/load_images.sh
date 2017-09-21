@@ -254,15 +254,17 @@ create_nova_flavor()
     if ! openstack ${SECURE} flavor list | grep -q yardstick-flavor; then
         echo
         echo "========== Creating yardstick-flavor =========="
-        # delete flavor, if it exists, befoare creating, in order to avoid conflict
-        openstack ${SECURE} flavor delete yardstick-dpdk-flavor &> /dev/null || true
-        
+
         if [[ "$DEPLOY_SCENARIO" == *"dpdk"* ]]; then
+            # delete flavor, if it exists, befoare creating, in order to avoid conflict
+            openstack ${SECURE} flavor delete yardstick-dpdk-flavor &> /dev/null || true
             # Create the nova flavor used by test cases with DPDK inside guest
             openstack ${SECURE} flavor create --id 100 --ram 4096 --disk 4 --vcpus 4 yardstick-dpdk-flavor 
             nova flavor-key yardstick-dpdk-flavor set hw:mem_page_size=any
             openstack ${SECURE} flavor set --property hw:cpu_policy=dedicated yardstick-dpdk-flavor
         else
+            # delete flavor, if it exists, befoare creating, in order to avoid conflict
+            openstack ${SECURE} flavor delete yardstick-flavor &> /dev/null || true
             # Create the nova flavor used by some sample test cases
             openstack ${SECURE} flavor create --id 100 --ram 1024 --disk 3 --vcpus 1 yardstick-flavor
         fi
