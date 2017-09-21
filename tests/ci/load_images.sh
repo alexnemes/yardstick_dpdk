@@ -53,6 +53,7 @@ build_yardstick_image()
             $cmd || $cmd  
             
             if [ ! -f "${RAW_IMAGE}" ]; then
+                echo "${RAW_IMAGE}"
                 echo "Failed building RAW image"
                 exit 1
             fi
@@ -67,6 +68,7 @@ build_yardstick_image()
             $cmd || $cmd  
             
             if [ ! -f "${RAW_IMAGE}" ]; then
+                echo "dpdk raw image: ${RAW_IMAGE}"
                 echo "Failed building RAW image"
                 exit 1
             fi
