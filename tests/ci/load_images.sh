@@ -295,7 +295,7 @@ main()
         if [ -f /home/opnfv/images/yardstick-dpdk-image.img ];then
             QCOW_IMAGE='/home/opnfv/images/yardstick-dpdk-image.img'
         fi
-        if [ -f /home/opnfv/images/yardstick-image.tar.gz ];then
+        if [ -f /home/opnfv/images/yardstick-dpdk-image.tar.gz ];then
             RAW_IMAGE='/home/opnfv/images/yardstick-dpdk-image.tar.gz'
         fi
     else
@@ -308,7 +308,6 @@ main()
             RAW_IMAGE='/home/opnfv/images/yardstick-image.tar.gz'
         fi
     fi
-    
 
     if [ $OS_INSECURE ] && [ "$(echo $OS_INSECURE | tr '[:upper:]' '[:lower:]')" = "true" ]; then
         SECURE="--insecure"
