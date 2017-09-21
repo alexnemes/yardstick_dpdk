@@ -298,7 +298,6 @@ main()
         if [ -f /home/opnfv/images/yardstick-image.tar.gz ];then
             RAW_IMAGE='/home/opnfv/images/yardstick-dpdk-image.tar.gz'
         fi
-    fi
     else
         QCOW_IMAGE="/tmp/workspace/yardstick/yardstick-image.img"
         RAW_IMAGE="/tmp/workspace/yardstick/yardstick-image.tar.gz"
