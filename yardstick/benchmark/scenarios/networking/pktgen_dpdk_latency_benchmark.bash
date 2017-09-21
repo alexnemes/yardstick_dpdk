@@ -114,21 +114,27 @@ send "page latency\n"
 expect "Pktgen"
 send "page latency\n"
 expect "Pktgen"
+sleep 1
 send "page latency\n"
 expect "Pktgen"
 send "page latency\n"
 expect "Pktgen"
+sleep 1
 send "page latency\n"
 expect "Pktgen"
 send "page latency\n"
 expect "Pktgen"
+sleep 1
 send "page latency\n"
 expect "Pktgen"
 send "page latency\n"
 expect "Pktgen"
+sleep 1
 send "page latency\n"
 expect "Pktgen"
 send "page latency\n"
+expect "Pktgen"
+send "stop 0\n"
 expect "Pktgen"
 sleep 1
 send "quit\n"

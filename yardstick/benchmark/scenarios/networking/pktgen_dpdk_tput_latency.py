@@ -242,7 +242,7 @@ cat ~/result_latency.log -vT \
             if client_status:
                 raise RuntimeError(client_stderr)
 
-            LOG.debug("client_stdout : {}".format(client_stdout.split('\n')))
+            LOG.info("Client_Latency_stdout : {}".format(client_stdout.split('\n')))
 
             avg_latency = 0
             if client_stdout:
