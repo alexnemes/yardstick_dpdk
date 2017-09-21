@@ -60,16 +60,16 @@ build_yardstick_image()
         fi
     elif [[ "$DEPLOY_SCENARIO" == *"dpdk"* ]]; then
         #create special image with DPDK and PKTGEN inside it
-        if [ ! -f "${RAW_IMAGE}" ];then
+        if [ ! -f "${QCOW_IMAGE}" ];then
             local cmd
             cmd="sudo $(which yardstick-img-dpdk-modify) $(pwd)/tools/ubuntu-server-cloudimg-dpdk-modify.sh"
 
             # Build the image. Retry once if the build fails
             $cmd || $cmd  
             
-            if [ ! -f "${RAW_IMAGE}" ]; then
-                echo "dpdk raw image: ${RAW_IMAGE}"
-                echo "Failed building RAW image"
+            if [ ! -f "${QCOW_IMAGE}" ]; then
+                echo "dpdk qcow image: ${QCOW_IMAGE}"
+                echo "Failed building DPDK QCOW image"
                 exit 1
             fi
         fi
