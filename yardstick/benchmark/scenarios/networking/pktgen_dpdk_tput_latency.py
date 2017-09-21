@@ -241,7 +241,7 @@ cat ~/result_latency.log -vT \
             client_status, client_stdout, client_stderr = self.client.execute(cmd_latency)
             latency_status, latency_stdout, latency_stderr = self.client.execute(cmd_latency_log)
             
-            latency_output =  latency_stdout.encode('utf-8')
+            latency_output =  latency_stdout.encode('utf-8', 'ignore').decode('utf-8')
             print latency_output.split("Pktgen:/> page latency")
             
             if client_status:
