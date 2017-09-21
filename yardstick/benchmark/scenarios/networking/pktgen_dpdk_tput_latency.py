@@ -246,7 +246,7 @@ class PktgenDPDKTputLatency(base.Scenario):
                 raise RuntimeError(client_stderr)
 
             avg_latency = 0
-            if client_stdout:
+            if latency_stdout:
                 LOG.info("Latency list length : {}".format(len(latency_list)))
                 LOG.info("Samples of latency: %s", latency_list)
                 latency_sum = 0
