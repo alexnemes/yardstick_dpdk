@@ -21,7 +21,7 @@ scenarios:
   options:
     packetsize: {{pkt_size}}
     rate: 100
-    loss_tolerance: 0.1
+    loss_tolerance: 0.9
     duration: 30
 
   host: demeter.yardstick-TC042
