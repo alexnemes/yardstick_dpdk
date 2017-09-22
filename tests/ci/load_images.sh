@@ -273,7 +273,7 @@ create_nova_flavor()
             if [[ $DEPLOY_SCENARIO == *[_-]ovs[_-]* ]]; then
                 openstack ${SECURE} flavor set --property hw:mem_page_size=large yardstick-flavor
             fi
-
+        fi
         # VPP requires guest memory to be backed by large pages
         if [[ "$DEPLOY_SCENARIO" == *"-fdio-"* ]]; then
             openstack ${SECURE} flavor set --property hw:mem_page_size=large yardstick-flavor
