@@ -178,7 +178,7 @@ load_yardstick_image()
     echo "Glance image id: $GLANCE_IMAGE_ID"
     
     if [[ "$DEPLOY_SCENARIO" == *"dpdk"* ]]; then    
-        cmd2="sudo $(which yardstick-img-dpdk-finalize.sh)"
+        cmd2="sudo source $(which yardstick-img-dpdk-finalize.sh)"
         echo "Finalize script: $cmd2"
         
         # Call the dpdk finalize script
@@ -328,7 +328,6 @@ main()
     else
         load_cirros_image
         load_ubuntu_image
-        echo "not uploading ubuntu and cirros"
     fi
     create_nova_flavor
 }
