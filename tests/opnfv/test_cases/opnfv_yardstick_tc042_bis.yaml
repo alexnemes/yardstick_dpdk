@@ -14,13 +14,13 @@ description: >
     Measure network latency using testpmd and pktgen-dpdk.
 
 scenarios:
-{% for pkt_size in [64,128,256,512,1024,1280,1518] %}
+{% for pkt_size in [1024] %}
 -
   type: PktgenDPDKTputLatency
   options:
     packetsize: {{pkt_size}}
     rate: 100
-    loss_tolerance: 0.1
+    loss_tolerance: 0.9
     duration: 30
 
   host: demeter.yardstick-TC042
