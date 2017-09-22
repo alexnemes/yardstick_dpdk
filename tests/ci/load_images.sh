@@ -178,7 +178,7 @@ load_yardstick_image()
     echo "Glance image id: $GLANCE_IMAGE_ID"
     
     if [[ "$DEPLOY_SCENARIO" == *"dpdk"* ]]; then    
-        cmd2="sudo $(which yardstick-img-dpdk-finalize.sh)"
+        cmd2=". $(which yardstick-img-dpdk-finalize.sh)"
         echo "Finalize script: $cmd2"
         
         # Call the dpdk finalize script
