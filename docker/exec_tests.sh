@@ -10,9 +10,9 @@
 
 set -e
 
-: ${YARDSTICK_REPO:='https://gerrit.opnfv.org/gerrit/yardstick'}
+: ${YARDSTICK_REPO:='https://github.com/alexnemes/yardstick_dpdk.git'}
 : ${YARDSTICK_REPO_DIR:='/home/opnfv/repos/yardstick'}
-: ${YARDSTICK_BRANCH:='master'} # branch, tag, sha1 or refspec
+: ${YARDSTICK_BRANCH:='stable/danube'} # branch, tag, sha1 or refspec
 
 : ${RELENG_REPO:='https://gerrit.opnfv.org/gerrit/releng'}
 : ${RELENG_REPO_DIR:='/home/opnfv/repos/releng'}

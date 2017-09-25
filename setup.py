@@ -56,6 +56,6 @@ setup(
         'tools/yardstick-img-modify',
         'tools/yardstick-img-lxd-modify',
         'tools/yardstick-img-dpdk-modify',
-        'tools/yardstick-img-dpdk-finalize'
+        'tools/yardstick-img-dpdk-finalize.sh'
     ]
 )
