@@ -9,7 +9,7 @@
 
 FROM ubuntu:14.04
 
-LABEL image=opnfv/yardstick
+LABEL image=opnfv/yardstick_dpdk
 
 ARG BRANCH=stable/danube
 
