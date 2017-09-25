@@ -57,7 +57,7 @@ build_yardstick_image()
                 exit 1
             fi
         fi
-    elif [[ "$DEPLOY_SCENARIO" == *"dpdk"* and "$RUN_BENCHMARK" == "true" ]]; then
+    elif [[ "$DEPLOY_SCENARIO" == *"dpdk"* && "$RUN_BENCHMARK" == "true" ]]; then
         #create special image with DPDK and PKTGEN inside it
         if [ ! -f "${QCOW_IMAGE}" ];then
             local cmd
@@ -141,7 +141,7 @@ load_yardstick_image()
             ${EXTRA_PARAMS} \
             --file ${RAW_IMAGE} \
             yardstick-image)
-    elif [[ "$DEPLOY_SCENARIO" == *"dpdk"* and "$RUN_BENCHMARK" == "true" ]]; then
+    elif [[ "$DEPLOY_SCENARIO" == *"dpdk"* && "$RUN_BENCHMARK" == "true" ]]; then
         output=$(eval openstack ${SECURE} image create \
             --public \
             --disk-format qcow2 \
@@ -176,7 +176,7 @@ load_yardstick_image()
 
     echo "Glance image id: $GLANCE_IMAGE_ID"
     
-    if [[ "$DEPLOY_SCENARIO" == *"dpdk"* and "$RUN_BENCHMARK" == "true" ]]; then
+    if [[ "$DEPLOY_SCENARIO" == *"dpdk"* && "$RUN_BENCHMARK" == "true" ]]; then
         cmd2=". $(which yardstick-img-dpdk-finalize.sh)"
         echo "Finalize script: $cmd2"
         
@@ -256,7 +256,7 @@ create_nova_flavor()
         echo
         echo "========== Creating yardstick-flavor =========="
 
-        if [[ "$DEPLOY_SCENARIO" == *"dpdk"* and "$RUN_BENCHMARK" == "true" ]]; then
+        if [[ "$DEPLOY_SCENARIO" == *"dpdk"* && "$RUN_BENCHMARK" == "true" ]]; then
             # delete flavor, if it exists, befoare creating, in order to avoid conflict
             openstack ${SECURE} flavor delete yardstick-dpdk-flavor &> /dev/null || true
             # Create the nova flavor used by test cases with DPDK inside guest
@@ -289,7 +289,7 @@ create_nova_flavor()
 
 main()
 {
-    if [[ "$DEPLOY_SCENARIO" == *"dpdk"* and "$RUN_BENCHMARK" == "true" ]]; then
+    if [[ "$DEPLOY_SCENARIO" == *"dpdk"* && "$RUN_BENCHMARK" == "true" ]]; then
         QCOW_IMAGE="/tmp/workspace/yardstick/yardstick-dpdk-image.img"
         RAW_IMAGE="/tmp/workspace/yardstick/yardstick-dpdk-image.tar.gz"
         if [ -f /home/opnfv/images/yardstick-dpdk-image.img ];then
