@@ -25,8 +25,8 @@ index 96a5d77..03307a2 100644
 -FROM ubuntu:14.04
 +FROM aarch64/ubuntu:14.04
 
--LABEL image=opnfv/yardstick
-+LABEL image=opnfv/yardstick_aarch64
+-LABEL image=opnfv/yardstick_dpdk
++LABEL image=opnfv/yardstick_dpdk_aarch64
 
  ARG BRANCH=master
 
