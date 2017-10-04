@@ -115,7 +115,7 @@ resources:
                 echo "Building for x86"
             fi
             export RTE_SDK=/dpdk
-            echo "cpu arch: $CPU_ARCH"
+            echo "cpu arch: $CPU_ARCH, target: $TARGET"
             cmd="export RTE_TARGET=$TARGET"
             echo "$cmd"
             $cmd
@@ -128,15 +128,16 @@ resources:
             sed -i 's/CONFIG_RTE_BUILD_SHARED_LIB=\(.*\)/CONFIG_RTE_BUILD_SHARED_LIB=n/g' .config
             cd ..
             cmd="make install T=$TARGET DESTDIR=destdir"
+            echo "cpu arch: $CPU_ARCH, target: $TARGET"
             echo "$cmd"
             $cmd
-            echo "cpu arch: $CPU_ARCH"
+            echo "cpu arch: $CPU_ARCH, target: $TARGET"
             modprobe uio
-            echo "cpu arch: $CPU_ARCH"
+            echo "cpu arch: $CPU_ARCH, target: $TARGET"
             insmod /dpdk/$TARGET/kmod/igb_uio.ko
-            echo "cpu arch: $CPU_ARCH"
+            echo "cpu arch: $CPU_ARCH, target: $TARGET"
             insmod /dpdk/$TARGET/kmod/rte_kni.ko
-            echo "cpu arch: $CPU_ARCH"
+            echo "cpu arch: $CPU_ARCH, target: $TARGET"
             cd /pktgen-dpdk
             make RTE_SDK=/dpdk/
             echo "PKTGEN BUILT"
