@@ -115,17 +115,17 @@ resources:
                 echo "Building for x86"
             fi
             export RTE_SDK=/dpdk
-            export RTE_TARGET="$TARGET"
+            export RTE_TARGET=$TARGET
             cd /dpdk/
-            make config T="$TARGET" O="$TARGET"
+            make config T=$TARGET O=$TARGET
             cd $TARGET
             # switch to static libraries so that pktgen can compile
             sed -i 's/CONFIG_RTE_BUILD_SHARED_LIB=\(.*\)/CONFIG_RTE_BUILD_SHARED_LIB=n/g' .config
             cd ..
-            make install T="$TARGET" DESTDIR=destdir
+            make install T=$TARGET DESTDIR=destdir
             modprobe uio
-            insmod /dpdk/"$TARGET"/kmod/igb_uio.ko
-            insmod /dpdk/"$TARGET"/kmod/rte_kni.ko
+            insmod /dpdk/$TARGET/kmod/igb_uio.ko
+            insmod /dpdk/$TARGET/kmod/rte_kni.ko
             cd /pktgen-dpdk
             make RTE_SDK=/dpdk/
             echo "PKTGEN BUILT"
