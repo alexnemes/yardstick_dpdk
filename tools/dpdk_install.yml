@@ -104,8 +104,8 @@ resources:
       user_data:
         str_replace:
           template: |
-            #!/bin/sh
             cat <<'CEOF' > /tmp/dpdk_post_build.sh
+            #!/bin/sh
             CPU_ARCH="$(uname -m)"
             if [[ "$CPU_ARCH" == "aarch64" ]]; then
                 TARGET="arm64-xgene1-linuxapp-gcc"
