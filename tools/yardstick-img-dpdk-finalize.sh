@@ -28,7 +28,7 @@ else
 fi
 
 stackname="yardstick-modify-stack"
-template=tools/dpdk_install.yml
+#template=tools/dpdk_install.yml
 new_image_name="yardstick-image-pktgen-ready"
 
 # delete stack, in case it already exists, to avoid conflict
