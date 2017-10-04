@@ -175,7 +175,11 @@ load_yardstick_image()
     fi
 
     echo "Glance image id: $GLANCE_IMAGE_ID"
-    
+}
+
+
+finalize_dpdk_image()
+{    
     if [[ "$DEPLOY_SCENARIO" == *"dpdk"* && "$DPDK_BENCHMARK" == "true" ]]; then
         cmd2=". $(which yardstick-img-dpdk-finalize.sh) ${YARD_IMG_ARCH}"
         echo "Finalize script: $cmd2"
@@ -317,6 +321,7 @@ main()
 
     build_yardstick_image
     load_yardstick_image
+    finalize_dpdk_image
     if [ "${YARD_IMG_ARCH}" == "arm64" ]; then
         sed -i 's/image: {{image}}/image: TestVM/g' tests/opnfv/test_cases/opnfv_yardstick_tc002.yaml
         sed -i 's/image: cirros-0.3.5/image: TestVM/g' samples/ping.yaml

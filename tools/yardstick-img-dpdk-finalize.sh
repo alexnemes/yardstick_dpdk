@@ -19,7 +19,7 @@
 
 #source /etc/yardstick/openstack.creds
 arch=$1
-if [[ "$arch" =~ "aarch64" ]];then
+if [[ "$arch" == "aarch64" ]];then
   template=tools/dpdk_install_arm.yml
 else
   template=tools/dpdk_install.yml
