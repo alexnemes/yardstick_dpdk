@@ -181,7 +181,7 @@ load_yardstick_image()
 finalize_dpdk_image()
 {    
     if [[ "$DEPLOY_SCENARIO" == *"dpdk"* && "$DPDK_BENCHMARK" == "true" ]]; then
-        cmd2=". $(which yardstick-img-dpdk-finalize.sh) "${YARD_IMG_ARCH}""
+        cmd2=". $(which yardstick-img-dpdk-finalize.sh)"
         echo "Finalize script: $cmd2"
         
         # Call the dpdk finalize script

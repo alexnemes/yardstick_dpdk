@@ -18,17 +18,10 @@
 # must have a proper flavor for the image (i.e. m1.small)
 
 #source /etc/yardstick/openstack.creds
-arch=$1
-echo "$arch"
-echo "Finalize script for arch: ${arch}"
-if [[ "$arch" == "arm64" ]];then
-  template=tools/dpdk_install_arm.yml
-else
-  template=tools/dpdk_install.yml
-fi
+
 
 stackname="yardstick-modify-stack"
-#template=tools/dpdk_install.yml
+template=tools/dpdk_install.yml
 new_image_name="yardstick-image-pktgen-ready"
 
 # delete stack, in case it already exists, to avoid conflict
