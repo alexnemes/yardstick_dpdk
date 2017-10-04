@@ -19,7 +19,8 @@
 
 #source /etc/yardstick/openstack.creds
 arch=$1
-echo "Finalize script for arch: $arch"
+echo "$arch"
+echo "Finalize script for arch: ${arch}"
 if [[ "$arch" == "aarch64" ]];then
   template=tools/dpdk_install_arm.yml
 else
