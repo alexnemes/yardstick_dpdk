@@ -177,7 +177,7 @@ load_yardstick_image()
     echo "Glance image id: $GLANCE_IMAGE_ID"
     
     if [[ "$DEPLOY_SCENARIO" == *"dpdk"* && "$DPDK_BENCHMARK" == "true" ]]; then
-        cmd2=". $(which yardstick-img-dpdk-finalize.sh)"
+        cmd2=". $(which yardstick-img-dpdk-finalize.sh) ${YARD_IMG_ARCH}"
         echo "Finalize script: $cmd2"
         
         # Call the dpdk finalize script

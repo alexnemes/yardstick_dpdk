@@ -18,6 +18,12 @@
 # must have a proper flavor for the image (i.e. m1.small)
 
 #source /etc/yardstick/openstack.creds
+arch=$1
+if [[ "$arch" =~ "aarch64" ]];then
+  template=tools/dpdk_install_arm.yml
+else
+  template=tools/dpdk_install.yml
+fi
 
 stackname="yardstick-modify-stack"
 template=tools/dpdk_install.yml
