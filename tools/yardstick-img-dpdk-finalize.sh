@@ -21,7 +21,7 @@
 arch=$1
 echo "$arch"
 echo "Finalize script for arch: ${arch}"
-if [[ "$arch" == "aarch64" ]];then
+if [[ "$arch" == "arm64" ]];then
   template=tools/dpdk_install_arm.yml
 else
   template=tools/dpdk_install.yml
