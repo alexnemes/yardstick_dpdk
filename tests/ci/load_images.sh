@@ -321,7 +321,7 @@ main()
 
     #build_yardstick_image
     #load_yardstick_image
-    #finalize_dpdk_image
+    finalize_dpdk_image
     if [ "${YARD_IMG_ARCH}" == "arm64" ]; then
         sed -i 's/image: {{image}}/image: TestVM/g' tests/opnfv/test_cases/opnfv_yardstick_tc002.yaml
         sed -i 's/image: cirros-0.3.5/image: TestVM/g' samples/ping.yaml
