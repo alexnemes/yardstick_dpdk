@@ -108,7 +108,7 @@ resources:
             cat <<'CEOF' > /tmp/dpdk_post_build.sh
             CPU_ARCH="$(uname -m)"
             if [ "$CPU_ARCH" == "aarch64" ]; then
-                TARGET="arm64-xgene1-linuxapp-gcc"
+                TARGET="arm64-armv8a-linuxapp-gcc"
                 echo "Building for ARM"
             else
                 TARGET="x86_64-native-linuxapp-gcc"
