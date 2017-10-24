@@ -108,36 +108,28 @@ resources:
             cat <<'CEOF' > /tmp/dpdk_post_build.sh
             CPU_ARCH="$(uname -m)"
             if [ "$CPU_ARCH" == "aarch64" ]; then
-                TARGET="arm64-armv8a-linuxapp-gcc"
+                TARGET="arm64-thunderx-linuxapp-gcc"
+                MODULE="vfio-pci"
                 echo "Building for ARM"
             else
                 TARGET="x86_64-native-linuxapp-gcc"
+                MODULE="uio"
                 echo "Building for x86"
             fi
             export RTE_SDK=/dpdk
-            echo "cpu arch: $CPU_ARCH, target: $TARGET"
-            cmd="export RTE_TARGET=$TARGET"
-            echo "$cmd"
-            $cmd
+            export RTE_TARGET=$TARGET            
+            
             cd /dpdk/
-            cmd="make config T=$TARGET O=$TARGET"
-            echo "$cmd"
-            $cmd
+            make config T=$TARGET O=$TARGET
+                        
             cd $TARGET
             # switch to static libraries so that pktgen can compile
             sed -i 's/CONFIG_RTE_BUILD_SHARED_LIB=\(.*\)/CONFIG_RTE_BUILD_SHARED_LIB=n/g' .config
             cd ..
-            cmd="make install T=$TARGET DESTDIR=destdir"
-            echo "cpu arch: $CPU_ARCH, target: $TARGET"
-            echo "$cmd"
-            $cmd
-            echo "cpu arch: $CPU_ARCH, target: $TARGET"
-            modprobe uio
-            echo "cpu arch: $CPU_ARCH, target: $TARGET"
-            insmod /dpdk/$TARGET/kmod/igb_uio.ko
-            echo "cpu arch: $CPU_ARCH, target: $TARGET"
-            insmod /dpdk/$TARGET/kmod/rte_kni.ko
-            echo "cpu arch: $CPU_ARCH, target: $TARGET"
+            make install T=$TARGET DESTDIR=destdir
+            modprobe $MODULE
+            insmod $RTE_SDK/$RTE_TARGET/kmod/igb_uio.ko
+            insmod $RTE_SDK/$RTE_TARGET/kmod/rte_kni.ko
             cd /pktgen-dpdk
             make RTE_SDK=/dpdk/
             echo "PKTGEN BUILT"
