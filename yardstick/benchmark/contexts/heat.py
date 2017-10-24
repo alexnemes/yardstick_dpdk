@@ -47,6 +47,7 @@ class HeatContext(Context):
         self._server_map = {}
         self._image = None
         self._flavor = None
+        self._topology = None
         self._user = None
         self.template_file = None
         self.heat_parameters = None
@@ -70,6 +71,9 @@ class HeatContext(Context):
 
     def init(self, attrs):     # pragma: no cover
         """initializes itself from the supplied arguments"""
+        
+        print("HeatContext attrs: {}".format(attrs))
+        
         self.name = attrs["name"]
 
         self._user = attrs.get("user")
@@ -85,6 +89,8 @@ class HeatContext(Context):
         self._image = attrs.get("image")
 
         self._flavor = attrs.get("flavor")
+        
+        self._topology = attrs.get("topology")
 
         self.placement_groups = [PlacementGroup(name, self, pgattrs["policy"])
                                  for name, pgattrs in attrs.get(

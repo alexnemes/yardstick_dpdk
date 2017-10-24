@@ -151,11 +151,16 @@ class Server(Object):     # pragma: no cover
         self.public_ip = None
         self.private_ip = None
 
+        print("Server attrs: {}".format(attrs))
+
         if attrs is None:
             attrs = {}
 
         self.placement_groups = []
         placement = attrs.get("placement", [])
+        
+        net_allocation = attrs.get("net_allocation", [0,1,2])
+        
         placement = placement if type(placement) is list else [placement]
         for p in placement:
             pg = PlacementGroup.get(p)
