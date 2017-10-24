@@ -186,17 +186,35 @@ class HeatContext(Context):
             if len(availability_servers) == 2:
                 if not scheduler_hints["different_host"]:
                     scheduler_hints.pop("different_host", None)
-                    server.add_to_template(template,
+                    if self.topology == "bunny-ear":
+                        print("case 1")
+                        server.add_to_template(template,
+                                           self.networks[server.net_allocation],
+                                           scheduler_hints)
+                    else:
+                        server.add_to_template(template,
                                            self.networks,
                                            scheduler_hints)
                 else:
-                    scheduler_hints["different_host"] = \
-                        scheduler_hints["different_host"][0]
-                    server.add_to_template(template,
+                    if self.topology == "bunny-ear":
+                        print("case 2")
+                        server.add_to_template(template,
+                                           self.networks[server.net_allocation],
+                                           scheduler_hints)
+                    else:
+                        scheduler_hints["different_host"] = \
+                            scheduler_hints["different_host"][0]
+                        server.add_to_template(template,
                                            self.networks,
                                            scheduler_hints)
             else:
-                server.add_to_template(template,
+                if self.topology == "bunny-ear":
+                        print("case 3")
+                        server.add_to_template(template,
+                                           self.networks[server.net_allocation],
+                                           scheduler_hints)
+                else:
+                    server.add_to_template(template,
                                        self.networks,
                                        scheduler_hints)
             added_servers.append(server.stack_name)
