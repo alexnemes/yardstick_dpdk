@@ -68,7 +68,7 @@ git_checkout()
     else
         # if we are a random commit id we have to unshallow
         # to get all the commits
-        git fetch --unshallow origin
+        git fetch origin
         git checkout -f "${git_ref}"
     fi
 }
