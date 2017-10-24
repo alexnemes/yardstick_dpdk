@@ -106,7 +106,7 @@ class HeatContext(Context):
                          sorted(attrs["networks"].items())]
 
         for network in self.networks:
-            print("Network in HeatContext {}".format(self.networks__dict__))
+            print("Network in HeatContext {}".format(self.networks.__dict__))
 
         for name, serverattrs in attrs["servers"].items():
             server = Server(name, self, serverattrs)
