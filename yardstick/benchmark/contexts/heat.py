@@ -176,6 +176,7 @@ class HeatContext(Context):
         # add servers with availability policy
         added_servers = []
         for server in availability_servers:
+            print("Server net allocatin in avail iter {}".format(server.net_allocation))
             scheduler_hints = {}
             for pg in server.placement_groups:
                 update_scheduler_hints(scheduler_hints, added_servers, pg)

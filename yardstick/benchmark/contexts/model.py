@@ -207,6 +207,10 @@ class Server(Object):     # pragma: no cover
         if "flavor" in attrs:
             self._flavor = attrs["flavor"]
 
+        self.net_allocation = None
+        if "net_allocation" in attrs:
+            self.net_allocation = attrs["net_allocation"]
+
         Server.list.append(self)
 
     @property
