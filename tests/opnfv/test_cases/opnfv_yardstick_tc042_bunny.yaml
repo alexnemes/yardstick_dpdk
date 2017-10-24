@@ -55,3 +55,7 @@ context:
   networks:
     test:
       cidr: '10.0.1.0/24'
+    test2:
+      cidr: '10.0.2.0/24'
+    test3:
+      cidr: '10.0.3.0/24'
