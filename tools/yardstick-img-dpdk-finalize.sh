@@ -8,7 +8,6 @@
 # http://www.apache.org/licenses/LICENSE-2.0
 ##############################################################################
 
-
 # installs dpdk and pktgen packages on modified image
 
 # PREREQUISITES
@@ -16,9 +15,6 @@
 # heat must be installed: apt-get install python-heatclient, python-glanceclient, python-nova
 # must have a public yardstick-key uploaded in openstack
 # must have a proper flavor for the image (i.e. m1.small)
-
-#source /etc/yardstick/openstack.creds
-
 
 stackname="yardstick-modify-stack"
 template=tools/dpdk_install.yml
@@ -45,7 +41,7 @@ done
 
 # workaround: Without wait time, the file size of pktgen is zero in the snapshot.
 sleep 60
-#exit 1
+
 status=$(nova image-create --poll $stackname $new_image_name)
 if [[ "$status" =~ "Finished" ]];then
   echo "$new_image_name finished"

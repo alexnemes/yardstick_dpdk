@@ -5,25 +5,22 @@
 # are made available under the terms of the Apache License, Version 2.0
 # which accompanies this distribution, and is available at
 # http://www.apache.org/licenses/LICENSE-2.0
-#   poseidon:
-#    floating_ip: true
-#   placement: "pgrp1"
 ##############################################################################
 ---
 
 schema: "yardstick:task:0.1"
 description: >
-    Yardstick TC042 config file;
-    Measure network latency using testpmd and pktgen-dpdk.
+    Yardstick TC042_tput config file;
+    Measure network throughput and latency using testpmd and pktgen-dpdk.
 
 scenarios:
-{% for pkt_size in [1024] %}
+{% for pkt_size in [64,128,256,512,1024,1280,1518] %}
 -
   type: PktgenDPDKTputLatency
   options:
     packetsize: {{pkt_size}}
     rate: 100
-    loss_tolerance: 0.9
+    loss_tolerance: 0.1
     duration: 30
 
   host: demeter.yardstick-TC042
@@ -53,7 +50,9 @@ context:
     demeter:
       floating_ip: true
       placement: "pgrp1"
-
+    poseidon:
+      floating_ip: true
+      placement: "pgrp1"
 
   networks:
     test:

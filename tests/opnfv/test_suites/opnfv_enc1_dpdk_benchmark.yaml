@@ -15,4 +15,4 @@ name: "opnfv_yardstick-performance"
 test_cases_dir: "tests/opnfv/test_cases/"
 test_cases:
 -
-    file_name: opnfv_yardstick_tc042_bis.yaml
+    file_name: opnfv_yardstick_tc042_tput.yaml

@@ -14,14 +14,11 @@ description: >
     Measure network latency using testpmd and pktgen-dpdk.
 
 scenarios:
-{% for pkt_size in [64,128,256,512,1024,1280,1518] %}
 -
-  type: PktgenDPDKTputLatency
+  type: PktgenDPDKLatency
   options:
-    packetsize: {{pkt_size}}
+    packetsize: 64
     rate: 100
-    loss_tolerance: 0.1
-    duration: 30
 
   host: demeter.yardstick-TC042
   target: poseidon.yardstick-TC042
@@ -34,12 +31,11 @@ scenarios:
   sla:
     max_latency: 100
     action: monitor
-{% endfor %}
 
 context:
   name: yardstick-TC042
   image: yardstick-image-pktgen-ready
-  flavor: yardstick-dpdk-flavor
+  flavor: yardstick-pktgen-dpdk.flavor
   user: ubuntu
 
   placement_groups:

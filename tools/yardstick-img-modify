@@ -38,7 +38,6 @@ cmd=$1
 RELEASE=$2
 test -x $cmd
 mountdir="/mnt/yardstick"
-
 workspace=${WORKSPACE:-"/tmp/workspace/yardstick"}
 host=${HOST:-"cloud-images.ubuntu.com"}
 release=${RELEASE:-"xenial"}

@@ -76,12 +76,12 @@ add_interface_to_dpdk(){
 
 create_pktgen_config_lua()
 {
-    touch /home/ubuntu/pktgen_latency.lua &> /dev/null
-    lua_file="/home/ubuntu/pktgen_latency.lua"
+    touch /home/ubuntu/pktgen_tput.lua &> /dev/null
+    lua_file="/home/ubuntu/pktgen_tput.lua"
     chmod 777 $lua_file
     #echo $lua_file
 
-    cat << EOF > "/home/ubuntu/pktgen_latency.lua"
+    cat << EOF > "/home/ubuntu/pktgen_tput.lua"
 package.path = package.path ..";?.lua;test/?.lua;app/?.lua;"
 
  -- require "Pktgen";
@@ -125,7 +125,7 @@ create_expect_file()
 
 set blacklist  [lindex $argv 0]
 set duration  [lindex $argv 1]
-spawn ./app/app/x86_64-native-linuxapp-gcc/pktgen -c 0x07 -n 4 -b $blacklist -- -P -m "1.0,2.1" -f /home/ubuntu/pktgen_latency.lua
+spawn ./app/app/x86_64-native-linuxapp-gcc/pktgen -c 0x07 -n 4 -b $blacklist -- -P -m "1.0,2.1" -f /home/ubuntu/pktgen_tput.lua
 expect "Pktgen"
 send "on\n"
 expect "Pktgen"
@@ -135,7 +135,6 @@ expect "Pktgen"
 sleep 1
 send "quit\n"
 expect "#"
-
 
 EOF
 
@@ -195,4 +194,3 @@ main()
 }
 
 main
-

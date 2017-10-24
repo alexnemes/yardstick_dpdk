@@ -64,8 +64,8 @@ build_yardstick_image()
             cmd="sudo $(which yardstick-img-dpdk-modify) $(pwd)/tools/ubuntu-server-cloudimg-dpdk-modify.sh"
 
             # Build the image. Retry once if the build fails
-            $cmd || $cmd  
-            
+            $cmd || $cmd
+
             if [ ! -f "${QCOW_IMAGE}" ]; then
                 echo "dpdk qcow image: ${QCOW_IMAGE}"
                 echo "Failed building DPDK QCOW image"
@@ -148,7 +148,7 @@ load_yardstick_image()
             --container-format bare \
             ${EXTRA_PARAMS} \
             --file ${QCOW_IMAGE} \
-            yardstick-dpdk-image)    
+            yardstick-dpdk-image)
     else
         output=$(eval openstack ${SECURE} image create \
             --public \
@@ -183,7 +183,7 @@ finalize_dpdk_image()
     if [[ "$DEPLOY_SCENARIO" == *"dpdk"* && "$DPDK_BENCHMARK" == "true" ]]; then
         cmd2=". $(which yardstick-img-dpdk-finalize.sh)"
         echo "Finalize script: $cmd2"
-        
+
         # Call the dpdk finalize script
         $cmd2
     fi
@@ -264,7 +264,7 @@ create_nova_flavor()
             # delete flavor, if it exists, befoare creating, in order to avoid conflict
             openstack ${SECURE} flavor delete yardstick-dpdk-flavor &> /dev/null || true
             # Create the nova flavor used by test cases with DPDK inside guest
-            openstack ${SECURE} flavor create --id 100 --ram 4096 --disk 4 --vcpus 4 yardstick-dpdk-flavor 
+            openstack ${SECURE} flavor create --id 100 --ram 4096 --disk 4 --vcpus 4 yardstick-dpdk-flavor
             nova flavor-key yardstick-dpdk-flavor set hw:mem_page_size=any
             openstack ${SECURE} flavor set --property hw:cpu_policy=dedicated yardstick-dpdk-flavor
         else
