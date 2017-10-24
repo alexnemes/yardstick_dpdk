@@ -91,6 +91,7 @@ class HeatContext(Context):
         self._flavor = attrs.get("flavor")
         
         self.topology = attrs.get("topology")
+        print("Test topology: {}".format(self.topology))
 
         self.placement_groups = [PlacementGroup(name, self, pgattrs["policy"])
                                  for name, pgattrs in attrs.get(
