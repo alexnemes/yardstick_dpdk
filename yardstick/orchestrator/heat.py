@@ -477,6 +477,7 @@ class HeatTemplate(HeatObject):
         stack.uuid = self.uuid = heat.stacks.create(
             stack_name=self.name, template=json_template,
             parameters=self.heat_parameters)['stack']['id']
+        print("stack create started")
 
         status = self.status()
         outputs = []
