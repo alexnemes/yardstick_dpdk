@@ -185,6 +185,7 @@ class HeatContext(Context):
 
             if self.topology and self.topology == "bunny-ear":
                 server_networks = [self.networks[i] for i in server.net_allocation]
+                print("Server networks: {}".format(server_networks))
             else:
                 server_networks = self.networks
 
