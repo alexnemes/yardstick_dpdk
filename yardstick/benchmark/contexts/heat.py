@@ -89,7 +89,7 @@ class HeatContext(Context):
         self._image = attrs.get("image")
 
         self._flavor = attrs.get("flavor")
-        
+
         self.topology = None
         if "topology" in attrs:
             self.topology = attrs.get("topology")
