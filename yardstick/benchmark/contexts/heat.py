@@ -73,7 +73,7 @@ class HeatContext(Context):
         """initializes itself from the supplied arguments"""
         
         print("HeatContext attrs: {}".format(attrs))
-        
+
         self.name = attrs["name"]
 
         self._user = attrs.get("user")
@@ -93,8 +93,7 @@ class HeatContext(Context):
         self.topology = None
         if "topology" in attrs:
             self.topology = attrs.get("topology")
-
-        print("Test topology: {}".format(self.topology))
+            print("Test topology: {}".format(self.topology))
 
         self.placement_groups = [PlacementGroup(name, self, pgattrs["policy"])
                                  for name, pgattrs in attrs.get(
