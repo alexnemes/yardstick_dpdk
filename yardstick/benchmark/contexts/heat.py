@@ -191,7 +191,7 @@ class HeatContext(Context):
             if len(availability_servers) == 2:
                 if not scheduler_hints["different_host"]:
                     scheduler_hints.pop("different_host", None)
-                        server.add_to_template(template,
+                    server.add_to_template(template,
                                            server_networks,
                                            scheduler_hints)
                 else:
