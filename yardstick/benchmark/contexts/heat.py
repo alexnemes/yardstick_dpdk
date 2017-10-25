@@ -197,7 +197,7 @@ class HeatContext(Context):
                 else:
                     scheduler_hints["different_host"] = \
                             scheduler_hints["different_host"][0]
-                        server.add_to_template(template,
+                    server.add_to_template(template,
                                            server_networks,
                                            scheduler_hints)
             else:
