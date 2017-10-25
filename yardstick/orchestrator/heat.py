@@ -476,7 +476,7 @@ class HeatTemplate(HeatObject):
         start_time = time.time()
         stack.uuid = self.uuid = heat.stacks.create(
             stack_name=self.name, template=json_template,
-            parameters=self.heat_parameters, timeout=10)['stack']['id']
+            parameters=self.heat_parameters, timeout=100)['stack']['id']
         print("stack create started")
 
         status = self.status()
