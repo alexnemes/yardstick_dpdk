@@ -187,7 +187,6 @@ class HeatContext(Context):
                 server_networks = [self.networks[i] for i in server.net_allocation]
                 for network in server_networks:
                     print("Server Network in server iteration {}".format(network.__dict__))
-                    
             else:
                 server_networks = self.networks
 
