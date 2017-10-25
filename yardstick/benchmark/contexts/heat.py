@@ -90,7 +90,10 @@ class HeatContext(Context):
 
         self._flavor = attrs.get("flavor")
         
-        self.topology = attrs.get("topology")
+        self.topology = None
+        if "topology" in attrs:
+            self.topology = attrs.get("topology")
+
         print("Test topology: {}".format(self.topology))
 
         self.placement_groups = [PlacementGroup(name, self, pgattrs["policy"])
@@ -177,12 +180,14 @@ class HeatContext(Context):
         # add servers with availability policy
         added_servers = []
         for server in availability_servers:
-            print("Server net allocatin in avail iter {}".format(server.net_allocation))
+            if server.net_allocation:
+                print("Server net allocatin in avail iter {}".format(server.net_allocation))
 
-            if self.topology == "bunny-ear":
+            if self.topology and self.topology == "bunny-ear":
                 server_networks = [self.networks[i] for i in server.net_allocation]
             else:
                 server_networks = self.networks
+
             scheduler_hints = {}
             for pg in server.placement_groups:
                 update_scheduler_hints(scheduler_hints, added_servers, pg)
