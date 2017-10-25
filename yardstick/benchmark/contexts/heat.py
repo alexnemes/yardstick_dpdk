@@ -178,6 +178,11 @@ class HeatContext(Context):
         added_servers = []
         for server in availability_servers:
             print("Server net allocatin in avail iter {}".format(server.net_allocation))
+
+            if self.topology == "bunny-ear":
+                server_networks = [self.networks[i] for i in server.net_allocation]
+            else:
+                server_networks = self.networks
             scheduler_hints = {}
             for pg in server.placement_groups:
                 update_scheduler_hints(scheduler_hints, added_servers, pg)
@@ -186,36 +191,18 @@ class HeatContext(Context):
             if len(availability_servers) == 2:
                 if not scheduler_hints["different_host"]:
                     scheduler_hints.pop("different_host", None)
-                    if self.topology == "bunny-ear":
-                        print("case 1")
                         server.add_to_template(template,
-                                           self.networks[server.net_allocation],
-                                           scheduler_hints)
-                    else:
-                        server.add_to_template(template,
-                                           self.networks,
+                                           server_networks,
                                            scheduler_hints)
                 else:
-                    if self.topology == "bunny-ear":
-                        print("case 2")
-                        server.add_to_template(template,
-                                           self.networks[server.net_allocation],
-                                           scheduler_hints)
-                    else:
-                        scheduler_hints["different_host"] = \
+                    scheduler_hints["different_host"] = \
                             scheduler_hints["different_host"][0]
                         server.add_to_template(template,
-                                           self.networks,
+                                           server_networks,
                                            scheduler_hints)
             else:
-                if self.topology == "bunny-ear":
-                        print("case 3")
-                        server.add_to_template(template,
-                                           self.networks[server.net_allocation],
-                                           scheduler_hints)
-                else:
-                    server.add_to_template(template,
-                                       self.networks,
+                server.add_to_template(template,
+                                       server_networks,
                                        scheduler_hints)
             added_servers.append(server.stack_name)
 
