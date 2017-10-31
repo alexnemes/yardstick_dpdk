@@ -180,12 +180,12 @@ class HeatContext(Context):
         added_servers = []
         for server in availability_servers:
             if server.net_allocation:
-                print("Server net allocatin in avail iter {}".format(server.net_allocation))
+                print("Server net allocatin in availability iter {}".format(server.net_allocation))
 
             if self.topology and self.topology == "bunny-ear":
                 server_networks = [self.networks[i] for i in server.net_allocation]
                 for network in server_networks:
-                    print("Server Network in server iteration {}".format(network.__dict__))
+                    print("Server Network in availability server iteration {}".format(network.__dict__))
             else:
                 server_networks = self.networks
 
@@ -227,7 +227,15 @@ class HeatContext(Context):
             scheduler_hints = {}
             for pg in server.placement_groups:
                 update_scheduler_hints(scheduler_hints, added_servers, pg)
-            server.add_to_template(template, self.networks, scheduler_hints)
+                
+            if self.topology and self.topology == "bunny-ear":
+                server_networks = [self.networks[i] for i in server.net_allocation]
+                for network in server_networks:
+                    print("Server Network in affinity server iteration {}".format(network.__dict__))
+            else:
+                server_networks = self.networks
+                
+            server.add_to_template(template, server_networks, scheduler_hints)
             added_servers.append(server.stack_name)
 
         # add server group
@@ -243,8 +251,16 @@ class HeatContext(Context):
                 sg = server.server_group
                 if sg:
                     scheduler_hints["group"] = {'get_resource': sg.name}
+                    
+                if self.topology and self.topology == "bunny-ear":
+                    server_networks = [self.networks[i] for i in server.net_allocation]
+                    for network in server_networks:
+                        print("Server Network in server group server iteration {}".format(network.__dict__))
+                else:
+                    server_networks = self.networks
+                    
                 server.add_to_template(template,
-                                       self.networks, scheduler_hints)
+                                       server_networks, scheduler_hints)
 
     def deploy(self):
         """deploys template into a stack using cloud"""
