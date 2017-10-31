@@ -44,6 +44,8 @@ context:
   placement_groups:
     pgrp1:
       policy: "availability"
+    pgrp2:
+      policy: "affinity"
 
   servers:
     atena:
@@ -52,11 +54,11 @@ context:
       net_allocation: [0,1,2]
     demeter:
       floating_ip: true
-      placement: "pgrp1"
+      placement: "pgrp2"
       net_allocation: [0,1,3]
     poseidon:
       floating_ip: true
-      placement: "pgrp1"
+      placement: "pgrp2"
       net_allocation: [0,3,2]
 
   networks:
