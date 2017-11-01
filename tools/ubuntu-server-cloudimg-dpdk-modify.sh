@@ -90,6 +90,8 @@ apt-get install -y \
     stress \
     sysstat \
     linux-headers-$linuxheadersversion \
+    linux-image-virtual-hwe-16.04-edge \
+    linux-headers-virtual-hwe-16.04-edge \
     libpcap-dev \
     devscripts \
     debhelper \
