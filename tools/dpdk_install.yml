@@ -118,30 +118,24 @@ resources:
             fi
             export RTE_SDK=/dpdk
             export RTE_TARGET=$TARGET           
-            
             cd /dpdk/
-            make config T=$TARGET O=$TARGET
-                        
-            cd $TARGET
+            make config T=$RTE_TARGET O=$RTE_TARGET
+            cd $RTE_TARGET
             # switch to static libraries so that pktgen can compile
             sed -i 's/CONFIG_RTE_BUILD_SHARED_LIB=\(.*\)/CONFIG_RTE_BUILD_SHARED_LIB=n/g' .config
-            make -j 8
+            cd ..
+            make install T=$RTE_TARGET DESTDIR=install
             if [ "$CPU_ARCH" == "aarch64" ]; then
                 echo "ARM"
-                sudo modprobe -r vfio_pci
-                sudo modprobe -r vfio
-                sudo modprobe -r vfio_iommu_type1
-                sudo modprobe vfio enable_unsafe_noiommu_mode=Y
-                sudo modprobe vfio-pci
             else
                 echo "x86"
                 modprobe $MODULE
                 insmod $RTE_SDK/$RTE_TARGET/kmod/igb_uio.ko
                 insmod $RTE_SDK/$RTE_TARGET/kmod/rte_kni.ko
-                cd /pktgen-dpdk
-                make RTE_SDK=$RTE_SDK
-                echo "PKTGEN BUILT"
             fi
+            cd /pktgen-dpdk
+            make RTE_SDK=$RTE_SDK
+            echo "PKTGEN BUILT"
             rm -rf /var/lib/cloud/instances
             echo "rm succesfull"
             ls $RTE_SDK/$RTE_TARGET
