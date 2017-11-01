@@ -90,8 +90,6 @@ apt-get install -y \
     stress \
     sysstat \
     linux-headers-$linuxheadersversion \
-    linux-image-virtual-hwe-16.04-edge \
-    linux-headers-virtual-hwe-16.04-edge \
     libpcap-dev \
     devscripts \
     debhelper \
@@ -99,6 +97,12 @@ apt-get install -y \
     libxen-dev \
     expect \
     lua5.2
+
+if [ "${YARD_IMG_ARCH}" = "arm64" ]; then
+    apt-get install -y \
+        linux-image-virtual-hwe-16.04-edge \
+        linux-headers-virtual-hwe-16.04-edge
+fi
 
 #git clone http://dpdk.org/git/dpdk
 git clone git://dpdk.org/dpdk
@@ -110,16 +114,6 @@ git clone git://dpdk.org/dpdk
 
 git clone http://dpdk.org/git/apps/pktgen-dpdk
 (cd /pktgen-dpdk; git checkout pktgen-3.4.0 -b pktgen-3.4.0)
-
-git clone https://github.com/kdlucas/byte-unixbench.git /opt/tempT
-make --directory /opt/tempT/UnixBench/
-
-git clone https://github.com/beefyamoeba5/ramspeed.git /opt/tempT/RAMspeed
-cd /opt/tempT/RAMspeed/ramspeed-2.6.0
-mkdir temp
-bash build.sh
-
-git clone https://github.com/beefyamoeba5/cachestat.git /opt/tempT/Cachestat
 
 # restore symlink
 ln -sf /run/resolvconf/resolv.conf /etc/resolv.conf
