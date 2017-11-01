@@ -98,7 +98,7 @@ apt-get install -y \
     expect \
     lua5.2
 
-if [ "${YARD_IMG_ARCH}" = "arm64" ]; then
+if [ "${YARD_IMG_ARCH}" == "arm64" ]; then
     apt-get install -y \
         linux-image-virtual-hwe-16.04-edge \
         linux-headers-virtual-hwe-16.04-edge
